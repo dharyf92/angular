@@ -1,0 +1,8 @@
+.searshBar{
+    ::ng-deep .searchbar-input-container{
+        border: 1px solid #B7BCC9;
+        border-radius: 5px;
+    }
+    --border-radius: 5px;
+    --background:#fff;
+}

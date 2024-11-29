@@ -1,0 +1,32 @@
+<div class="post-grid-item" (click)="onGetPost()">
+  @if(post().is_clip) {
+  <div class="ion-no-padding content">
+    <img src="{{ content().thumbnail.url }}" [alt]="content().file_name" />
+  </div>
+  } @else { @if(post().post_contents.length > 3) {
+  <div class="post-item-layout">
+    @for (item of post().post_contents; track item.id) { @switch (type()) {
+    @case ('questions') {
+    <div class="ion-no-padding content">
+      <img src="{{ item.image_path.url }}" [alt]="item.file_name" />
+    </div>
+    } @case('media') {
+    <div class="ion-no-padding content">
+      <img src="{{ item.image_path.url }}" [alt]="item.file_name" />
+    </div>
+    } @case('saved') {
+    <div>saved</div>
+    } } }
+  </div>
+  } @else { @switch (type()) { @case ('questions') {
+  <div class="ion-no-padding content" [appContrast]="content().question_color">
+    {{ content().question_text }}
+  </div>
+  } @case('media') {
+  <div class="ion-no-padding content">
+    <img src="{{ content().image_path.url }}" [alt]="content().file_name" />
+  </div>
+  } @case ('saved') {
+  <div class="ion-no-padding content">saved</div>
+  } } } }
+</div>

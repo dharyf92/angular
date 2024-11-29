@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  width: 100%;
+  position: relative;
+  gap: 2px;
+}
+
+.element {
+  width: calc(100% / 5);
+  height: 6px;
+  border-radius: 5px;
+  background-color: #3316b7;
+  opacity: 0.2;
+}
+
+.score {
+  position: absolute;
+  transition: left 0.6s linear;
+  top: 50%;
+  transform: translateY(-50%);
+}

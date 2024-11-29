@@ -1,0 +1,92 @@
+<ion-header class="ion-no-border" mode="md">
+  <ion-toolbar class="text-tolbar">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Suggestions</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="suggestion-header">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6"> 45 Picks </ion-col>
+        <ion-col style="text-align: end" size="3"> 11 Suggestions </ion-col>
+        <ion-col>
+          <span class="dot"></span>
+        </ion-col>
+        <ion-col size="2"> 45 Views </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="container">
+    <ion-list lines="none">
+      <ion-item *ngFor="let item of [1,2,3,4,5]">
+        <ion-avatar slot="start">
+          <img src="assets/vectors/picker-img-1.svg" />
+        </ion-avatar>
+        <ion-label>
+          <h2>Finn</h2>
+          <p
+            style="
+              color: #121d3b;
+              white-space: initial !important;
+              background-color: #f6f7fb;
+              padding: 0.8rem;
+              border-radius: 5px;
+            "
+          >
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
+            recusandae quos quod asperiores inventore perferendis possimus
+            cumque quaerat! Commodi quia atque possimus porro, aliquid id. Sunt
+            corporis nulla repellat eligendi!
+          </p>
+          <small style="color: #b7bcc9">
+            <ion-grid style="padding: 0 !important">
+              <ion-row>
+                <ion-col size="8" style="padding: 0 !important">
+                  3 min ago
+                </ion-col>
+
+                <ion-col
+                  style="
+                    padding: 0 !important;
+                    display: flex;
+                    justify-content: flex-end;
+                  "
+                >
+                  <div style="margin-right: 0.3rem">
+                    <img src="assets/vectors/suggestion-picks.svg" alt="" />
+                  </div>
+                  <div>1 Picks</div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </small>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div
+    class="suggest-action"
+    style="
+      position: fixed;
+      bottom: 0;
+      background-color: white;
+      width: 100%;
+      padding: 0.5rem;
+    "
+  >
+    <div>
+      <ion-input
+        style="--padding-start: 1rem"
+        placeholder="Suggest..."
+        clearInput
+        type="text"
+      ></ion-input>
+    </div>
+  </div>
+</ion-content>

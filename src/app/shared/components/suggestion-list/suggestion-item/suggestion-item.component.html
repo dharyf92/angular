@@ -1,0 +1,23 @@
+<li style="display: flex; flex-direction: column; flex: 1">
+  <app-suggestion-item-element
+    [suggestion]="suggestion()"
+    (action)="onAction($event)"
+    (like)="onLike($event)"
+  ></app-suggestion-item-element>
+
+  <ul
+    style="display: flex; flex-direction: column; list-style: none; gap: 10px"
+  >
+    @for (suggestion of suggestion().sub_suggestion.slice(0, limit()); track
+    suggestion.id) {
+    <li>
+      <app-suggestion-item-element
+        [suggestion]="suggestion"
+        type="sub"
+        (action)="onAction($event)"
+        (like)="onLike($event)"
+      ></app-suggestion-item-element>
+    </li>
+    }
+  </ul>
+</li>

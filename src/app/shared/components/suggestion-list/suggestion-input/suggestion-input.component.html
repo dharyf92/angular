@@ -1,0 +1,21 @@
+<div lines="none" class="ion-padding-horizontal input-container">
+  <input
+    class="input"
+    [ngClass]="{ active: message() !== '' }"
+    type="text"
+    [(ngModel)]="message"
+    placeholder="Suggest ..."
+  />
+
+  <ion-button
+    id="btn"
+    class="btn active"
+    [ngClass]="{
+      active: isActive()
+    }"
+    [disabled]="message() === '' || oldMessage() === message()"
+    (click)="onSubmit()"
+    color="primary"
+    >{{ type() }}</ion-button
+  >
+</div>

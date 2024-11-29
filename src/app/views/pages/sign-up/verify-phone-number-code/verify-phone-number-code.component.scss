@@ -1,0 +1,24 @@
+
+ion-content {
+    text-align: center;
+    align-items: center;
+    color: #111C3C;
+}
+.input {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.otp{
+    width: 90%;
+    --item-spacing: 10px;
+    --item-height: 50px;
+}
+
+ion-row {
+    width: 80%;
+}
+.container {
+    margin: 15px;
+}

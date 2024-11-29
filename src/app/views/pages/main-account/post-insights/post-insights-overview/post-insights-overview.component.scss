@@ -1,0 +1,41 @@
+.post-insights-overview {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 10px;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stats .title {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: rgba(183, 188, 201, 1);
+}
+
+.stats .title svg {
+  width: 18px;
+  aspect-ratio: 1;
+}
+
+.stats .title span {
+  font-family: SofiaProMedium;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.stats .info {
+  padding: 8px 16px;
+  border-radius: 5px;
+  background: rgba(246, 247, 251, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--sofia-pro-medium);
+  font-size: 13px;
+  color: hsl(225, 56%, 15%);
+}

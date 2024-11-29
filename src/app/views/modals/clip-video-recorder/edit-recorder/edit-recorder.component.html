@@ -1,0 +1,36 @@
+<ion-content style="position: relative" [style.opacity]="isReady ? '1' : '0'">
+  <div class="actions">
+    <button class="back">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        viewBox="0 0 256 256"
+        (click)="goBack()"
+      >
+        <path
+          fill="currentColor"
+          d="M228 128a12 12 0 0 1-12 12H69l51.52 51.51a12 12 0 0 1-17 17l-72-72a12 12 0 0 1 0-17l72-72a12 12 0 0 1 17 17L69 116h147a12 12 0 0 1 12 12"
+        />
+      </svg>
+    </button>
+    <button class="next" [disabled]="!isReady" (click)="saveVideo()">
+      Next
+    </button>
+  </div>
+  <!-- Display the video stream while capturing -->
+  <video class="video" #video autoplay muted loop></video>
+
+  <!-- Neccessary for the video player -->
+  <div id="fullscreen" slot="fixed"></div>
+</ion-content>
+<ion-footer>
+  <div class="frames">
+    <img
+      *ngFor="let frame of frames"
+      [src]="frame"
+      style="width: 100%; height: 100%"
+      alt=""
+    />
+  </div>
+</ion-footer>

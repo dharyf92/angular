@@ -1,0 +1,50 @@
+<div style="display: flex; flex-direction: column; flex: 1">
+  <ion-header class="ion-padding-horizontal">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="closeModalWithoutThem()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="currentColor"
+              d="M21 11H6.414l5.293-5.293l-1.414-1.414L2.586 12l7.707 7.707l1.414-1.414L6.414 13H21z"
+            />
+          </svg>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Suggestions</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <div class="ion-padding-horizontal stats">
+      <ion-label>{{ getPickCount() }}</ion-label>
+      <div style="display: flex; margin-left: auto">
+        <ion-label>{{ post().suggestions_count }} Suggestions . </ion-label>
+        <ion-label style="margin-left: 10px"
+          >{{ post().views_count }} Views
+        </ion-label>
+      </div>
+    </div>
+
+    <app-suggestion-list [postId]="post().id" (action)="showAction($event)" />
+  </ion-content>
+</div>
+
+<ion-footer
+  style="
+    display: block;
+    width: 100%;
+    padding-bottom: 24px;
+    background-color: #fff;
+  "
+>
+  <app-suggestion-input
+    [type]="type()"
+    (submit)="onSubmit($event)"
+  ></app-suggestion-input>
+</ion-footer>

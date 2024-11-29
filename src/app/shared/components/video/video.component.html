@@ -1,0 +1,12 @@
+<div class="video-container">
+  <video
+    [id]="'video-' + index()"
+    [poster]="poster()"
+    [src]="src()"
+    class="background-video"
+  ></video>
+
+  <div class="progress-container" [id]="'progress-container' + index()">
+    <div class="progress-bar" [id]="'progress-bar' + index()"></div>
+  </div>
+</div>

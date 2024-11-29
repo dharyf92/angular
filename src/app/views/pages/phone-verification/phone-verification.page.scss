@@ -1,0 +1,36 @@
+
+
+ion-row {
+    width: 80%;
+}
+
+ion-content {
+    text-align: center;
+    align-items: center;
+    color: #111C3C;
+}
+
+.container {
+    margin: 15px;
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+}
+
+ion-col {
+    border: 1px solid rgb(163, 162, 162);
+    border-radius: 4px;
+    margin: 0 4px;
+}
+
+ion-input {
+    text-align: center;
+    --padding-top: 9px;
+    --padding-end: 0px;
+    --padding-start: 0px;
+    --padding-bottom: 9px;
+    border: none;
+    font-size: 1rem !important;
+}

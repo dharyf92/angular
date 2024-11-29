@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">One Pick</string>
+    <string name="title_activity_main">One Pick</string>
+    <string name="package_name">app.onepick.ma</string>
+    <string name="custom_url_scheme">app.onepick.ma</string>
+    <string name="server_client_id">29835938124-8rho19mt1mc2nlmpbfihrjp6jgr1ima8.apps.googleusercontent.com</string>
+</resources>

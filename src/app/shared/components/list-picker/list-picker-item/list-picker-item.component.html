@@ -1,0 +1,19 @@
+<li>
+  <div class="user-info" (click)="onShowProfile()">
+    <app-avatar size="42px" [src]="picker().avatar.url"></app-avatar>
+    <div>
+      <h2 class="name-text">{{ picker().full_name }}</h2>
+      <p>{{ picker().username }}</p>
+    </div>
+  </div>
+
+  @if(user().id !== picker().id) {
+  <button
+    class="pick-btn"
+    [ngClass]="{ picked: picker().pick_status }"
+    (click)="onPick()"
+  >
+    {{ picker().pick_status ? "Picked" : "Pick" }}
+  </button>
+  }
+</li>

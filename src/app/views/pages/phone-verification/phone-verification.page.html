@@ -1,0 +1,22 @@
+
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <ion-title>
+      Complete Account
+    </ion-title>
+    <h1 style="margin-bottom: 30px;">Verify your phone number</h1>
+    <p style="margin-bottom: 60px; font-weight: lighter;">Just enter the code to start your journey!</p>
+    <div class="input">
+      <ion-row style="margin-bottom: 15px;">
+        <ion-col><ion-input type="text" [ngModel]="num1"></ion-input></ion-col>
+        <ion-col><ion-input type="text" [ngModel]="num2"></ion-input></ion-col>
+        <ion-col><ion-input type="text" [ngModel]="num3"></ion-input></ion-col>
+        <ion-col><ion-input type="text" [ngModel]="num4"></ion-input></ion-col>
+        <ion-col><ion-input type="text" [ngModel]="num5"></ion-input></ion-col>
+      </ion-row>
+    </div>
+    
+    <ion-button (click)="verify()" style="height: 40px; width: 100%;" color="primary">Verify</ion-button>
+  </div>
+</ion-content>

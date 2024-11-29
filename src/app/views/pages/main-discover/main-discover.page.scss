@@ -1,0 +1,121 @@
+//sketelen
+
+.rhombus-avatar {
+  width: 43px;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  border-radius: 14px; /* Add border-radius to the rhombus */
+  justify-content: center;
+  margin-right: 15px;
+  margin-bottom: 5%;
+  margin-left: 17px;
+  transform: rotate(45deg);
+}
+
+.rhombus-skeleton {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px; /* Add border-radius to the rhombus */
+  transform: rotate(45deg);
+  clip-path: path(
+    "M38,2 L82,2 A12,12 0 0,1 94,10 L112,44 A12,12 0 0,1 112,56 L94,90 A12,12 0 0,1 82,98 L38,98 A12,12 0 0,1 26,90 L8,56 A12,12 0 0,1 8,44 L26,10 A12,12 0 0,1 38,2"
+  );
+}
+
+.mt-2 {
+  margin-top: 2px;
+}
+.mt-24 {
+  margin-top: 24px;
+}
+
+.border-left {
+  border-left: 1.5px solid #fff;
+}
+
+.border-right {
+  border-right: 1.5px solid #fff;
+}
+
+.border-top {
+  border-top: 1.5px solid #fff;
+}
+
+.border-bottom {
+  border-bottom: 1.5px solid #fff;
+}
+
+.color-medium {
+  color: var(--ion-color-medium);
+}
+
+h5 {
+  color: var(--Dark-blue, #111c3c);
+  /* Heading H4/Medium h4 */
+  font-family: SofiaProMedium;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0px;
+}
+
+ion-chip {
+  display: flex;
+  padding: 4px 16px;
+
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+  background: var(--Light-grey, #f6f7fb);
+
+  color: var(--Dark-blue, #111c3c);
+  /* Small/Regular */
+  font-family: SofiaPro;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  margin: 0px;
+}
+.mb-24 {
+  margin-bottom: 24px;
+}
+
+ion-item {
+  --min-height: auto;
+  --padding-start: 0px;
+  --ion-safe-area-right: 0px;
+  --inner-padding-end: 0px;
+}
+
+.name-text {
+  margin-top: 8px;
+  color: var(--Dark-blue, #111c3c);
+  text-align: center;
+  /* Small/Regular */
+  font-family: SofiaPro;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  text-transform: capitalize !important;
+}
+
+ion-segment-button.md::part(indicator-background) {
+  height: 0px;
+}
+
+.trending-post-list {
+  display: flex;
+  gap: 4px;
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
+
+.trending-post-list > * {
+  min-width: 70%;
+  max-width: 70%;
+}

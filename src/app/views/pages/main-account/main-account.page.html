@@ -1,0 +1,205 @@
+@if(profile()){
+<ion-app>
+  <div class="ion-page" id="main-content">
+    <ion-header class="ion-no-border">
+      <ion-toolbar *ngIf="!showHeader" class="text-tolbar">
+        <ion-buttons slot="end">
+          <ion-icon
+            style="font-size: 32px; cursor: pointer"
+            [routerLink]="['/main-tabs/account-settings']"
+            name="menu-outline"
+          ></ion-icon>
+        </ion-buttons>
+        <ion-title
+          style="
+            color: #3409b7;
+            /* Heading H4/Medium h4 */
+            font-family: SofiaProMedium;
+            font-size: 20px !important;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            text-align: left;
+          "
+          >{{profile().username}}</ion-title
+        >
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-no-padding">
+      <div style="display: flex; flex-direction: column; height: 100%">
+        <div class="ion-padding">
+          <div style="text-align: center">
+            <app-avatar
+              style="display: inline-block; height: 70px; width: 70px"
+              (click)="openViewer(profile().avatar, profile().full_name)"
+              [src]="profile().avatar.url"
+              size="70px"
+              width="70px"
+              height="70px"
+            ></app-avatar>
+          </div>
+
+          <h5 class="ion-text-center mb-0 custom-text" style="margin-top: 4px">
+            {{profile().full_name}}
+          </h5>
+          <p
+            class="ion-text-center color-medium"
+            style="
+              margin: 4px 0px 4px 0px;
+              font-size: 12px;
+              position: relative;
+              font-family: 'SofiaProMedium';
+            "
+          >
+            <span (click)="viewUsers('pickers')">
+              <span> {{ profile().followings_count ?? 0 }} Pickers</span>
+            </span>
+
+            <span
+              style="
+                top: -2px;
+                font-size: 16px;
+                position: relative;
+                padding: 0px 4px;
+                line-height: 14px;
+              "
+              >.</span
+            >
+
+            <span (click)="viewUsers('my-pickers')">
+              <span> {{ profile().followers_count ?? 0 }} My Pickers</span>
+            </span>
+          </p>
+
+          <p
+            class="ion-text-center color-medium"
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin: 6px;
+              font-size: 12px;
+              font-family: 'SofiaProMedium';
+            "
+            *ngIf="profile().address"
+          >
+            <ion-icon name="location-sharp" style="padding: 0px 5px"></ion-icon
+            >{{user().address}}
+          </p>
+
+          <p
+            style="
+              margin: 8px 0px 0px 0px;
+              font-size: 14px;
+              color: #111c3c;
+              overflow: hidden;
+              font-family: SofiaProMedium;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 3;
+              line-clamp: 3;
+              text-transform: capitalize;
+            "
+          >
+            {{profile().bio}}
+          </p>
+
+          <p
+            style="
+              margin: 8px 0px 0px 0px;
+              color: #b7bcc9;
+              font-size: 20px;
+              font-weight: 500;
+              font-family: SofiaProMedium;
+            "
+          >
+            Interests
+          </p>
+          <ion-item
+            lines="none"
+            class="ion-no-padding"
+            style="overflow-x: scroll; margin-top: 8px; --min-height: none"
+          >
+            <div style="overflow-x: scroll; white-space: nowrap">
+              <ion-chip
+                color="medium"
+                style="
+                  background: var(--Light-grey, #f6f7fb);
+                  text-transform: capitalize;
+                  margin: 0px 8px 0px 0px;
+                  font-size: 14px;
+                  text-transform: capitalize;
+                  color: var(--Dark-blue, #111c3c);
+                  padding: 4px 16px;
+                "
+                *ngFor="let interst of user().interests ; let isFirst = first"
+                class="b-radius-5"
+                >{{interst?.name }}</ion-chip
+              >
+            </div>
+          </ion-item>
+
+          <ion-row style="margin-top: 16px">
+            <ion-col size="6" style="padding: 0px 8px 0px 0px">
+              <ion-button
+                expand="block"
+                style="
+                  --box-shadow: none;
+                  font-family: SofiaProMedium;
+                  font-size: 14px;
+                  text-transform: capitalize;
+                  height: 36px !important;
+                "
+                routerLink="data-studio"
+                >Data studio</ion-button
+              >
+            </ion-col>
+            <ion-col size="6" style="padding: 0px 0px 0px 8px">
+              <ion-button
+                expand="block"
+                fill="outline"
+                (click)="openProfileEditor()"
+                style="--box-shadow:none,font-family: SofiaProMedium;font-size: 14px;text-transform: capitalize;--background: #fff;--border-width: 1px;--color:#111C3C;height: 36px !important;   --border-color: #B7BCC8;"
+                >Edit Profile</ion-button
+              >
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <div style="background-color: #f6f7fb">
+          <ion-segment
+            value="ongoing"
+            style="min-height: 48px"
+            (ionChange)="changeSegment($event)"
+          >
+            <ion-segment-button
+              value="ongoing"
+              class="ion-no-padding"
+              style="--color-checked: #3409b7"
+            >
+              <ion-label class="custom-segment" style="font-size: 16px"
+                >Ongoing Picks</ion-label
+              >
+            </ion-segment-button>
+            <ion-segment-button
+              value="closed"
+              class="ion-no-padding"
+              style="--color-checked: #3409b7"
+            >
+              <ion-label class="custom-segment" style="font-size: 16px"
+                >Closed Picks</ion-label
+              >
+            </ion-segment-button>
+          </ion-segment>
+        </div>
+
+        <app-account-posts [posts]="posts()"></app-account-posts>
+      </div>
+    </ion-content>
+  </div>
+</ion-app>
+} @else{
+<p style="text-align: center; font-size: 16px; color: var(--Gray-1, #a0a0a0)">
+  Loading...
+</p>
+}

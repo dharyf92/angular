@@ -1,0 +1,40 @@
+<div class="post-grid-item" (click)="onGetPost()">
+  @if(post().is_clip) {
+  <div class="ion-no-padding content">
+    <img src="{{ content().thumbnail.url }}" [alt]="content().file_name" />
+  </div>
+  } @else {
+  <div class="post-item-layout">
+    @for (item of post().post_contents; track item.id) { @switch (type()) {
+    @case ('questions') {
+    <div
+      class="ion-no-padding content"
+      [ngClass]="{
+        double: post().post_contents.length === 2,
+        single: post().post_contents.length === 1
+      }"
+      [appContrast]="content().question_color"
+    >
+      {{ item.question_text }}
+    </div>
+    } @case('media') {
+    <div
+      class="ion-no-padding content"
+      [ngClass]="{
+        double: post().post_contents.length === 2,
+        single: post().post_contents.length === 1
+      }"
+    >
+      <img src="{{ item.image_path.url }}" [alt]="item.file_name" />
+    </div>
+    } @case('saved') {
+    <div>saved</div>
+    } } }
+  </div>
+  }
+  <div class="post-grid-item-text">
+    <div>
+      <p>{{ post().text_content }}</p>
+    </div>
+  </div>
+</div>

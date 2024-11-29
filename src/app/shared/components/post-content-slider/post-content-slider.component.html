@@ -1,0 +1,26 @@
+<swiper-container
+  pager="true"
+  [initial-slide]="index()"
+  [option]="slideOptions()"
+  class="swiper-container"
+  (slidechange)="onSlideChanged($event)"
+  #mySwiper
+>
+  @for (content of contents(); track content.id) {
+  <swiper-slide class="swiper-slide">
+    @switch ( type() ) { @case ('questions') {
+    <div class="slide" [appContrast]="content.question_color">
+      {{ content.question_text }}
+    </div>
+    } @case ('media') {
+    <div class="slide">
+      <img src="{{ content.image_path.url }}" [alt]="content.file_name" />
+    </div>
+    } @case ('saved') {
+    <div class="slide">
+      <img src="{{ content.image_url }}" [alt]="content.file_name" />
+    </div>
+    } }
+  </swiper-slide>
+  }
+</swiper-container>

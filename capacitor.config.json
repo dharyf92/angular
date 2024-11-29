@@ -1,0 +1,24 @@
+{
+  "appId": "app.onepick.ma",
+  "appName": "One Pick",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "backgroundColor": "#3409B7",
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false
+    },
+    "FirebaseAuthentication": {
+      "skipNativeAuth": false,
+      "providers": ["phone", "google.com"]
+    },
+    "GoogleAuth": {
+      "scopes": ["profile", "email"],
+      "serverClientId": "29835938124-8rho19mt1mc2nlmpbfihrjp6jgr1ima8.apps.googleusercontent.com",
+      "forceCodeForRefreshToken": true
+    },
+    "PushNotifications": {
+      "presentationOptions": ["badge", "sound", "alert"]
+    }
+  }
+}

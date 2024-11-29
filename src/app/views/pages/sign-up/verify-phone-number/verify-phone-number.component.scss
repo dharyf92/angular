@@ -1,0 +1,37 @@
+// #tel-input{
+
+//     ion-intl-tel-input{
+//         border: 1px solid #b7bcc9 ;
+//         padding: 0px 5px;
+//         border-radius: 5px;
+//     }
+//     ::ng-deep .ionic-selectable {
+//         color: #a3a3a3;
+//     }
+//     ::ng-deep ion-input {
+//         font-size: 1rem !important;
+//         border: 0px;
+//     }
+// }
+
+
+.headerVerifyPhoneNumber{
+	height: 60px;
+    padding: 16px;
+    text-align: center;
+    font-family: "SofiaProMedium";
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0;
+}
+
+.custom-border-button {
+    background-color: transparent; /* Set background to transparent */
+    color: var(--ion-color-primary); /* Set text color to the primary color or your preferred color */
+    border: 2px solid var(--ion-color-primary); /* Set border properties */
+    border-radius: 8px; /* Optional: Add border-radius for rounded corners */
+    padding: 10px; /* Optional: Add padding to adjust the button size */
+  
+    /* Additional styles can be added as needed */
+  }

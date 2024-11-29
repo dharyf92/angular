@@ -1,0 +1,89 @@
+:host {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--bgColor, rgba(255, 255, 255, 0.4));
+  backdrop-filter: blur(30px);
+  flex: 1;
+}
+
+div.question-box {
+  width: 100%;
+  height: 100%;
+  padding: 20px 16px;
+  overflow: auto;
+}
+
+p {
+  color: inherit;
+  font-family: SofiaProMedium;
+  font-weight: 500;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+div.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 10;
+  gap: 5px;
+  padding: 2px;
+}
+
+div.actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  display: inline-flex;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  height: 28px;
+  width: 28px;
+  background: #111d3c;
+}
+
+div.actions button:first-child {
+  background: #fa2243;
+}
+
+div.actions button svg {
+  width: 12px;
+  height: 12px;
+}
+
+button.choose-question {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+}
+
+span.indicator {
+  position: absolute;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  right: 0;
+  height: 32px;
+  width: 32px;
+  background-color: rgba(17, 28, 60, 0.2);
+  color: #fff;
+  border-top-left-radius: 16px;
+  border-bottom-right-radius: 4px;
+}

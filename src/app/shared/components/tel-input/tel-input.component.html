@@ -1,0 +1,49 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="text-tolbar">
+    <ion-buttons (click)="closeModal()" slot="start">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 20" fill="none">
+        <path d="M24 9.99917C24 10.5088 23.5864 10.9223 23.0768 10.9223H3.14982L10.1905 17.9631C10.5512 18.3237 10.5512 18.9084 10.1905 19.2691C10.0108 19.4488 9.77445 19.5399 9.53812 19.5399C9.30179 19.5399 9.06542 19.45 8.88571 19.2691L0.269401 10.6528C0.184469 10.5679 0.116936 10.4658 0.0701613 10.3526C-0.0233871 10.1273 -0.0233871 9.87252 0.0701613 9.64727C0.116936 9.53403 0.184469 9.43169 0.269401 9.34676L8.88571 0.730451C9.24636 0.369797 9.83108 0.369797 10.1917 0.730451C10.5524 1.09111 10.5524 1.67583 10.1917 2.03648L3.15102 9.0772H23.0768C23.5864 9.07596 24 9.48958 24 9.99917Z" fill="#111C3C"/>
+        </svg>
+    </ion-buttons>
+ 
+    <ion-title style="text-align: center;">Countries</ion-title>
+  </ion-toolbar>
+ <div style="margin-left: 16px;margin-right: 16px;margin-top: 16px;">
+
+   <ion-input 
+   [(ngModel)]="name"  (ionInput)="search()" style="--padding-start:1rem;min-height: 45px;" placeholder="Search" type="text">
+   </ion-input>
+ </div>
+
+</ion-header>
+
+<ion-content>
+
+  <div style="display: flex;justify-content: space-between;align-items: center;padding: 0px 16px;margin: 12px 0px;" (click)="getDial(country)" 
+  *ngFor="let country of countriespk">
+    <ng-container  *ngIf="country.idd && country.idd.suffixes && country.idd.suffixes.length">
+
+      <div style="display: flex;align-items: center;">
+        <div>
+          <img [src]="country.flags.svg" alt="Flag" style="width: 35px;min-width: 35px;height: auto;">
+        </div>
+        <div style="padding: 0px 12px;">
+          <ion-label>
+            <h2>{{ country.name.common }}</h2>
+            <p>{{ country.name.official | slice:0:30}}</p>
+          </ion-label>
+        </div>
+      </div>
+      <div>
+        <ion-label>
+          <p>{{ country.idd.root+country.idd.suffixes[0] }}</p>
+        </ion-label>
+      </div>
+    </ng-container>
+  
+  </div>
+
+  <ion-infinite-scroll *ngIf="!name" (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

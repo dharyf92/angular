@@ -1,0 +1,28 @@
+:host {
+  --background: #f6f7fb;
+  --color: #111c3c;
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--background, #f6f7fb);
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.stats span {
+  color: var(--color, #111c3c);
+  font-family: SofiaProMedium;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.stats .right {
+  display: flex;
+  gap: 10px;
+}

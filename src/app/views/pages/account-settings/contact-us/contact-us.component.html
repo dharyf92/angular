@@ -1,0 +1,54 @@
+<ion-header class="ion-no-border" mode="md">
+  <ion-toolbar class="text-tolbar">
+    <ion-buttons style="cursor: pointer;" (click)="goBack()" slot="start">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 20" fill="none">
+        <path d="M24 9.99929C24 10.5089 23.5864 10.9225 23.0768 10.9225H3.14982L10.1905 17.9632C10.5512 18.3238 10.5512 18.9086 10.1905 19.2692C10.0108 19.4489 9.77445 19.54 9.53812 19.54C9.30179 19.54 9.06542 19.4502 8.88571 19.2692L0.269401 10.6529C0.184469 10.568 0.116936 10.4659 0.0701613 10.3527C-0.0233871 10.1274 -0.0233871 9.87265 0.0701613 9.64739C0.116936 9.53415 0.184469 9.43181 0.269401 9.34688L8.88571 0.730573C9.24636 0.36992 9.83108 0.36992 10.1917 0.730573C10.5524 1.09123 10.5524 1.67595 10.1917 2.0366L3.15102 9.07732H23.0768C23.5864 9.07609 24 9.4897 24 9.99929Z" fill="#111C3C"/>
+        </svg>
+    </ion-buttons>
+  
+    <ion-title style="text-align: center;">Contact Us</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-list lines="none">
+  <div class="ion-padding">
+    <ion-text>Excepteur sint occaecat cupidatat non proident, sunt in</ion-text>
+  </div>
+
+
+  <ion-item style="margin-bottom:15px;--highlight-height: 0px;">
+    <div style="width:100%">
+      <ion-label style="margin-bottom: 5px; color: #B7BCC9;">Reason</ion-label>
+      <ion-select 
+      [(ngModel)]="reason"
+      style="padding:0px 12px;min-height: 48px;max-width: 100% !important; border:1px solid #B7BCC9 ; border-radius: 6px;" interfaceOptions="{buttons=''}" [(ngModel)]="reason" cancelText="" aria-label="Select" interface="action-sheet">
+        <ion-select style="max-width: 100% !important; border:1px solid #B7BCC9 ; border-radius: 2px;" interfaceOptions="{buttons=''}" [(ngModel)]="reason" cancelText="" aria-label="Select" interface="action-sheet">
+          <ion-select-option [value]="res.id" *ngFor="let res of reasons">{{res.name}}</ion-select-option>
+        </ion-select>
+      </ion-select>
+    </div>
+    
+  </ion-item>
+
+  <ion-item style="--highlight-height: 0px;">
+    <div style="width:100%">
+      <ion-label style="margin-bottom: 5px; color: #B7BCC9;">Message</ion-label>
+      <ion-textarea style="padding: 0px 8px;width:100%;height: 100px; border:1px solid #B7BCC9 ; border-radius: 5px;" class="min-height" [(ngModel)]="message" placeholder="eget nullam gravida. elit, in dapibus quis, aenean curabitur sed quis, aliquet labore."></ion-textarea>
+    </div>
+  </ion-item>
+</ion-list>
+</ion-content>
+    
+<ion-footer style="padding-bottom: 16px;">
+  
+  <ion-item id="bottom-input" lines="none" style="--background: transparent;
+  --border-color: transparent; 
+  --box-shadow: none; 
+  --padding-start: 0;
+  --padding-end: 0;">
+    <ion-button id="send-button" (click)="contactUs()" style="padding-left:8px;--padding-start: 16px;
+    --padding-end: 16px; ;border-radius: 5px;margin: 0px;width: 100% ; height: 38px;font-size: 14px;" color="primary" >Send</ion-button>
+  </ion-item>
+  
+</ion-footer>

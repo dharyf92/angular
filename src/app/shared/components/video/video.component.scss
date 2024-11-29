@@ -1,0 +1,77 @@
+.video-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+video {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+}
+
+video::-webkit-media-controls-overlay-play-button {
+  display: none !important;
+}
+
+.progress-bar-ion {
+  --background: transparent;
+  --progress-background: linear-gradient(to right, #351bb4, #25db75);
+  --buffer-background: var(--background);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 1000;
+}
+
+.progress-container {
+  display: block;
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  background: #d8e8f3;
+  left: 0;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background-color: #d8e8f3;
+  background-image: linear-gradient(to right, #351bb4, #25db75);
+  width: 0;
+  height: 100%;
+}
+
+.progress-container {
+  display: block;
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  background: #d8e8f3;
+  left: 0;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background-color: #d8e8f3;
+  background-image: linear-gradient(to right, #351bb4, #25db75);
+  width: 80%;
+  height: 100%;
+}

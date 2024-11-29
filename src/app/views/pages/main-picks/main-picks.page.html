@@ -1,0 +1,451 @@
+<ion-header
+  style="font-family: -SofiaProMedium"
+  class="ion-no-border"
+  mode="md"
+>
+  <ion-toolbar style="padding-top: 0px; padding-right: 5px">
+    <ion-title
+      color="primary"
+      class="sofia-pro-medium"
+      style="text-align: left; color: #3409b7; font-size: 26px; padding: 0px"
+    >
+      Picks
+    </ion-title>
+    <ion-buttons slot="primary" style="color: #111c3c">
+      <ion-button (click)="openNotification()">
+        <span
+          style="
+            position: relative;
+            display: inline-block;
+            height: 22px;
+            width: 22px;
+          "
+        >
+          <span style="position: relative">
+            <svg
+              width="20"
+              height="22"
+              viewBox="0 0 20 22"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                id="Icon"
+                d="M10.0014 21.4851C9.96144 21.4851 9.92144 21.4851 9.88144 21.4851C8.70144 21.4551 7.60144 20.9651 6.78144 20.1151C6.20144 19.5151 5.81144 18.7751 5.64144 17.9751H1.69144C1.52144 17.9951 1.28144 17.9551 1.06144 17.8651C0.841444 17.7751 0.641444 17.6551 0.481444 17.4851C0.311444 17.3151 0.191444 17.1151 0.111444 16.8951C0.0314438 16.6751 -0.00855562 16.4351 0.0114444 16.2051V14.1651C0.00144438 13.9651 0.0414443 13.7251 0.131444 13.5151C0.221444 13.3051 0.351444 13.1051 0.531444 12.9451L2.07144 11.3751V8.54514C2.08144 6.56514 2.80144 4.66514 4.11144 3.18514C5.42144 1.70514 7.23144 0.765136 9.19144 0.525136L9.31144 0.515137L10.8114 0.535137C12.7814 0.765137 14.5814 1.70514 15.9014 3.18514C17.2114 4.66514 17.9314 6.57514 17.9314 8.55514V11.3751L19.5014 12.9751C19.6614 13.1351 19.7914 13.3151 19.8714 13.5251C19.9614 13.7351 20.0014 13.9751 19.9914 14.2051V16.2851C20.0014 16.4451 19.9714 16.6851 19.8914 16.9051C19.8014 17.1351 19.6814 17.3251 19.5214 17.4951C19.3514 17.6651 19.1614 17.7951 18.9414 17.8751C18.7214 17.9651 18.4814 17.9951 18.2514 17.9851H14.3714C14.1814 18.8751 13.7314 19.6651 13.0614 20.2851C12.2214 21.0651 11.1414 21.4851 10.0014 21.4851ZM7.73144 17.9851C7.85144 18.2551 8.01144 18.5151 8.22144 18.7351C8.67144 19.2051 9.28144 19.4751 9.93144 19.4851C10.5814 19.5251 11.2014 19.2651 11.6814 18.8251C11.9414 18.5851 12.1314 18.2951 12.2714 17.9851H7.73144ZM18.0014 16.3051C18.0014 16.3251 18.0014 16.3351 18.0014 16.3451V16.3051ZM1.65144 15.9851C1.64144 15.9851 1.64144 15.9851 1.63144 15.9851H1.67144C1.67144 15.9851 1.66144 15.9851 1.65144 15.9851ZM7.55144 15.9851H18.0014V14.3051L15.9314 12.1951V8.55514C15.9414 7.06514 15.3914 5.63514 14.4114 4.51514C13.4414 3.41514 12.1014 2.71514 10.6414 2.53514H9.38144C7.93144 2.72514 6.59144 3.43514 5.62144 4.52514C4.63144 5.63514 4.09144 7.06514 4.08144 8.55514V12.1951L2.00144 14.3051V15.9851H7.55144ZM1.93144 14.3751C1.92144 14.3851 1.92144 14.3851 1.93144 14.3751V14.3751ZM2.00144 14.1451V14.1651C2.00144 14.1551 2.00144 14.1551 2.00144 14.1451Z"
+                fill="#111C3C"
+              />
+            </svg>
+          </span>
+        </span>
+      </ion-button>
+      <ion-button (click)="openfilter()" style="opacity: 1">
+        <svg
+          width="22"
+          height="12"
+          viewBox="0 0 22 12"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="Icon ">
+            <path
+              id="Vector"
+              d="M20.9972 2.02148H1.00312C0.453284 2.02148 0.00341797 1.57148 0.00341797 1.02148C0.00341797 0.471484 0.453284 0.0214844 1.00312 0.0214844H20.9972C21.547 0.0214844 21.9969 0.471484 21.9969 1.02148C21.9969 1.57148 21.547 2.02148 20.9972 2.02148Z"
+              fill="#111C3C"
+            />
+            <path
+              id="Vector_2"
+              d="M16.9986 7H5.00214C4.45231 7 4.00244 6.55 4.00244 6C4.00244 5.45 4.45231 5 5.00214 5H16.9986C17.5484 5 17.9983 5.45 17.9983 6C17.9983 6.55 17.5484 7 16.9986 7Z"
+              fill="#111C3C"
+            />
+            <path
+              id="Vector_3"
+              d="M12.9995 11.9785H9.00068C8.45084 11.9785 8.00098 11.5285 8.00098 10.9785C8.00098 10.4285 8.45084 9.97852 9.00068 9.97852H12.9995C13.5493 9.97852 13.9992 10.4285 13.9992 10.9785C13.9992 11.5285 13.5493 11.9785 12.9995 11.9785Z"
+              fill="#111C3C"
+            />
+          </g>
+        </svg>
+      </ion-button>
+      <ion-button (click)="openSearch()">
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 22 22"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            id="Vector"
+            d="M20.9957 21.9968C20.7358 21.9968 20.4858 21.8968 20.2859 21.7069L14.3877 15.8085C12.8681 17.0182 10.9487 17.738 8.86931 17.738C3.98077 17.738 0.00195312 13.7591 0.00195312 8.87047C0.00195312 3.98183 3.98077 0.00292969 8.86931 0.00292969C13.7579 0.00292969 17.7367 3.98183 17.7367 8.87047C17.7367 10.9599 17.0169 12.8794 15.8072 14.3889L21.7055 20.2873C22.0954 20.6772 22.0954 21.307 21.7055 21.6969C21.5055 21.8968 21.2556 21.9968 20.9957 21.9968ZM8.86931 2.00237C5.08044 2.00237 2.00136 5.08152 2.00136 8.87047C2.00136 12.6594 5.08044 15.7386 8.86931 15.7386C10.7388 15.7386 12.4282 14.9888 13.6679 13.7791C13.6879 13.7591 13.6979 13.7391 13.7179 13.7191C13.7379 13.6991 13.7579 13.6791 13.7778 13.6691C14.9875 12.4295 15.7373 10.7399 15.7373 8.87047C15.7373 5.08152 12.6582 2.00237 8.86931 2.00237Z"
+            fill="#111C3C"
+          />
+        </svg>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content
+  #menuPageTop
+  style="font-family: SofiaProMedium"
+  [scrollEvents]="true"
+  id="content"
+  (ionScroll)="onScroll($event)"
+>
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-content *ngIf="!posts(); else content">
+    <ion-item
+      lines="none"
+      style="--padding-start: 10px; --inner-padding-end: 0"
+    >
+      <div class="rhombus-avatar">
+        <ion-skeleton-text
+          animated
+          style="width: 100%; height: 100%; border-radius: 5px"
+        ></ion-skeleton-text>
+      </div>
+      <ion-label>
+        <ion-row>
+          <ion-col size="12"> </ion-col>
+          <ion-col size="12">
+            <ion-skeleton-text
+              animated
+              style="width: 70%; height: 15px; --border-radius: 9999px"
+            ></ion-skeleton-text>
+          </ion-col>
+          <ion-col size="6" class="ion-text-end"> </ion-col>
+        </ion-row>
+      </ion-label>
+    </ion-item>
+    <ion-skeleton-text
+      animated
+      style="width: 160%; padding-right: 20%; height: 6%; z-index: 999"
+    ></ion-skeleton-text>
+    <ion-item
+      lines="none"
+      style="--padding-start: 10px; --inner-padding-end: 0"
+    >
+      <div class="rhombus-avatar" style="margin-top: -2%">
+        <ion-skeleton-text
+          animated
+          style="width: 100%; height: 100%; border-radius: 5px"
+        ></ion-skeleton-text>
+      </div>
+      <ion-label>
+        <ion-row>
+          <ion-col size="12">
+            <ion-skeleton-text
+              animated
+              style="width: 30%; height: 12px; --border-radius: 9999px"
+            ></ion-skeleton-text>
+          </ion-col>
+          <ion-col size="12">
+            <ion-skeleton-text
+              animated
+              style="width: 50%; height: 12px; --border-radius: 9999px"
+            ></ion-skeleton-text>
+          </ion-col>
+        </ion-row>
+      </ion-label>
+    </ion-item>
+
+    <ion-label>
+      <ion-row>
+        <ion-col size="11">
+          <ion-skeleton-text
+            animated
+            style="width: 100%; height: 12px; --border-radius: 9999px"
+          ></ion-skeleton-text>
+        </ion-col>
+        <ion-col size="12">
+          <ion-skeleton-text
+            animated
+            style="width: 50%; height: 12px; --border-radius: 9999px"
+          ></ion-skeleton-text>
+        </ion-col>
+        <ion-col size="6" class="ion-text-end"> </ion-col>
+      </ion-row>
+    </ion-label>
+    <ion-skeleton-text
+      [animated]="true"
+      style="width: 100%; height: 45%"
+    ></ion-skeleton-text>
+
+    <ion-label style="--padding-start: 10px; --inner-padding-end: 0">
+      <h3>
+        <ion-row class="ion-justify-content-between">
+          <ion-col size="auto">
+            <ion-skeleton-text
+              [animated]="true"
+              style="width: 100px; --border-radius: 9999px"
+            ></ion-skeleton-text>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-skeleton-text
+              [animated]="true"
+              style="width: 100px; --border-radius: 9999px"
+            ></ion-skeleton-text>
+          </ion-col>
+        </ion-row>
+      </h3>
+    </ion-label>
+  </ion-content>
+  <ng-template #content>
+    <ion-list>
+      <ion-item
+        lines="none"
+        (click)="goToMainCreate('')"
+        style="--min-height: auto"
+      >
+        <app-avatar
+          style="display: inline-block; height: 40px; width: 40px"
+          [src]="user().avatar.url ? user().avatar.url : ''"
+        ></app-avatar>
+
+        <label style="padding-left: 10px" for=""
+          >Ask the community today?</label
+        >
+      </ion-item>
+
+      <ion-buttons
+        class="margin-top"
+        slot="primary"
+        style="
+          color: #111c3c;
+          width: 100%;
+          justify-content: space-around;
+          background-color: #f7f7fb;
+          margin-top: 16px;
+        "
+      >
+        <ion-button (click)="goToMainCreate('img')">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="15"
+            height="15.004"
+            viewBox="0 0 15 15.004"
+          >
+            <g
+              id="Icon_ionic-md-photos"
+              data-name="Icon ionic-md-photos"
+              transform="translate(-1.869 -1.868)"
+            >
+              <path
+                id="Path_23"
+                data-name="Path 23"
+                d="M18.375,21.055V9.695a1.824,1.824,0,0,0-1.82-1.82H5.195a1.824,1.824,0,0,0-1.82,1.82V21.06a1.824,1.824,0,0,0,1.82,1.82H16.56A1.83,1.83,0,0,0,18.375,21.055Zm-10.342-5,1.93,2.727,2.842-4.091,3.75,5.455H5.195Z"
+                transform="translate(-1.506 -6.007)"
+                fill="#111c3c"
+              />
+              <path
+                id="Path_24"
+                data-name="Path 24"
+                d="M21.055,3.375H9.695a1.824,1.824,0,0,0-1.82,1.819V5.42H19.01A1.824,1.824,0,0,1,20.83,7.24V18.374h.226a1.824,1.824,0,0,0,1.82-1.819V5.194A1.824,1.824,0,0,0,21.055,3.375Z"
+                transform="translate(-6.006 -1.504)"
+                fill="#111c3c"
+              />
+            </g>
+          </svg>
+          <label style="padding: 0px 5px" class="ion-text-capitalize" for=""
+            >Photo</label
+          >
+        </ion-button>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="4"
+          height="4"
+          viewBox="0 0 4 4"
+          fill="#B7BCC9"
+        >
+          <path
+            d="M1.69482 3.5C2.52325 3.5 3.19482 2.82843 3.19482 2C3.19482 1.17157 2.52325 0.5 1.69482 0.5C0.866397 0.5 0.194824 1.17157 0.194824 2C0.194824 2.82843 0.866397 3.5 1.69482 3.5Z"
+            fill="#B7BCC9"
+          />
+        </svg>
+
+        <ion-button style="opacity: 1" (click)="goToMainCreate('clips')">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18.616"
+            height="14.938"
+            viewBox="0 0 18.616 14.938"
+          >
+            <g
+              id="Clips_icon"
+              data-name="Clips icon"
+              transform="translate(1 1)"
+            >
+              <g
+                id="Polygon_1"
+                data-name="Polygon 1"
+                transform="translate(-553.59 -1206.951)"
+                fill="none"
+                stroke-linecap="round"
+              >
+                <path
+                  d="M565.611,1212.87a.691.691,0,0,1,.081,1.024.857.857,0,0,1-.081.075l-2.319,1.862a.823.823,0,0,1-1.1-.075.7.7,0,0,1-.19-.474v-3.724a.755.755,0,0,1,.781-.726.818.818,0,0,1,.511.176Z"
+                  stroke="none"
+                />
+                <path
+                  d="M 562.7808227539062 1210.83203125 C 562.96826171875 1210.83203125 563.1495361328125 1210.894653320312 563.2913818359375 1211.00830078125 L 565.610595703125 1212.870361328125 C 565.9373168945312 1213.132568359375 565.9733276367188 1213.590698242188 565.69140625 1213.894287109375 C 565.6663818359375 1213.920532226562 565.6395263671875 1213.945556640625 565.610595703125 1213.968994140625 L 563.2913818359375 1215.83056640625 C 562.9650268554688 1216.0927734375 562.4716796875 1216.058959960938 562.1898803710938 1215.755737304688 C 562.0673828125 1215.6240234375 562 1215.455810546875 562 1215.281616210938 L 562 1211.557983398438 C 562 1211.157104492188 562.3496704101562 1210.83203125 562.7808227539062 1210.83203125 Z"
+                  stroke="none"
+                  fill="#111c3c"
+                />
+              </g>
+              <g
+                id="Group_1357"
+                data-name="Group 1357"
+                transform="translate(0 3.585)"
+              >
+                <path
+                  id="Path_35"
+                  data-name="Path 35"
+                  d="M543.152,1212.143h4.528"
+                  transform="translate(-543.152 -1212.143)"
+                  fill="none"
+                  stroke="#111c3c"
+                  stroke-linecap="round"
+                  stroke-width="2"
+                />
+                <path
+                  id="Path_36"
+                  data-name="Path 36"
+                  d="M547.4,1218.745h4.39"
+                  transform="translate(-547.4 -1215.639)"
+                  fill="none"
+                  stroke="#111c3c"
+                  stroke-linecap="round"
+                  stroke-width="2"
+                />
+                <path
+                  id="Path_37"
+                  data-name="Path 37"
+                  d="M551.6,1224.4h2.088"
+                  transform="translate(-549.161 -1218.636)"
+                  fill="none"
+                  stroke="#111c3c"
+                  stroke-linecap="round"
+                  stroke-width="2"
+                />
+              </g>
+              <path
+                id="Path_117"
+                data-name="Path 117"
+                d="M556.143,1213.831a6.781,6.781,0,0,0,4.115,1.381,6.472,6.472,0,1,0,0-12.938,6.782,6.782,0,0,0-4.115,1.38"
+                transform="translate(-550.321 -1202.274)"
+                fill="none"
+                stroke="#111c3c"
+                stroke-linecap="round"
+                stroke-width="2"
+              />
+            </g>
+          </svg>
+          <label style="padding: 0px 5px" class="ion-text-capitalize" for=""
+            >Clip</label
+          >
+        </ion-button>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="4"
+          height="4"
+          viewBox="0 0 4 4"
+          fill="#B7BCC9"
+        >
+          <path
+            d="M1.69482 3.5C2.52325 3.5 3.19482 2.82843 3.19482 2C3.19482 1.17157 2.52325 0.5 1.69482 0.5C0.866397 0.5 0.194824 1.17157 0.194824 2C0.194824 2.82843 0.866397 3.5 1.69482 3.5Z"
+            fill="#B7BCC9"
+          />
+        </svg>
+        <ion-button (click)="goToMainCreate('txt')">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="15"
+            height="15"
+            viewBox="0 0 15 15"
+          >
+            <path
+              id="Icon_awesome-question-circle"
+              data-name="Icon awesome-question-circle"
+              d="M15.563,8.063a7.5,7.5,0,1,1-7.5-7.5A7.5,7.5,0,0,1,15.563,8.063Zm-7.3-5.02A3.917,3.917,0,0,0,4.739,4.971a.363.363,0,0,0,.082.492l1.049.8a.363.363,0,0,0,.5-.064c.54-.685.911-1.083,1.733-1.083.618,0,1.382.4,1.382,1,0,.453-.374.685-.984,1.028-.711.4-1.653.9-1.653,2.137v.121a.363.363,0,0,0,.363.363H8.909a.363.363,0,0,0,.363-.363v-.04c0-.861,2.516-.9,2.516-3.226C11.788,4.373,9.968,3.042,8.264,3.042Zm-.2,7.5a1.391,1.391,0,1,0,1.391,1.391A1.393,1.393,0,0,0,8.063,10.542Z"
+              transform="translate(-0.563 -0.563)"
+              fill="#111c3c"
+            />
+          </svg>
+
+          <label style="padding: 0px 5px" class="ion-text-capitalize" for=""
+            >Question</label
+          >
+        </ion-button>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="4"
+          height="4"
+          viewBox="0 0 4 4"
+          fill="#B7BCC9"
+        >
+          <path
+            d="M1.69482 3.5C2.52325 3.5 3.19482 2.82843 3.19482 2C3.19482 1.17157 2.52325 0.5 1.69482 0.5C0.866397 0.5 0.194824 1.17157 0.194824 2C0.194824 2.82843 0.866397 3.5 1.69482 3.5Z"
+            fill="#B7BCC9"
+          />
+        </svg>
+        <ion-button (click)="goToMainCreate('saved')">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="17"
+            height="20"
+            viewBox="0 0 17 20"
+            fill="none"
+          >
+            <g clip-path="url(#clip0_1432_4611)">
+              <path
+                d="M1.19482 20V5.50064C1.20914 5.08986 1.38817 4.7014 1.69273 4.42028C1.99728 4.13917 2.40255 3.9883 2.81982 4.00071H12.5698C12.9871 3.98841 13.3923 4.13931 13.6968 4.4204C14.0013 4.70149 14.1804 5.0899 14.1948 5.50064V20L7.69482 16.4998L1.19482 20ZM5.65504 7.93174C5.18352 7.92663 4.72454 8.08126 4.35504 8.36972C4.12885 8.54318 3.94325 8.76257 3.81086 9.01295C3.67846 9.26334 3.60237 9.53886 3.58776 9.82078C3.57315 10.1027 3.62037 10.3844 3.7262 10.6468C3.83203 10.9091 3.99399 11.146 4.20107 11.3412L7.19757 14.1971C7.29215 14.2858 7.41776 14.3352 7.54837 14.3352C7.67898 14.3352 7.80459 14.2858 7.89917 14.1971L10.8953 11.3412C11.1027 11.1463 11.2651 10.9096 11.3713 10.6473C11.4775 10.385 11.525 10.1033 11.5106 9.82129C11.4962 9.53929 11.4203 9.26365 11.2879 9.01316C11.1556 8.76267 10.97 8.5432 10.7437 8.36972C10.3743 8.08121 9.91527 7.92657 9.44373 7.93174C8.85216 7.93459 8.28429 8.16096 7.85732 8.56411L7.55223 8.85409L7.24714 8.56411C6.81903 8.1592 6.24868 7.93266 5.65504 7.93174Z"
+                fill="#111C3C"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_1432_4611">
+                <rect
+                  width="16"
+                  height="20"
+                  fill="white"
+                  transform="translate(0.804688)"
+                />
+              </clipPath>
+            </defs>
+          </svg>
+
+          <label style="padding: 0px 5px" class="ion-text-capitalize" for=""
+            >Saved</label
+          >
+        </ion-button>
+      </ion-buttons>
+
+      <ion-item lines="none" *ngIf="isPosting()">
+        <app-avatar
+          [src]="user().avatar.url"
+          width="36px"
+          height="36px"
+          size="36px"
+        ></app-avatar>
+
+        <ion-label style="padding-left: 10px">
+          <h2 class="name-text">{{ user().full_name }}</h2>
+          <p class="subtitle">Posting</p>
+        </ion-label>
+      </ion-item>
+      <ion-progress-bar
+        *ngIf="isPosting()"
+        [value]="progress"
+        class="custom-progress-bar"
+      ></ion-progress-bar>
+
+      <app-post-list [posts]="posts()"></app-post-list>
+      <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </ion-list>
+  </ng-template>
+</ion-content>

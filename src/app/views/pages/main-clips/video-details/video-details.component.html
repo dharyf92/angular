@@ -1,0 +1,157 @@
+@if (clip()) {
+<div class="container" [ngClass]="{ blur: isFinished() }">
+  <div class="overlay">
+    <div class="header">
+      <div class="user-info" (click)="showProfile(clip().user.id)">
+        <app-avatar [src]="clip().user.avatar.url"></app-avatar>
+        <span class="name-text">
+          {{ clip().user.full_name }}
+        </span>
+      </div>
+      <button class="settings-button" (click)="showActions()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="36"
+          height="36"
+          viewBox="0 0 36 36"
+        >
+          <g
+            id="settings_menu"
+            data-name="settings menu"
+            transform="translate(-277 -43)"
+          >
+            <g
+              id="Group_1379"
+              data-name="Group 1379"
+              transform="translate(-47 0)"
+              opacity="0"
+            >
+              <path
+                id="Union_21"
+                data-name="Union 21"
+                d="M21.51,1.164a60.054,60.054,0,0,1,7.143,6.012,66.441,66.441,0,0,1,6.184,7.377,5.827,5.827,0,0,1,0,6.986A56.742,56.742,0,0,1,28.97,28.6a70.1,70.1,0,0,1-7.46,6.331,6.177,6.177,0,0,1-6.953,0,61.348,61.348,0,0,1-7.186-6.055,65.078,65.078,0,0,1-6.141-7.334c-1.56-2.49-1.72-4.315,0-6.986A63.547,63.547,0,0,1,7.323,7.268a62.846,62.846,0,0,1,7.234-6.1A5.773,5.773,0,0,1,21.51,1.164Z"
+                transform="translate(324 43)"
+                fill="#edeef7"
+                opacity="0.501"
+              />
+            </g>
+            <g
+              id="Group_176"
+              data-name="Group 176"
+              transform="translate(285.988 59)"
+            >
+              <circle
+                id="Ellipse_47"
+                data-name="Ellipse 47"
+                cx="2"
+                cy="2"
+                r="2"
+                transform="translate(0.012)"
+                fill="#fff"
+              />
+              <circle
+                id="Ellipse_48"
+                data-name="Ellipse 48"
+                cx="2"
+                cy="2"
+                r="2"
+                transform="translate(7.012)"
+                fill="#fff"
+              />
+              <circle
+                id="Ellipse_49"
+                data-name="Ellipse 49"
+                cx="2"
+                cy="2"
+                r="2"
+                transform="translate(14.012)"
+                fill="#fff"
+              />
+            </g>
+          </g>
+        </svg>
+      </button>
+    </div>
+    @if ( isFinished() ) {
+    <app-video-details-contents
+      class="animate-fade-in content-container"
+      [contents]="clip().post_contents"
+      (pick)="onPick($event)"
+    ></app-video-details-contents>
+    }@else {
+    <div class="content-container"></div>
+    }
+
+    <div class="info">
+      <div class="description-container">
+        <p *ngIf="clip()?.text_content" class="description">
+          {{ clip().text_content }}
+        </p>
+      </div>
+      <div class="actions">
+        <button>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="32"
+              d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 0 0-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 0 0 0-17.47C428.89 172.28 347.8 112 255.66 112"
+            />
+            <circle
+              cx="256"
+              cy="256"
+              r="80"
+              fill="none"
+              stroke="currentColor"
+              stroke-miterlimit="10"
+              stroke-width="32"
+            />
+          </svg>
+          <span>{{ clip().views_count }}</span>
+        </button>
+        <button (click)="onViewSuggestions()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="26.589"
+            height="23.5"
+            viewBox="0 0 26.589 23.5"
+          >
+            <g
+              id="Icon_awesome-comment"
+              data-name="Icon awesome-comment"
+              transform="translate(1.018 1)"
+            >
+              <path
+                id="Icon_awesome-comment-2"
+                data-name="Icon awesome-comment"
+                d="M12.286,2.25C5.5,2.25,0,6.718,0,12.232A8.86,8.86,0,0,0,2.735,18.5a12.209,12.209,0,0,1-2.63,4.6.382.382,0,0,0-.072.418.376.376,0,0,0,.35.23,10.975,10.975,0,0,0,6.748-2.467,14.636,14.636,0,0,0,5.154.931c6.786,0,12.286-4.468,12.286-9.982S19.072,2.25,12.286,2.25Z"
+                transform="translate(0 -2.25)"
+                fill="none"
+                stroke="#fff"
+                stroke-width="2"
+              />
+            </g>
+          </svg>
+          <span>{{ clip().suggestions_count }}</span>
+        </button>
+        <button (click)="onShare()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 256 256"
+          >
+            <path
+              fill="currentColor"
+              d="m236.24 107.76l-80-80A6 6 0 0 0 146 32v42.2c-54.48 3.59-120.39 55-127.93 120.66a10 10 0 0 0 17.23 8C46.56 190.85 87 152.6 146 150.13V192a6 6 0 0 0 10.24 4.24l80-80a6 6 0 0 0 0-8.48M158 177.52V144a6 6 0 0 0-6-6c-27.73 0-54.76 7.25-80.32 21.55a193.4 193.4 0 0 0-40.81 30.65c4.7-26.56 20.16-52 44-72.27C98.47 97.94 127.29 86 152 86a6 6 0 0 0 6-6V46.49L223.51 112Z"
+            />
+          </svg>
+          <span>share</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+}

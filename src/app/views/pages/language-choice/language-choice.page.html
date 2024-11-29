@@ -1,0 +1,94 @@
+<ion-header class="ion-no-border" mode="md">
+  <ion-toolbar class="text-tolbar">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;">Language Choice</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="none">
+    <ion-item class="ion-activatable" (click)="choose(1)">
+      <ion-ripple-effect></ion-ripple-effect>
+        <div style="width : 100% ; display : flex ; justify-content: space-between;">
+          <div>
+            <ion-label>Arabic</ion-label>
+            <ion-note style="font-size: .7rem;">العربية</ion-note>
+          </div>
+          <div id="arabic" [class.d-none]="choice != 1" style="vertical-align:middle;" >
+            <ion-icon style="font-size:24px;" color="success" name="checkmark-outline"></ion-icon>
+          </div>
+        </div>
+    </ion-item>
+
+    <ion-item class="ion-activatable" (click)="choose(2)">
+      <ion-ripple-effect></ion-ripple-effect>
+      <div style="width : 100% ; display : flex ; justify-content: space-between;">
+        <div>
+          <ion-label>English</ion-label>
+          <ion-note style="font-size: .7rem;">Default</ion-note>
+        </div>
+        <div [class.d-none]="choice != 2" style="vertical-align:middle;">
+          <ion-icon style="font-size:24px;" color="success" name="checkmark-outline"></ion-icon>
+        </div>
+      </div>
+    </ion-item>
+
+    <ion-item class="ion-activatable" (click)="choose(3)">
+      <ion-ripple-effect></ion-ripple-effect>
+      <div style="width : 100% ; display : flex ; justify-content: space-between;">
+        <div>
+          <ion-label>French</ion-label>
+          <ion-note style="font-size: .7rem;">Français</ion-note>
+        </div>
+        <div [class.d-none]="choice != 3" style="vertical-align:middle;">
+          <ion-icon style="font-size:24px;" color="success" name="checkmark-outline"></ion-icon>
+        </div>
+      </div>
+    </ion-item>
+
+    <ion-item class="ion-activatable" (click)="choose(4)">
+      <ion-ripple-effect></ion-ripple-effect>
+      <div style="width : 100% ; display : flex ; justify-content: space-between;">
+        <div>
+          <ion-label>Spanish</ion-label>
+          <ion-note style="font-size: .7rem;">Español</ion-note>
+        </div>
+        <div [class.d-none]="choice != 4" style="vertical-align:middle;">
+          <ion-icon style="font-size:24px;" color="success" name="checkmark-outline"></ion-icon>
+        </div>
+      </div>
+    </ion-item>
+  
+  </ion-list>
+
+  <!-- <ion-radio-group value="languages">
+    <ion-radio color="success" labelPlacement="start" value="Arabic">
+      Arabic
+      <ion-label>Arabic</ion-label>
+      <ion-note style="font-size: .7rem;">العربية</ion-note>
+    </ion-radio><br />
+    <ion-radio color="success" labelPlacement="start" value="strawberries">
+      <ion-label>English</ion-label>
+      <ion-note style="font-size: .7rem;">Default</ion-note>
+    </ion-radio><br />
+    <ion-radio color="success" labelPlacement="start" value="pineapple">
+      <ion-label>French</ion-label>
+      <ion-note style="font-size: .7rem;">Français</ion-note>
+    </ion-radio><br />
+    <ion-radio color="success" labelPlacement="start" value="cherries">
+      <ion-label>Spanish</ion-label>
+      <ion-note style="font-size: .7rem;">Español</ion-note>
+    </ion-radio>
+  </ion-radio-group> -->
+</ion-content>
+
+<ion-footer style="padding-bottom: 0.6rem;padding-top: 0.6rem;background-color: #fff;">
+ 
+  <ion-item>
+   <ion-button (click)="finalChoice()" style="width: 100%;border-radius: 5px;margin-bottom: 20px;height: 38px;" color="primary" >Done</ion-button>
+  </ion-item>
+ 
+  </ion-footer>
+ 

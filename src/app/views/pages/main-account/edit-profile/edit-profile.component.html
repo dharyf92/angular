@@ -1,0 +1,207 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="text-tolbar">
+    <ion-title> Edit profile </ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="closePopUp()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="20"
+          viewBox="0 0 24 20"
+          fill="none"
+        >
+          <path
+            d="M24 9.99917C24 10.5088 23.5864 10.9223 23.0768 10.9223H3.14982L10.1905 17.9631C10.5512 18.3237 10.5512 18.9084 10.1905 19.2691C10.0108 19.4488 9.77445 19.5399 9.53812 19.5399C9.30179 19.5399 9.06542 19.45 8.88571 19.2691L0.269401 10.6528C0.184469 10.5679 0.116936 10.4658 0.0701613 10.3526C-0.0233871 10.1273 -0.0233871 9.87252 0.0701613 9.64727C0.116936 9.53403 0.184469 9.43169 0.269401 9.34676L8.88571 0.730451C9.24636 0.369797 9.83108 0.369797 10.1917 0.730451C10.5524 1.09111 10.5524 1.67583 10.1917 2.03648L3.15102 9.0772H23.0768C23.5864 9.07596 24 9.48958 24 9.99917Z"
+            fill="#111C3C"
+          />
+        </svg>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end" style="width: 30px"></ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="text-align: center">
+    <div
+      style="
+        display: inline-block;
+        position: relative;
+        text-align: center;
+        padding-top: 16px;
+      "
+    >
+      <app-avatar
+        *ngIf="imageUrl"
+        width="84px"
+        height="84px"
+        size="84px"
+        [src]="imageUrl"
+      ></app-avatar>
+      <img *ngIf="!imageUrl" src="assets/images/avatar.png" />
+
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        (click)="takePicture()"
+        width="40.8"
+        height="40.8"
+        viewBox="0 0 42 42"
+        style="
+          position: absolute;
+          bottom: -18px;
+          left: 50%;
+          transform: translate(-50%);
+          z-index: 9;
+        "
+      >
+        <g
+          id="Group_293"
+          data-name="Group 293"
+          transform="translate(-176.488 -170.488)"
+        >
+          <g
+            id="Ellipse_60"
+            data-name="Ellipse 60"
+            transform="translate(179.488 173.488)"
+            fill="#111c3c"
+            stroke="#fff"
+            stroke-width="3"
+          >
+            <circle cx="18" cy="18" r="18" stroke="none" />
+            <circle cx="18" cy="18" r="19.5" fill="none" />
+          </g>
+          <g
+            id="Group_292"
+            data-name="Group 292"
+            transform="translate(188.244 183.399)"
+          >
+            <path
+              id="Icon_material-monochrome-photos"
+              data-name="Icon material-monochrome-photos"
+              d="M19.453,6.328H16.528L14.883,4.5H9.4L7.753,6.328H4.828A1.833,1.833,0,0,0,3,8.156V19.125a1.833,1.833,0,0,0,1.828,1.828H19.453a1.833,1.833,0,0,0,1.828-1.828V8.156A1.833,1.833,0,0,0,19.453,6.328Z"
+              transform="translate(-3 -4.5)"
+              fill="none"
+              stroke="#fff"
+              stroke-width="2"
+            />
+            <g
+              id="Ellipse_59"
+              data-name="Ellipse 59"
+              transform="translate(4.876 4.815)"
+              fill="none"
+              stroke="#fff"
+              stroke-width="2"
+            >
+              <circle cx="4.265" cy="4.265" r="4.265" stroke="none" />
+              <circle cx="4.265" cy="4.265" r="3.265" fill="none" />
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <ion-list style="margin-top: 32px; padding-top: 0px; padding-bottom: 0px">
+    <ion-item lines="none">
+      <ion-label style="margin-bottom: 8px" position="stacked">
+        <p style="font-size: 1.2rem">Picker’s Full name</p></ion-label
+      >
+      <ion-input
+        placeholder="Full name"
+        style="--padding-start: 8px; min-height: 48px"
+        [(ngModel)]="user.full_name"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" style="margin-top: 16px">
+      <ion-label style="margin-bottom: 8px" position="stacked">
+        <p style="font-size: 1.2rem">Username</p></ion-label
+      >
+      <ion-input
+        placeholder="Username"
+        style="--padding-start: 8px; min-height: 48px"
+        [(ngModel)]="user.username"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" style="margin-top: 16px">
+      <ion-label style="margin-bottom: 8px" position="stacked">
+        <p style="font-size: 1.2rem">City of Residence</p></ion-label
+      >
+
+      <div
+        class="input-with-div"
+        (click)="showLocation()"
+        [ngClass]="
+          user.address ? 'input-div-color' : 'input-div-placeholder-color'
+        "
+      >
+        {{ user.address ? user.address : "City of Residence" }}
+      </div>
+    </ion-item>
+
+    <ion-item lines="none" style="margin-top: 16px">
+      <ion-label style="margin-bottom: 8px" position="stacked">
+        <p style="font-size: 1.2rem">Let Pickers get to know you</p></ion-label
+      >
+      <ion-textarea
+        style="
+          width: 100%;
+          height: 100px;
+          border: 1px solid #b7bcc9;
+          border-radius: 2px;
+          --padding-start: 8px;
+          margin: 0px;
+        "
+        class="min-height"
+        [(ngModel)]="user.bio"
+        placeholder="eget nullam gravida. elit, in dapibus quis, aenean curabitur sed quis, aliquet labore."
+      ></ion-textarea>
+    </ion-item>
+
+    <ion-item lines="none" style="margin-top: 16px">
+      <ion-label style="margin-bottom: 8px" position="stacked">
+        <p style="font-size: 1.2rem">Gender</p></ion-label
+      >
+      <ion-select
+        class="gender-Select"
+        style="
+          border: 1px solid #c9cdd7;
+          padding: 0 8px;
+          border-radius: 5px;
+          height: 48px;
+        "
+        [(ngModel)]="user.gender"
+        interface="action-sheet"
+      >
+        <ion-select-option value="female">Female</ion-select-option>
+        <ion-select-option value="male">Male</ion-select-option>
+        <ion-select-option value="non_binary">Non-Binary</ion-select-option>
+        <ion-select-option value="unknown"
+          >I prefer not to say</ion-select-option
+        >
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer
+  style="padding-bottom: 16px; padding-top: 16px; background-color: #fff"
+>
+  <ion-button
+    (click)="done()"
+    expand="block"
+    style="
+      padding-left: 16px;
+      --padding-start: 0.8rem;
+      --padding-end: 0.8rem;
+      border-radius: 5px;
+      margin: 0px;
+      height: 38px;
+      padding-right: 16px;
+    "
+    color="primary"
+  >
+    Done
+  </ion-button>
+</ion-footer>

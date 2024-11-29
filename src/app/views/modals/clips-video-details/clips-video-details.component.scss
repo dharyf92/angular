@@ -1,0 +1,250 @@
+ion-chip {
+  border-radius: 5px;
+}
+
+.main-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.blur-container {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.background {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 29, 60, 0.6);
+  backdrop-filter: blur(25px);
+}
+
+.theme.segment-option ion-chip {
+  background: #678af7;
+  color: #fff;
+}
+
+.segment-option ion-chip {
+  background: #f6f7fb;
+  color: #111d3c;
+  margin: 0px;
+}
+
+.main-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: #111d3c41;
+}
+
+ion-content {
+  // --background: none;
+  --background: #111d3c41;
+}
+
+ion-content ion-card {
+  // --background: none;
+  --background: #111d3c41;
+}
+
+.header-toolbar {
+  --background: linear-gradient(#111d3c, #111d3c41);
+}
+
+ion-card {
+  border-radius: 0px;
+  margin: 0px;
+}
+
+ion-textarea {
+  --background: none;
+}
+
+.triangle::before {
+  content: "";
+  display: block;
+  height: 50px;
+  background: url(https://picsum.photos/id/1061/300/300) center/cover;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.triangle {
+  display: inline-block;
+  width: 50px;
+  color: red;
+  filter: url(#round2);
+}
+
+ion-col a {
+  color: #ffffff;
+}
+
+.square-shape {
+  border-radius: 3px;
+  border: none;
+  margin: 3px;
+}
+
+ion-row {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.selected {
+  background-color: blue;
+  color: aliceblue;
+}
+
+.segments {
+  ion-segment-button {
+    --ripple-color: transparent;
+    --indicator-color: transparent;
+  }
+}
+
+.min-height {
+  min-height: 150px;
+  font-size: 14px !important;
+}
+.numbres {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  height: 26px;
+  width: 26px;
+  background-color: #b7bcc9;
+  color: #fff;
+  line-height: 28px;
+  border-radius: 5px;
+  border-top-left-radius: 16px;
+}
+
+.name-text {
+  // color: var(--Dark-blue, white);
+  color: white;
+  /* Base/Meduim base */
+  font-family: SofiaProMedium;
+  font-size: 14px;
+  font-style: normal;
+  // font-weight: 500;
+  line-height: normal;
+  margin-top: 0px;
+  margin-bottom: 6px;
+  padding-left: 10px;
+  text-transform: capitalize !important;
+}
+
+::ng-deep .my-custom-class {
+  border-radius: 5px;
+  border: 1px solid #eee;
+}
+
+::ng-deep .time-picker {
+  ion-picker-column {
+    flex-direction: row-reverse;
+    .picker-prefix {
+      color: #b7bcc9;
+      font-size: 1rem;
+      text-align: left;
+      margin-top: 4px;
+    }
+  }
+}
+
+.text-choix {
+  // color: var(--Grey, #B7BCC9);
+  /* Base/Meduim base */
+  font-family: SofiaProMedium;
+  font-size: 14px !important;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  // color: var(--Dark-blue, #111c3c);
+  color: white;
+}
+.sc-ion-textarea-md-h {
+  --placeholder-color: var(--Grey, #b7bcc9);
+}
+
+.title-text {
+  // color: var(--Dark-blue, white);
+  color: white;
+
+  /* Heading H4/Medium h4 */
+  font-family: SofiaProMedium;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-align: left;
+}
+
+.choice-btn {
+  flex: 1;
+  gap: 10px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(15px);
+  position: relative;
+  max-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.content-manager {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 8px;
+}
+
+.content-manager ion-grid {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 0;
+  gap: 8px;
+}
+
+.content-manager ion-grid ion-row {
+  display: flex;
+  flex: 1;
+  gap: 8px;
+  max-height: 160px;
+}
+
+.content-manager ion-row ion-col {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(15px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.choice-question-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.choice-question {
+  flex: 1;
+}

@@ -1,0 +1,49 @@
+<ion-item-sliding>
+  <ion-item>
+    <div
+      class="notification-container"
+      [ngClass]="{ 'is-new': !notification().is_viewed }"
+    >
+      <div class="notification-content">
+        <app-avatar
+          (click)="selectProfile(notification().created_by.id)"
+          size="40px"
+          [src]="notification().created_by.avatar.url"
+        ></app-avatar>
+        <div class="notification-text" (click)="selectPost(notification())">
+          <p>
+            {{ notification().message }}
+          </p>
+          <span>{{ notification().created_at }}</span>
+        </div>
+      </div>
+      <div class="notification-image">
+        @if (notification().img) {
+        <img [src]="notification().img.url" alt="" />
+        }@else {
+        <div></div>
+        }
+      </div>
+    </div>
+  </ion-item>
+  <ion-item-options side="end">
+    <ion-item-option
+      (click)="showActionSheet(notification())"
+      style="background-color: white"
+    >
+      <ion-icon
+        style="color: #b7bcc9; width: 3rem; font-size: x-large"
+        name="ellipsis-horizontal"
+      ></ion-icon>
+    </ion-item-option>
+    <ion-item-option
+      (click)="deleteNotification(notification())"
+      style="background-color: #fa2243"
+    >
+      <ion-icon
+        style="color: #fff; width: 3rem; font-size: x-large"
+        name="close-circle-outline"
+      ></ion-icon>
+    </ion-item-option>
+  </ion-item-options>
+</ion-item-sliding>

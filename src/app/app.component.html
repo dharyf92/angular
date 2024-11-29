@@ -1,0 +1,23 @@
+<ion-app>
+  <ion-router-outlet *ngIf="splashDone"></ion-router-outlet>
+
+  <ion-content
+    [fullscreen]="true"
+    *ngIf="splashScreen"
+    class="box"
+    [class.visible]="!splashDone"
+    [class.hidden]="splashDone"
+  >
+    <div class="container">
+      <ion-img id="myImage" src="/assets/backlogo.svg" class="img-resized">
+      </ion-img>
+      <div class="mini-container">
+        <ion-img src="/assets/Logo White.svg" class="logo"></ion-img>
+        <ion-progress-bar
+          [value]="progress"
+          class="progress"
+        ></ion-progress-bar>
+      </div>
+    </div>
+  </ion-content>
+</ion-app>

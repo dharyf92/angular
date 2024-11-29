@@ -1,0 +1,15 @@
+<div class="main-slider">
+  <app-post-content-slider
+    style="width: 100%"
+    [contents]="contents()"
+    (changeIndex)="onSlideChanged($event)"
+  >
+  </app-post-content-slider>
+  <div class="pick-button">
+    <app-picker
+      (pick)="onPick($event)"
+      [status]="status()"
+      [isMany]="contents().length > 1"
+    ></app-picker>
+  </div>
+</div>

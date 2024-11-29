@@ -1,0 +1,74 @@
+<ion-header class="ion-no-border" mode="md">
+  <ion-toolbar class="text-tolbar">
+    <ion-buttons style="cursor: pointer;" (click)="goback()" slot="start">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 20" fill="none">
+        <path d="M24 9.99929C24 10.5089 23.5864 10.9225 23.0768 10.9225H3.14982L10.1905 17.9632C10.5512 18.3238 10.5512 18.9086 10.1905 19.2692C10.0108 19.4489 9.77445 19.54 9.53812 19.54C9.30179 19.54 9.06542 19.4502 8.88571 19.2692L0.269401 10.6529C0.184469 10.568 0.116936 10.4659 0.0701613 10.3527C-0.0233871 10.1274 -0.0233871 9.87265 0.0701613 9.64739C0.116936 9.53415 0.184469 9.43181 0.269401 9.34688L8.88571 0.730573C9.24636 0.36992 9.83108 0.36992 10.1917 0.730573C10.5524 1.09123 10.5524 1.67595 10.1917 2.0366L3.15102 9.07732H23.0768C23.5864 9.07609 24 9.4897 24 9.99929Z" fill="#111C3C"/>
+        </svg>
+    </ion-buttons>
+  
+    <ion-title style="text-align: center;">Edit interests</ion-title>
+  </ion-toolbar>
+</ion-header>
+    
+<ion-content class="ion-padding">
+
+  <h1 style="margin: 0px;color: var(--Dark-blue, #111C3C);font-family:'SofiaPro';font-size: 26px;font-style: normal;font-weight: 300;line-height: normal;">
+    Pick Your Interests!
+  </h1>
+  <p style="margin: 8px 0px 32px 0px;color: var(--Dark-blue, #111C3C);
+  font-family:'SofiaPro';font-size: 14px;font-style: normal;font-weight: 300;line-height: normal;">
+    The better we know you, the easier it gets
+  </p>
+
+  <div style="text-align: left;margin-bottom: 32px;">
+    <div *ngFor="let interest of interests" style="position: relative; display: inline-block;">
+      <span class="circle-up" *ngIf="interest.isSelected">{{interest.pickOrder}}</span>
+      <ion-chip
+        class="sofia-pro-medium"
+        style="font-weight: 500;
+        padding: 8px 16px;
+        font-size: 14px;
+        border-radius: 37px;margin-top: 16px;"
+        [ngClass]="interest.isSelected ? 'selectedChip' : 'unselected'" (click)="selectChip(interest)" >{{interest.name}}</ion-chip>
+    </div>
+  </div>
+
+  <p style="color: var(--Grey, #B7BCC9);
+  font-family:'SofiaPro';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;margin: 0px 4px;">
+    Pick 4 interests
+  </p>
+
+<!-- <div class="container2" >
+  <p style="color: var(--dark-blue, #111C3C); 
+  font-family: Sofia Pro Light; 
+  font-size: 14px; 
+  font-style: normal; 
+  font-weight: 300; 
+  line-height: normal;">The better the accuracy, the better the answer. Make your pick!  </p>
+  
+
+    <div >
+      <div *ngFor="let interest of interests" class="mt-2" style="position: relative; display: inline-block;">
+        <span class="circle-up" *ngIf="interest.isSelected">{{interest.pickOrder}}</span>
+        <ion-chip   style="font-weight: 500;
+        padding: 19px 15px;
+        border-radius: 37px;" [ngClass]="interest.isSelected ? 'selectedChip' : 'unselected'" (click)="selectChip(interest)" >{{interest.name}}</ion-chip>
+      </div>
+    </div>
+
+</div> -->
+
+</ion-content>
+
+<ion-footer  style="padding-bottom: 0.6rem;padding-top: 0.6rem;background-color: #fff;">
+  
+   <div class="ion-padding">
+     <ion-button expand="block"  (click)="done()">Done</ion-button>
+   </div>
+  
+ 
+ </ion-footer>

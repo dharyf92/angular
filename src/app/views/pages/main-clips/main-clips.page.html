@@ -1,0 +1,343 @@
+<ion-content class="ion-content">
+  <div
+    *ngIf="!clips()"
+    [ngClass]="{'blur-and-background': progressVideo == false}"
+    [ngStyle]="{'background':!clips() ? '#111d3c' : 'none'}"
+    style="width: 100%; height: 100%; position: absolute; z-index: -1"
+  >
+    <div *ngIf="!clips()" class="isLoading-blur-container">
+      <div style="height: 100%" class="user-info"></div>
+
+      <div class="main-content">
+        <div
+          style="
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="60"
+              height="45"
+              viewBox="0 0 40 32"
+            >
+              <g
+                id="Clips_icon"
+                data-name="Clips icon"
+                transform="translate(-660.21 -1267.668)"
+              >
+                <g
+                  id="Polygon_1"
+                  data-name="Polygon 1"
+                  transform="translate(680.274 1277.717)"
+                >
+                  <g
+                    id="Groupe_1515"
+                    data-name="Groupe 1515"
+                    transform="translate(0.01)"
+                  >
+                    <path
+                      id="Tracé_123"
+                      data-name="Tracé 123"
+                      d="M682.509,1279.361a1.588,1.588,0,0,1,.294,2.227c-.034.044-.07.086-.109.128a2.008,2.008,0,0,1-.186.171l-5.327,4.281a1.894,1.894,0,0,1-2.529-.172,1.6,1.6,0,0,1-.436-1.091v-8.562a1.735,1.735,0,0,1,1.8-1.669,1.87,1.87,0,0,1,1.174.4Z"
+                      transform="translate(-674.217 -1274.672)"
+                      fill="#fff"
+                    />
+                  </g>
+                  <g
+                    id="Groupe_1516"
+                    data-name="Groupe 1516"
+                    transform="translate(0 0.001)"
+                  >
+                    <path
+                      id="Tracé_124"
+                      data-name="Tracé 124"
+                      d="M676.005,1274.673a1.876,1.876,0,0,1,1.174.4l5.334,4.283a1.587,1.587,0,0,1,.185,2.353,1.849,1.849,0,0,1-.185.173l-5.334,4.281a1.893,1.893,0,0,1-2.533-.172,1.6,1.6,0,0,1-.436-1.09v-8.562A1.735,1.735,0,0,1,676.005,1274.673Z"
+                      transform="translate(-674.21 -1274.673)"
+                      fill="#fff"
+                    />
+                  </g>
+                </g>
+                <g
+                  id="Group_1357"
+                  data-name="Group 1357"
+                  transform="translate(660.21 1275.549)"
+                >
+                  <g id="Path_35" data-name="Path 35">
+                    <path
+                      id="Tracé_125"
+                      data-name="Tracé 125"
+                      d="M672.111,1276.19H661.7a1.488,1.488,0,0,1,0-2.975h10.413a1.488,1.488,0,0,1,0,2.975Z"
+                      transform="translate(-660.21 -1273.215)"
+                      fill="#fff"
+                    />
+                  </g>
+                  <g
+                    id="Path_36"
+                    data-name="Path 36"
+                    transform="translate(2.395 7.142)"
+                  >
+                    <path
+                      id="Tracé_126"
+                      data-name="Tracé 126"
+                      d="M669.838,1280.991h-6.53a1.488,1.488,0,1,1,0-2.975h6.53a1.488,1.488,0,0,1,0,2.975Z"
+                      transform="translate(-661.82 -1278.016)"
+                      fill="#fff"
+                    />
+                  </g>
+                  <g
+                    id="Path_37"
+                    data-name="Path 37"
+                    transform="translate(7.304 13.257)"
+                  >
+                    <path
+                      id="Tracé_127"
+                      data-name="Tracé 127"
+                      d="M669.714,1285.1h-3.106a1.488,1.488,0,0,1,0-2.975h3.106a1.488,1.488,0,0,1,0,2.975Z"
+                      transform="translate(-665.12 -1282.127)"
+                      fill="#fff"
+                    />
+                  </g>
+                </g>
+                <g
+                  id="Path_117"
+                  data-name="Path 117"
+                  transform="translate(673.597 1267.668)"
+                >
+                  <path
+                    id="Tracé_128"
+                    data-name="Tracé 128"
+                    d="M680.154,1299.668c-.168,0-.335,0-.5-.009h-.037a16.2,16.2,0,0,1-9.841-3.4,1.473,1.473,0,0,1-.273-2.037,1.405,1.405,0,0,1,2-.281,13.414,13.414,0,0,0,8.171,2.807h.027a13.1,13.1,0,0,0,.86-26.172c-.273-.008-.541-.008-.811,0h-.026a13.438,13.438,0,0,0-8.222,2.809,1.405,1.405,0,0,1-2-.281,1.474,1.474,0,0,1,.273-2.037,16.244,16.244,0,0,1,9.893-3.4h.033c.285-.01.617-.009.944,0a16.008,16.008,0,0,1-.489,31.992Z"
+                    transform="translate(-669.209 -1267.668)"
+                    fill="#fff"
+                  />
+                </g>
+              </g>
+            </svg>
+            <h1 style="color: #fff; margin-top: 5px; padding-left: 6px">
+              Clips
+            </h1>
+          </div>
+        </div>
+      </div>
+
+      <div
+        style="
+          height: 100%;
+          padding-left: 1rem;
+          padding-bottom: 1rem;
+          background: linear-gradient(transparent, #112d3c57, #111d3c);
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+        "
+        class="fakeItem"
+      >
+        <h2 style="background-color: #b7bcc9" class="skeleton-box"></h2>
+        <h3 style="background-color: #b7bcc9" class="skeleton-box"></h3>
+      </div>
+    </div>
+  </div>
+
+  <swiper-container
+    *ngIf="clips()"
+    (slidechange)="onSlideChange($event)"
+    #mySwiper
+    id="mySlider"
+    style="height: 100%; width: 100%; background-color: #111d3cda"
+    direction="vertical"
+  >
+    @for (clip of clips(); track clip.id) {
+    <swiper-slide>
+      <app-video
+        style="position: absolute; height: 100%; width: 100%"
+        [index]="$index"
+        [activeIndex]="activeIndex"
+        [oldIndex]="selectedSlide"
+        [clip]="clip"
+        (onUpdateProgressEvent)="updateProgress()"
+        (onVideoFinished)="videoEnded()"
+      ></app-video>
+
+      <ng-container *ngIf="activeIndex === $index">
+        <app-video-details
+          [clip]="clip"
+          [isFinished]="!progressVideo"
+          (viewSuggestions)="openSuggestions($event)"
+          (pick)="playAnimation($event)"
+          (share)="share($event)"
+        ></app-video-details>
+      </ng-container>
+    </swiper-slide>
+    } @empty {
+    <div class="empty-container">
+      <div class="empty-icon">
+        <ion-icon name="videocam-outline"></ion-icon>
+      </div>
+      <div class="empty-text">
+        <h2>No videos found</h2>
+        <p>Please try again later</p>
+      </div>
+    </div>
+    }
+  </swiper-container>
+
+  <div class="svg-container" #svgContainer>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="50"
+      height="50"
+      viewBox="0 0 114.644 112.948"
+    >
+      <g
+        id="Group_1828"
+        data-name="Group 1828"
+        transform="translate(-137.512 -194.084)"
+      >
+        <g
+          id="Group_1826"
+          data-name="Group 1826"
+          transform="translate(140 115.517)"
+          opacity="0"
+        >
+          <path
+            id="Path_104"
+            data-name="Path 104"
+            d="M1498.094,752.887a1.68,1.68,0,0,1,3.358,0,1.681,1.681,0,0,1-3.358,0"
+            transform="translate(-1425.789 -627.771)"
+            fill="#3409b7"
+          />
+          <path
+            id="Path_105"
+            data-name="Path 105"
+            d="M1229.453,781.7c0-2.878-1.793-5.1-4.9-5.1a5.092,5.092,0,1,0,4.9,5.1m-12.582,0a7.687,7.687,0,1,1,7.683,7.486,7.254,7.254,0,0,1-7.683-7.486"
+            transform="translate(-1216.871 -644.828)"
+            fill="#3409b7"
+          />
+          <path
+            id="Path_106"
+            data-name="Path 106"
+            d="M1290.6,774.556h2.785v2.63a5.253,5.253,0,0,1,5.155-3c3.618,0,5.474,2.041,5.474,5.847v8.784h-2.753v-7.609c0-3.187-1.088-4.7-3.714-4.7-2.754,0-4.162,1.886-4.162,4.763v7.548H1290.6Z"
+            transform="translate(-1271.644 -644.828)"
+            fill="#3409b7"
+          />
+          <path
+            id="Path_107"
+            data-name="Path 107"
+            d="M1367.76,780.4c0-2.5-1.6-4.051-4.292-4.051a4.123,4.123,0,0,0-4.481,4.051Zm2.658,2.073h-11.431c.064,2.753,1.824,4.361,4.642,4.361,1.953,0,3.3-.743,3.906-2.1h2.784c-.511,2.631-3.232,4.455-6.69,4.455-4.545,0-7.4-2.907-7.4-7.517,0-4.517,2.882-7.486,7.266-7.486,4.163,0,6.979,2.784,6.979,6.712a14.653,14.653,0,0,1-.061,1.578"
+            transform="translate(-1320.402 -644.828)"
+            fill="#3409b7"
+          />
+          <path
+            id="Path_108"
+            data-name="Path 108"
+            d="M1438.277,781.7a4.963,4.963,0,1,0-4.9,5.073,4.827,4.827,0,0,0,4.9-5.073m2.786,0a7.121,7.121,0,0,1-7.3,7.486,5.943,5.943,0,0,1-5.283-2.877v6.516h-2.754V774.556h2.754v2.536a6.06,6.06,0,0,1,5.444-2.906c4.226,0,7.139,3.062,7.139,7.517"
+            transform="translate(-1372.027 -644.828)"
+            fill="#3409b7"
+          />
+          <rect
+            id="Rectangle_1639"
+            data-name="Rectangle 1639"
+            width="2.753"
+            height="14.261"
+            transform="translate(72.623 129.729)"
+            fill="#3409b7"
+          />
+          <path
+            id="Path_109"
+            data-name="Path 109"
+            d="M1524.116,781.792c0-4.423,2.786-7.486,7.332-7.486,3.971,0,6.531,2.1,6.884,5.289h-2.786c-.385-1.886-1.793-2.875-4.13-2.875-2.818,0-4.548,1.886-4.548,5.073,0,3.154,1.73,5.073,4.548,5.073,2.337,0,3.745-.989,4.13-2.783h2.786c-.354,3.125-2.913,5.2-6.884,5.2-4.546,0-7.332-3.062-7.332-7.486"
+            transform="translate(-1445.12 -644.916)"
+            fill="#3409b7"
+          />
+          <path
+            id="Path_110"
+            data-name="Path 110"
+            d="M1599.091,768.552l7.14,7.362h-3.65l-6.467-6.743v6.743h-2.754V756.839h2.754v11.374l6.564-6.559h3.553Z"
+            transform="translate(-1496.561 -631.925)"
+            fill="#3409b7"
+          />
+        </g>
+        <g
+          id="Group_1827"
+          data-name="Group 1827"
+          transform="translate(-0.796 -0.241)"
+        >
+          <g id="Group_1825" data-name="Group 1825">
+            <path
+              id="Path_494"
+              data-name="Path 494"
+              d="M-4005.5,158.777l48.241-48.259"
+              transform="translate(4153.003 93)"
+              fill="none"
+              stroke="#340fb7"
+              stroke-linecap="round"
+              stroke-width="13"
+            />
+            <path
+              id="Path_495"
+              data-name="Path 495"
+              d="M-4005.5,158.777l48.241-48.259"
+              transform="translate(354.277 4209.021) rotate(90)"
+              fill="none"
+              stroke="#340fb7"
+              stroke-linecap="round"
+              stroke-width="13"
+            />
+            <path
+              id="Path_496"
+              data-name="Path 496"
+              d="M-3957.263,207.774V111.351"
+              transform="translate(4152.763 93)"
+              fill="none"
+              stroke="#340fb7"
+              stroke-linecap="round"
+              stroke-width="13"
+            />
+            <line
+              id="Line_20"
+              data-name="Line 20"
+              x2="48"
+              transform="translate(195.5 251.5)"
+              fill="none"
+              stroke="#340fb7"
+              stroke-linecap="round"
+              stroke-width="13"
+            />
+          </g>
+          <path
+            id="Path_497"
+            data-name="Path 497"
+            d="M1414.229,656.714a4.609,4.609,0,1,1,4.609,4.593,4.6,4.6,0,0,1-4.609-4.593"
+            transform="translate(-1223.486 -356.784)"
+            fill="#ebebeb"
+          />
+          <path
+            id="Path_498"
+            data-name="Path 498"
+            d="M1414.229,281.645a4.609,4.609,0,1,1,4.609,4.594,4.6,4.6,0,0,1-4.609-4.594"
+            transform="translate(-1223.486 -77.812)"
+            fill="#839df7"
+          />
+          <path
+            id="Path_499"
+            data-name="Path 499"
+            d="M1599.2,468.667a4.609,4.609,0,1,1,4.609,4.594,4.6,4.6,0,0,1-4.609-4.594"
+            transform="translate(-1360.901 -216.916)"
+            fill="#fb9e43"
+          />
+          <path
+            id="Path_500"
+            data-name="Path 500"
+            d="M1227.746,468.667a4.609,4.609,0,1,1,4.609,4.594,4.6,4.6,0,0,1-4.609-4.594"
+            transform="translate(-1084.95 -216.916)"
+            fill="#00e187"
+          />
+        </g>
+      </g>
+    </svg>
+  </div>
+</ion-content>

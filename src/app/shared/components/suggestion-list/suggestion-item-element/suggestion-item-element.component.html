@@ -1,0 +1,84 @@
+<div class="suggestion-item-container">
+  <div
+    class="suggestion-item"
+    [ngClass]="{
+      sub: type() === 'sub'
+    }"
+  >
+    <div
+      class="suggestion-item-content"
+      (click)="goToProfile(suggestion().user.id)"
+    >
+      <app-avatar size="32px" [src]="suggestion().user.avatar.url">
+      </app-avatar>
+      <span class="suggestion-item-name">{{
+        suggestion().user.full_name
+      }}</span>
+    </div>
+    <div class="suggestion-item-info">
+      <div (click)="onAction()" class="suggestion-item-text">
+        <p>
+          {{ suggestion().text_content }}
+        </p>
+      </div>
+      <div class="suggestion-item-info-time">
+        <ion-note class="text-time" slot="start">{{
+          suggestion().created_at | timeAgo
+        }}</ion-note>
+        <div (click)="onLike()" class="suggestion-item-info-like">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 60 60"
+          >
+            <g
+              id="Group_1584"
+              data-name="Group 1584"
+              transform="translate(-165 -628)"
+            >
+              <path
+                id="Union_4"
+                data-name="Union 4"
+                d="M35.851,1.939a100.09,100.09,0,0,1,11.9,10.021,110.734,110.734,0,0,1,10.306,12.3,9.712,9.712,0,0,1,0,11.643,94.573,94.573,0,0,1-9.778,11.765A116.833,116.833,0,0,1,35.851,58.214c-3.861,2.286-7.569,2.475-11.588,0A102.247,102.247,0,0,1,12.287,48.122,108.463,108.463,0,0,1,2.052,35.9c-2.6-4.15-2.867-7.192,0-11.643A105.912,105.912,0,0,1,12.206,12.113,104.743,104.743,0,0,1,24.262,1.939C27.771-.708,32.008-.584,35.851,1.939Z"
+                transform="translate(165 628)"
+                [attr.fill]="suggestion().pick_status ? '#3409b7' : '#808080'"
+              />
+              <g
+                id="Icon_feather-arrow-up"
+                data-name="Icon feather-arrow-up"
+                transform="translate(185 648)"
+              >
+                <path
+                  id="Path_19"
+                  data-name="Path 19"
+                  d="M18,27.5V7.5"
+                  transform="translate(-8 -7.5)"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+                <path
+                  id="Path_20"
+                  data-name="Path 20"
+                  d="M7.5,17.681,17.5,7.5l10,10.181"
+                  transform="translate(-7.5 -7.5)"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </g>
+            </g>
+          </svg>
+          <ion-note style="padding: 0px 8px" slot="end" color="#5735BF"
+            >{{ suggestion().suggestion_picks_count }} picks</ion-note
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

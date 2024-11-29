@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar class="text-tolbar">
+    <ion-title>
+      Time Picker Modal
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Hour</ion-label>
+      <div class="scroll-list">
+        <ion-list>
+          <ion-item *ngFor="let hour of hours" [class.selected]="selectedHour === hour" (click)="selectHour(hour)">
+            {{ hour }}
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Minute</ion-label>
+      <div class="scroll-list">
+        <ion-list>
+          <ion-item *ngFor="let minute of minutes" [class.selected]="selectedMinute === minute" (click)="selectMinute(minute)">
+            {{ minute }}
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Second</ion-label>
+      <div class="scroll-list">
+        <ion-list>
+          <ion-item *ngFor="let second of seconds" [class.selected]="selectedSecond === second" (click)="selectSecond(second)">
+            {{ second }}
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="full" (click)="applySelectedTime()">Apply</ion-button>
+</ion-content>

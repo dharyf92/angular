@@ -1,0 +1,80 @@
+.data-container :is(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+}
+
+.data-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.data-container .main-title {
+  color: var(--Dark-blue, #111c3c);
+  font-family: "SofiaProMedium";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.data-container .sub-title {
+  color: var(--Grey, #b7bcc9);
+  font-family: "SofiaProMedium";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.info-container {
+  display: flex;
+  padding: var(--Size-8, 8px) var(--Size-16, 16px);
+  justify-content: end;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 5px;
+  background: var(--Light-grey, #f6f7fb);
+}
+
+.info-container > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+}
+
+ion-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ion-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.increase {
+  color: #05dd71;
+}
+
+.decrease {
+  color: #fa2243;
+}
+
+.performance-container {
+  display: flex;
+  width: 100%;
+  gap: 10%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.performance-container > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}

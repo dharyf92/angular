@@ -1,0 +1,125 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="text-tolbar">
+    <ion-title style="text-align: center">Saved</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding-horizontal" *ngIf="!isLoaded">
+  <ion-skeleton-text
+    [animated]="true"
+    style="width: 100%; height: 30%"
+  ></ion-skeleton-text>
+
+  <ion-list>
+    <ion-item lines="none">
+      <ion-label>
+        <h3 style="margin-top: 12px">
+          <ion-skeleton-text
+            [animated]="true"
+            style="width: 80%"
+          ></ion-skeleton-text>
+        </h3>
+
+        <p style="margin-top: 12px">
+          <ion-skeleton-text
+            [animated]="true"
+            style="width: 60%"
+          ></ion-skeleton-text>
+        </p>
+        <p style="margin-top: 12px">
+          <ion-skeleton-text
+            [animated]="true"
+            style="width: 80%"
+          ></ion-skeleton-text>
+        </p>
+        <p style="margin-top: 12px">
+          <ion-skeleton-text
+            [animated]="true"
+            style="width: 60%"
+          ></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-content class="ion-padding-horizontal" *ngIf="isLoaded">
+  <ion-img id="myImage" [src]="image" class="img-resized"> </ion-img>
+
+  <div *ngFor="let key of keys">
+    <div style="width: 100%; margin-top: 12px">
+      <ng-container *ngIf="key == 'url'">
+        <ion-row style="margin-bottom: 12px">
+          <ion-col size="3">
+            <p class="post-text">{{ key }}</p>
+          </ion-col>
+          <ion-col size="9" class="ion-text-end">
+            <a style="color: #3507af; text-decoration: none" [href]="data[key]">
+              View more
+            </a>
+          </ion-col>
+        </ion-row>
+      </ng-container>
+      <ng-container *ngIf="key != 'url'">
+        <!--
+          <p>{{ data[key] }}</p>  -->
+        <ion-row style="margin-bottom: 12px">
+          <ion-col size="3" *ngIf="key != 'title' && key != 'description'">
+            <p class="post-text" *ngIf="key != 'title' && key != 'description'">
+              {{ key }} :
+            </p>
+          </ion-col>
+          <ion-col [size]="key == 'title' || key == 'description' ? 12 : 9">
+            <p
+              [ngClass]="
+                key == 'title' || key == 'description'
+                  ? 'ion-text-start'
+                  : 'ion-text-end'
+              "
+            >
+              {{ data[key] }}
+            </p>
+          </ion-col>
+        </ion-row>
+      </ng-container>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer
+  *ngIf="isLoaded"
+  style="padding-bottom: 0.6rem; padding-top: 0.6rem; background-color: #fff"
+>
+  <div class="ion-padding">
+    <ion-label>
+      <p>Pick a topic</p>
+    </ion-label>
+    <div
+      (click)="choiceTheme()"
+      style="
+        display: flex;
+        justify-content: space-between;
+        border-radius: var(--Border-radius-S, 4px);
+        background: var(--Light-grey, #f6f7fb);
+        padding: 12px;
+        margin-bottom: 12px;
+      "
+    >
+      <div>
+        <ion-label>{{ theme ? theme.name : "Theme" }}</ion-label>
+      </div>
+
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </div>
+
+    <div style="display: flex; width: 100%">
+      <div style="width: 50%">
+        <ion-button expand="block" (click)="closeModal()" color="light"
+          >Cancel</ion-button
+        >
+      </div>
+      <div style="width: 50%">
+        <ion-button expand="block" (click)="done()">save</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-footer>

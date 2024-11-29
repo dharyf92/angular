@@ -1,0 +1,105 @@
+<ion-header class="ion-no-border" mode="md">
+  <ion-toolbar class="text-tolbar" >
+    <ion-buttons (click)="closeModalWithoutThem()" slot="start">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 20" fill="none">
+        <path d="M24 9.99929C24 10.5089 23.5864 10.9225 23.0768 10.9225H3.14982L10.1905 17.9632C10.5512 18.3238 10.5512 18.9086 10.1905 19.2692C10.0108 19.4489 9.77445 19.54 9.53812 19.54C9.30179 19.54 9.06542 19.4502 8.88571 19.2692L0.269401 10.6529C0.184469 10.568 0.116936 10.4659 0.0701613 10.3527C-0.0233871 10.1274 -0.0233871 9.87265 0.0701613 9.64739C0.116936 9.53415 0.184469 9.43181 0.269401 9.34688L8.88571 0.730573C9.24636 0.36992 9.83108 0.36992 10.1917 0.730573C10.5524 1.09123 10.5524 1.67595 10.1917 2.0366L3.15102 9.07732H23.0768C23.5864 9.07609 24 9.4897 24 9.99929Z" fill="#111C3C"/>
+        </svg>
+    </ion-buttons>
+ 
+    <ion-title style="text-align: center;" >Edit Image</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="display: flex;flex-direction: column;justify-content: space-between;height: 100%;">
+
+    <div style="display: flex;justify-content: center;padding: 16px 0px;">
+      <span (click)="updatePicture('flipV')" style="margin: 0px 4px;display: flex;align-items: center;padding: 2px 4px;border-radius: 8px;border: 1px solid var(--ion-color-medium);">
+        <svg style="transform: rotate(90deg);" width="24" height="24" viewBox="0 0 24
+        24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" stroke-linecap="round" stroke-linejoin="round"><g><g stroke="none" fill="currentColor"><path d="M11.93 7.007V20a1 1 0 0 1-1 1H5.78a1 1 0 0 1-.93-1.368l5.15-12.993a1 1 0 0 1 1.929.368z"></path><path d="M14 7.007V20a1 1 0 0 0 1 1h5.149a1 1 0 0 0 .93-1.368l-5.15-12.993A1 1 0 0 0 14 7.007z" opacity=".6"></path></g></g></svg> 
+        <span style="color: var(--ion-color-medium);display: inline-block;padding: 0px 4px;">Flip vertical</span></span>
+    
+        <span (click)="updatePicture('flipH')" style="margin: 0px 4px;display: flex;align-items: center;padding: 2px 4px;border-radius: 8px;border: 1px solid var(--ion-color-medium);"><svg class="PinturaButtonIcon" width="24" height="24" viewBox="0 0 24
+          24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" stroke-linecap="round" stroke-linejoin="round"><g><g stroke="none" fill="currentColor"><path d="M11.93 7.007V20a1 1 0 0 1-1 1H5.78a1 1 0 0 1-.93-1.368l5.15-12.993a1 1 0 0 1 1.929.368z"></path><path d="M14 7.007V20a1 1 0 0 0 1 1h5.149a1 1 0 0 0 .93-1.368l-5.15-12.993A1 1 0 0 0 14 7.007z" opacity=".6"></path></g></g></svg> 
+          <span style="color: var(--ion-color-medium);display: inline-block;padding: 0px 4px;">Flip horizontal</span></span>
+    </div>
+    <div style="max-height: 70%;">
+    
+      <image-cropper
+      #cropper
+          [imageBase64]="myImage"
+          [maintainAspectRatio]="true"
+          [aspectRatio]="1"
+          format="png"
+          [transform]="transform"
+          (imageLoaded)="imageLoaded($event)"
+          (cropperReady)="cropperReady()"
+          (loadImageFailed)="loadImageFailed()"
+      ></image-cropper>
+    </div>
+    <div>
+    
+      <div class="ion-padding">
+      
+        <ion-range
+        [value]="value"
+        [min]="min"
+        [max]="max"
+       [step]="step"
+       (ionInput)="customFormatter($event)"
+      >
+      </ion-range>
+      </div>
+      
+      
+      <div style="display: flex;justify-content: center;padding-bottom: 16px;">
+        <span (click)="selctOption('scale')"  [ngStyle]="{'background': choice == 'scale' ? '#f1f1f1' : ''}" style="margin: 0px 8px;display: flex;align-items: center;padding: 6px 10px;border-radius: 16px;border: 1px solid var(--ion-color-medium);">
+          <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2.00024 11.9994C2.00024 16.7135 2.00024 19.0705 3.46471 20.535C4.92918 21.9994 7.2862 21.9994 12.0002 21.9994C16.7143 21.9994 19.0713 21.9994 20.5358 20.535C21.8928 19.1779 21.9924 17.0545 21.9997 12.9994M11.0002 2C6.94518 2.0073 4.82174 2.10686 3.46471 3.46389C2.64814 4.28046 2.28688 5.37454 2.12705 7" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M13 11L22 2M22 2H16.6562M22 2V7.34375M21 3L12 12M12 12H16M12 12V8" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          <span style="color: var(--ion-color-medium);display: inline-block;padding: 0px 4px;">Scale</span></span>
+      
+          <span (click)="selctOption('rotate')" [ngStyle]="{'background': choice == 'rotate' ? '#f1f1f1' : ''}" style="margin: 0px 8px;display: flex;align-items: center;padding: 6px 10px;border-radius: 16px;border: 1px solid var(--ion-color-medium);">
+            <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.06189 13C4.02104 12.6724 4 12.3387 4 12C4 7.58172 7.58172 4 12 4C14.5006 4 16.7332 5.14727 18.2002 6.94416M19.9381 11C19.979 11.3276 20 11.6613 20 12C20 16.4183 16.4183 20 12 20C9.61061 20 7.46589 18.9525 6 17.2916M9 17H6V17.2916M18.2002 4V6.94416M18.2002 6.94416V6.99993L15.2002 7M6 20V17.2916" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            <span style="color: var(--ion-color-medium);display: inline-block;padding: 0px 4px;">Rotate</span></span>
+      </div>
+    </div>
+  </div>
+  <!-- [pinFormatter]="customFormatter"  
+  [snaps]="true"-->
+
+<!-- 
+<ion-row>
+  <ion-col size="4">
+    <ion-button (click)="updatePicture('rotate')">rotate r</ion-button>
+  </ion-col>
+  <ion-col size="4">
+    <ion-button (click)="updatePicture('zoomIn')">zoom In</ion-button>
+  </ion-col>
+  <ion-col size="4">
+    <ion-button (click)="updatePicture('zoomOut')">zoom out</ion-button>
+  </ion-col>
+  <ion-col size="4">
+    <ion-button (click)="updatePicture('flipH')">flipH</ion-button>
+  </ion-col>
+  <ion-col size="4">
+    <ion-button (click)="updatePicture('flipV')">flipV</ion-button>
+  </ion-col>
+  <ion-col size="4">
+    <ion-button (click)="updatePicture('default')">default</ion-button>
+  </ion-col>
+  
+</ion-row> -->
+<!-- <img [src]="croppedImage" *ngIf="croppedImage" /> -->
+
+</ion-content>
+<ion-footer class="ion-padding" style="padding-bottom: 24px;padding-top: 0.6rem;background-color: #fff;">
+ 
+  <ion-button expand="block" color="primary" (click)="cropImage()">Save</ion-button>
+
+
+</ion-footer>

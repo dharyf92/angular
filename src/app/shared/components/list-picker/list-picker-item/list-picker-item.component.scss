@@ -1,0 +1,49 @@
+li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+h2 {
+  color: var(--Dark-blue, #111c3c);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  font-family: SofiaPro;
+  margin: 0 0 6px 0;
+}
+
+p {
+  font-family: SofiaPro;
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(183, 188, 201, 1);
+  margin: 0;
+}
+
+button.pick-btn {
+  background: rgba(52, 9, 183, 1);
+  padding: 4px 16px;
+  height: 30px;
+  border-radius: 5px;
+  font-family: SofiaProMedium;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
+  width: 75pxw;
+}
+
+button.pick-btn.picked {
+  background: rgba(246, 247, 251, 1);
+  color: rgba(52, 9, 183, 1);
+}

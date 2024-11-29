@@ -1,0 +1,9 @@
+.scroll-list {
+    max-height: 150px;
+    overflow-y: auto;
+  }
+  
+  .selected {
+    background-color: var(--ion-color-primary);
+    color: white;
+  }

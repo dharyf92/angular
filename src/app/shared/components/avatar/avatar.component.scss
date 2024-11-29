@@ -1,0 +1,21 @@
+.avatar {
+  display: inline-block;
+  background: white;
+}
+
+img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.mask-image {
+  --size: 40px;
+  mask-image: url("/assets/images-layer.svg");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: url("/assets/images-layer.svg");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-size: var(--size);
+}

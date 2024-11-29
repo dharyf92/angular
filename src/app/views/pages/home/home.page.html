@@ -1,0 +1,365 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar style="padding-top: 0px">
+    <ion-buttons *ngIf="apiService.img == 4" slot="start" (click)="goBack()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="20"
+        viewBox="0 0 24 20"
+        fill="none"
+      >
+        <path
+          d="M24 9.99929C24 10.5089 23.5864 10.9225 23.0768 10.9225H3.14982L10.1905 17.9632C10.5512 18.3238 10.5512 18.9086 10.1905 19.2692C10.0108 19.4489 9.77445 19.54 9.53812 19.54C9.30179 19.54 9.06542 19.4502 8.88571 19.2692L0.269401 10.6529C0.184469 10.568 0.116936 10.4659 0.0701613 10.3527C-0.0233871 10.1274 -0.0233871 9.87265 0.0701613 9.64739C0.116936 9.53415 0.184469 9.43181 0.269401 9.34688L8.88571 0.730573C9.24636 0.36992 9.83108 0.36992 10.1917 0.730573C10.5524 1.09123 10.5524 1.67595 10.1917 2.0366L3.15102 9.07732H23.0768C23.5864 9.07609 24 9.4897 24 9.99929Z"
+          fill="#111C3C"
+        />
+      </svg>
+    </ion-buttons>
+
+    <ion-title
+      *ngIf="apiService.img == 4"
+      style="text-align: center; font-family: sofiaProMedium; font-size: 20px"
+      >Sign Up</ion-title
+    >
+  </ion-toolbar>
+</ion-header>
+<div
+  *ngIf="apiService.img == 4"
+  style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px"
+>
+  <svg
+    style="
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%);
+      top: -50px;
+    "
+    xmlns="http://www.w3.org/2000/svg"
+    width="881.857"
+    height="883.94"
+    viewBox="0 0 881.857 883.94"
+  >
+    <path
+      id="Path_116"
+      data-name="Path 116"
+      d="M1715.273,455.906,1914.8,655.118H1715.273ZM2098.8,693.066a54.488,54.488,0,0,0-13.868-23.3L1699.444,285.623c-.093-.1-.176-.2-.268-.293a55.123,55.123,0,0,0-77.74,0c-.113.116-.207.237-.317.355L1235.7,669.771a54.857,54.857,0,0,0,77.718,77.44L1604.994,456.63V1098.5c.019,30.245,25.017,54.749,55.366,54.73a54.855,54.855,0,0,0,54.913-54.79V764.629H2046.52a54.7,54.7,0,0,0,52.281-71.563"
+      transform="translate(-1219.608 -269.292)"
+      fill="#F6F7FB"
+      opacity="0.499"
+    />
+  </svg>
+</div>
+<ion-content
+  [fullscreen]="true"
+  #contentElement
+  class="ion-padding"
+  style="--background: transparent"
+>
+  <!-- <ion-button (click)="showNotif">Notification</ion-button> -->
+  <div
+    [ngClass]="apiService.img <= 3 ? 'firstSteep' : 'secondSteep'"
+    style="
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      text-align: center;
+      height: 100%;
+    "
+  >
+    <div></div>
+    <div>
+      <svg
+        style="width: 105px; height: 105px; margin-bottom: 65px"
+        xmlns="http://www.w3.org/2000/svg"
+        width="112.158"
+        height="112.949"
+        viewBox="0 0 112.158 112.949"
+      >
+        <g
+          id="Group_1828"
+          data-name="Group 1828"
+          transform="translate(-137.512 -194.084)"
+        >
+          <g
+            id="Group_1826"
+            data-name="Group 1826"
+            transform="translate(140 115.517)"
+            opacity="0"
+          >
+            <path
+              id="Path_104"
+              data-name="Path 104"
+              d="M1498.094,752.887a1.68,1.68,0,0,1,3.358,0,1.681,1.681,0,0,1-3.358,0"
+              transform="translate(-1425.789 -627.771)"
+              fill="#3409b7"
+            />
+            <path
+              id="Path_105"
+              data-name="Path 105"
+              d="M1229.453,781.7c0-2.878-1.793-5.1-4.9-5.1a5.092,5.092,0,1,0,4.9,5.1m-12.582,0a7.687,7.687,0,1,1,7.683,7.486,7.254,7.254,0,0,1-7.683-7.486"
+              transform="translate(-1216.871 -644.828)"
+              fill="#3409b7"
+            />
+            <path
+              id="Path_106"
+              data-name="Path 106"
+              d="M1290.6,774.556h2.785v2.63a5.253,5.253,0,0,1,5.155-3c3.618,0,5.474,2.041,5.474,5.847v8.784h-2.753v-7.609c0-3.187-1.088-4.7-3.714-4.7-2.754,0-4.162,1.886-4.162,4.763v7.548H1290.6Z"
+              transform="translate(-1271.644 -644.828)"
+              fill="#3409b7"
+            />
+            <path
+              id="Path_107"
+              data-name="Path 107"
+              d="M1367.76,780.4c0-2.5-1.6-4.051-4.292-4.051a4.123,4.123,0,0,0-4.481,4.051Zm2.658,2.073h-11.431c.064,2.753,1.824,4.361,4.642,4.361,1.953,0,3.3-.743,3.906-2.1h2.784c-.511,2.631-3.232,4.455-6.69,4.455-4.545,0-7.4-2.907-7.4-7.517,0-4.517,2.882-7.486,7.266-7.486,4.163,0,6.979,2.784,6.979,6.712a14.653,14.653,0,0,1-.061,1.578"
+              transform="translate(-1320.402 -644.828)"
+              fill="#3409b7"
+            />
+            <path
+              id="Path_108"
+              data-name="Path 108"
+              d="M1438.277,781.7a4.963,4.963,0,1,0-4.9,5.073,4.827,4.827,0,0,0,4.9-5.073m2.786,0a7.121,7.121,0,0,1-7.3,7.486,5.943,5.943,0,0,1-5.283-2.877v6.516h-2.754V774.556h2.754v2.536a6.06,6.06,0,0,1,5.444-2.906c4.226,0,7.139,3.062,7.139,7.517"
+              transform="translate(-1372.027 -644.828)"
+              fill="#3409b7"
+            />
+            <rect
+              id="Rectangle_1639"
+              data-name="Rectangle 1639"
+              width="2.753"
+              height="14.261"
+              transform="translate(72.623 129.729)"
+              fill="#3409b7"
+            />
+            <path
+              id="Path_109"
+              data-name="Path 109"
+              d="M1524.116,781.792c0-4.423,2.786-7.486,7.332-7.486,3.971,0,6.531,2.1,6.884,5.289h-2.786c-.385-1.886-1.793-2.875-4.13-2.875-2.818,0-4.548,1.886-4.548,5.073,0,3.154,1.73,5.073,4.548,5.073,2.337,0,3.745-.989,4.13-2.783h2.786c-.354,3.125-2.913,5.2-6.884,5.2-4.546,0-7.332-3.062-7.332-7.486"
+              transform="translate(-1445.12 -644.916)"
+              fill="#3409b7"
+            />
+            <path
+              id="Path_110"
+              data-name="Path 110"
+              d="M1599.091,768.552l7.14,7.362h-3.65l-6.467-6.743v6.743h-2.754V756.839h2.754v11.374l6.564-6.559h3.553Z"
+              transform="translate(-1496.561 -631.925)"
+              fill="#3409b7"
+            />
+          </g>
+          <g
+            id="Group_1827"
+            data-name="Group 1827"
+            transform="translate(-0.796 -0.241)"
+          >
+            <g id="Group_1825" data-name="Group 1825">
+              <path
+                id="Path_494"
+                data-name="Path 494"
+                d="M-4005.5,123.711l00"
+                transform="translate(4153.003 128.067)"
+                fill="none"
+                stroke="#340fb7"
+                stroke-linecap="round"
+                stroke-width="13"
+              ></path>
+
+              <path
+                id="Path_495"
+                data-name="Path 495"
+                d="M-4005.5 ,126.846l00"
+                transform="translate(322.346 4209.021) rotate(90)"
+                fill="none"
+                stroke="#340fb7"
+                stroke-linecap="round"
+                stroke-width="13"
+              ></path>
+
+              <path
+                id="Path_496"
+                data-name="Path 496"
+                d="M-3957.263,142.263"
+                transform="translate(4152.763 158.511)"
+                fill="none"
+                stroke="#340fb7"
+                stroke-linecap="round"
+                stroke-width="13"
+              ></path>
+              <!-- <line id="Line_20" data-name="Line 20" x2="20.204" transform="translate(223.296 251.5)" fill="none" stroke="#340fb7" stroke-linecap="round" stroke-width="13"/> -->
+
+              <path
+                xmlns="http://www.w3.org/2000/svg"
+                id="my_Path_495"
+                d="M0V 111"
+                transform="translate(354.277 4209.021) rotate(90)"
+                fill="none"
+                stroke="#340fb7"
+                stroke-linecap="round"
+                stroke-width="13"
+              ></path>
+            </g>
+            <path
+              id="Path_497"
+              data-name="Path 497"
+              d="M1414.229,656.714a4.609,4.609,0,1,1,4.609,4.593,4.6,4.6,0,0,1-4.609-4.593"
+              transform="translate(-1223.486 -356.784)"
+              fill="#ebebeb"
+            />
+            <path
+              id="Path_498"
+              data-name="Path 498"
+              d="M1414.229,281.645a4.609,4.609,0,1,1,4.609,4.594,4.6,4.6,0,0,1-4.609-4.594"
+              transform="translate(-1223.486 -77.812)"
+              fill="#839df7"
+            />
+            <path
+              id="Path_499"
+              data-name="Path 499"
+              d="M1599.2,468.667a4.609,4.609,0,1,1,4.609,4.594,4.6,4.6,0,0,1-4.609-4.594"
+              transform="translate(-1360.901 -216.916)"
+              fill="#fb9e43"
+            />
+            <path
+              id="Path_500"
+              data-name="Path 500"
+              d="M1227.746,468.667a4.609,4.609,0,1,1,4.609,4.594,4.6,4.6,0,0,1-4.609-4.594"
+              transform="translate(-1084.95 -216.916)"
+              fill="#00e187"
+            />
+          </g>
+        </g>
+      </svg>
+
+      <h1 class="h1Home" *ngIf="apiService.img == 0">Sign Up</h1>
+      <h1 class="h1Home" *ngIf="apiService.img == 1">Discover</h1>
+      <h1 class="h1Home" *ngIf="apiService.img == 2">Ask</h1>
+      <h1 class="h1Home" *ngIf="apiService.img == 3">Get Insight</h1>
+      <p *ngIf="apiService.img == 0" class="pHome">
+        Create Your Account in few steps!
+      </p>
+      <p *ngIf="apiService.img == 1" class="pHome">
+        Share your taste, genuine insight & make your better decision
+      </p>
+      <p *ngIf="apiService.img == 2" class="pHome">
+        Trust your community, let them help you
+      </p>
+      <p *ngIf="apiService.img == 3" class="pHome">
+        Realtime synchronised data of all users
+      </p>
+    </div>
+    <div>
+      <ion-icon
+        name="ellipse"
+        style="font-size: 12px; margin: 0px 6px; width: 8px; height: 8px"
+        [ngStyle]="{'color': apiService.img == 0 ? '#111C3C' : '#B7BCC9'}"
+      ></ion-icon>
+      <ion-icon
+        name="ellipse"
+        style="font-size: 12px; margin: 0px 6px; width: 8px; height: 8px"
+        [ngStyle]="{'color': apiService.img == 1 ? '#111C3C' : '#B7BCC9'}"
+      ></ion-icon>
+      <ion-icon
+        name="ellipse"
+        style="font-size: 12px; margin: 0px 6px; width: 8px; height: 8px"
+        [ngStyle]="{'color': apiService.img == 2 ? '#111C3C' : '#B7BCC9'}"
+      ></ion-icon>
+      <ion-icon
+        name="ellipse"
+        style="font-size: 12px; margin: 0px 6px; width: 8px; height: 8px"
+        [ngStyle]="{'color': apiService.img == 3 ? '#111C3C' : '#B7BCC9'}"
+      ></ion-icon>
+    </div>
+  </div>
+
+  <div
+    [ngClass]="apiService.img == 4 ? 'firstSteep' : 'secondSteep'"
+    style="
+      position: relative;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    "
+  >
+    <div>
+      <div
+        [ngStyle]="{'top': transition ? '50%' : '20%'}"
+        style="
+          position: absolute;
+          left: 50%;
+          transform: translate(-50%);
+          transition: top 0.6s linear;
+          width: 110px;
+          height: 148px;
+        "
+      >
+        <img style="width: 112px" src="assets/vectors/main_img_1.svg" alt="" />
+      </div>
+      <div
+        style="
+          position: absolute;
+          bottom: 16px;
+          width: 100%;
+          left: 0px;
+          margin-top: 100px;
+        "
+      >
+        <p>It's about time you start your journey!</p>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div style="padding: 16px 16px 32px 16px">
+    <ion-row *ngIf="apiService.img <= 3">
+      <ion-col class="ion-align-self-start" style="padding: 0px 8px 0px 0px">
+        <ion-button
+          style="height: 48px"
+          class="ion-no-margin"
+          expand="block"
+          *ngIf="apiService.img != 3"
+          color="light"
+          (click)="nextView()"
+          >skip</ion-button
+        >
+      </ion-col>
+      <ion-col class="ion-align-self-start" style="padding: 0px 0px 0px 8px">
+        <ion-button
+          style="height: 48px"
+          class="ion-no-margin"
+          expand="block"
+          color="primary"
+          *ngIf="apiService.img >= 0 && apiService.img < 3"
+          (click)="next()"
+          >next</ion-button
+        >
+        <ion-button
+          style="height: 48px"
+          class="ion-no-margin"
+          expand="block"
+          color="primary"
+          *ngIf="apiService.img == 3"
+          (click)="nextView()"
+          >next</ion-button
+        >
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="apiService.img == 4">
+      <ion-col class="ion-align-self-start" style="padding: 0px">
+        <ion-button
+          class="ion-text-capitalize"
+          expand="block"
+          (click)="goToSignUp()"
+          color="primary"
+          >Create Account</ion-button
+        >
+        <ion-button
+          class="ion-text-capitalize"
+          style="margin-top: 16px"
+          color="light"
+          expand="block"
+          (click)="goToSignIn()"
+          >Sign in
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-footer>

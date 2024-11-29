@@ -1,0 +1,52 @@
+ion-button {
+  --box-shadow: 0px;
+}
+
+.firstSteep {
+  opacity: 1;
+  transition: opacity 2s ease-out;
+  height: 100%;
+}
+
+.secondSteep {
+  transition: opacity 2s ease-out;
+  opacity: 0;
+  height: 0 !important;
+  overflow: hidden;
+}
+
+.footer-md::before {
+  background: none !important;
+}
+
+.h1Home {
+  font-family: SofiaPro;
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 37px;
+  letter-spacing: 0;
+  text-align: center;
+
+  margin-bottom: 16px;
+}
+
+.pHome {
+  font-family: SofiaPro;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-align: center;
+  margin: 0px;
+  height: 46px;
+}
+
+.headerHome {
+  padding: 16px;
+  text-align: center;
+  font-family: "SofiaProMedium";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0;
+}

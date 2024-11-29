@@ -1,0 +1,281 @@
+<ion-header>
+  <ion-toolbar class="text-tolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="20"
+          viewBox="0 0 24 20"
+          fill="none"
+        >
+          <path
+            d="M24 9.99917C24 10.5088 23.5864 10.9223 23.0768 10.9223H3.14982L10.1905 17.9631C10.5512 18.3237 10.5512 18.9084 10.1905 19.2691C10.0108 19.4488 9.77445 19.5399 9.53812 19.5399C9.30179 19.5399 9.06542 19.45 8.88571 19.2691L0.269401 10.6528C0.184469 10.5679 0.116936 10.4658 0.0701613 10.3526C-0.0233871 10.1273 -0.0233871 9.87252 0.0701613 9.64727C0.116936 9.53403 0.184469 9.43169 0.269401 9.34676L8.88571 0.730451C9.24636 0.369797 9.83108 0.369797 10.1917 0.730451C10.5524 1.09111 10.5524 1.67583 10.1917 2.03648L3.15102 9.0772H23.0768C23.5864 9.07596 24 9.48958 24 9.99917Z"
+            fill="#111C3C"
+          />
+        </svg>
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="text-align: center">Data Studio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-start ion-padding-end">
+  <div class="container">
+    <app-overview />
+    <h5>Pickers Gender</h5>
+    <ion-row>
+      <ion-col>
+        <canvas
+          #doughnutCanvas
+          style="position: relative; height: auto; width: 100%"
+        ></canvas>
+      </ion-col>
+      <ion-col>
+        <ion-row>
+          <ion-col>
+            <div style="display: flex; align-items: center">
+              <span
+                style="
+                  display: inline-block;
+                  border-radius: 50%;
+                  height: 4px;
+                  width: 4px;
+                  background-color: #340fb7;
+                "
+              ></span>
+              <span style="color: #b7bcc9; padding: 0px 3px; font-size: 0.8rem">
+                women
+              </span>
+            </div>
+            <div
+              style="
+                background-color: #f6f7fb;
+                text-align: center;
+                padding: 5px;
+                font-size: 0.9rem;
+              "
+            >
+              60.2%
+            </div>
+          </ion-col>
+          <ion-col>
+            <div style="display: flex; align-items: center">
+              <span
+                style="
+                  display: inline-block;
+                  border-radius: 50%;
+                  height: 4px;
+                  width: 4px;
+                  background-color: #340fb7;
+                "
+              ></span>
+              <span style="color: #b7bcc9; padding: 0px 3px; font-size: 0.8rem">
+                men
+              </span>
+            </div>
+            <div
+              style="
+                background-color: #f6f7fb;
+                text-align: center;
+                padding: 5px;
+                font-size: 0.9rem;
+              "
+            >
+              60.2%
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div style="display: flex; align-items: center">
+              <span
+                style="
+                  display: inline-block;
+                  border-radius: 50%;
+                  height: 4px;
+                  width: 4px;
+                  background-color: #340fb7;
+                "
+              ></span>
+              <span style="color: #b7bcc9; padding: 0px 3px; font-size: 0.8rem">
+                Other
+              </span>
+            </div>
+            <div
+              style="
+                background-color: #f6f7fb;
+                text-align: center;
+                padding: 5px;
+                font-size: 0.9rem;
+              "
+            >
+              60.2%
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <h5>Pickers Age Range</h5>
+    <ion-row>
+      <ion-col>
+        <canvas
+          #doughnutAgeRange
+          style="position: relative; height: auto; width: 50vw"
+        ></canvas>
+      </ion-col>
+      <ion-col>
+        <ion-row>
+          <ion-col>
+            <div style="display: flex; align-items: center">
+              <span
+                style="
+                  display: inline-block;
+                  border-radius: 50%;
+                  height: 4px;
+                  width: 4px;
+                  background-color: #340fb7;
+                "
+              ></span>
+              <span style="color: #b7bcc9; padding: 0px 3px; font-size: 0.8rem">
+                women
+              </span>
+            </div>
+            <div
+              style="
+                background-color: #f6f7fb;
+                text-align: center;
+                padding: 5px;
+                font-size: 0.9rem;
+              "
+            >
+              60.2%
+            </div>
+          </ion-col>
+          <ion-col>
+            <div style="display: flex; align-items: center">
+              <span
+                style="
+                  display: inline-block;
+                  border-radius: 50%;
+                  height: 4px;
+                  width: 4px;
+                  background-color: #340fb7;
+                "
+              ></span>
+              <span style="color: #b7bcc9; padding: 0px 3px; font-size: 0.8rem">
+                men
+              </span>
+            </div>
+            <div
+              style="
+                background-color: #f6f7fb;
+                text-align: center;
+                padding: 5px;
+                font-size: 0.9rem;
+              "
+            >
+              60.2%
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div style="display: flex; align-items: center">
+              <span
+                style="
+                  display: inline-block;
+                  border-radius: 50%;
+                  height: 4px;
+                  width: 4px;
+                  background-color: #340fb7;
+                "
+              ></span>
+              <span style="color: #b7bcc9; padding: 0px 3px; font-size: 0.8rem">
+                Other
+              </span>
+            </div>
+            <div
+              style="
+                background-color: #f6f7fb;
+                text-align: center;
+                padding: 5px;
+                font-size: 0.9rem;
+              "
+            >
+              60.2%
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <hr />
+    <div class="age-range-header">
+      <h5>Picks Statistics</h5>
+      <ion-select
+        class="gender-Select"
+        (ionChange)="onTypeChange($event)"
+        [value]="type()"
+        interface="action-sheet"
+      >
+        <ion-select-option value="ongoing">Ongoing</ion-select-option>
+        <ion-select-option value="closed">Closed</ion-select-option>
+      </ion-select>
+    </div>
+    <div class="trending-post-list">
+      @if(posts()){ @for (post of posts(); track $index) {
+      <app-post-list-horizontal
+        (getPost)="showPostInsights($event)"
+        [post]="post"
+      />
+      } @empty {
+      <div class="empty-list">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+        <h2>No {{ type() }} posts found</h2>
+      </div>
+      }
+      <button
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          aspect-ratio: 1 / 1;
+          width: 100%;
+          position: relative;
+          background: #f6f7fb;
+        "
+        [style.display]="posts().length < 2 ? 'none' : 'block'"
+        (click)="showPostList()"
+      >
+        View all
+      </button>
+      }
+    </div>
+    <hr />
+    <h5>Pickers Age Range</h5>
+    <ion-row>
+      <ion-col>
+        <canvas
+          #barCanvas
+          style="position: relative; height: 20vh; width: 40vw"
+        ></canvas>
+      </ion-col>
+    </ion-row>
+    <hr />
+    <h5>Pickers Whereabouts</h5>
+
+    <ion-row>
+      <ion-col>
+        <app-map
+          [whereabouts]="[
+          {
+            country: 'France',
+            count: 100,
+            percentage: 100,
+          },
+        ]"
+        ></app-map>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

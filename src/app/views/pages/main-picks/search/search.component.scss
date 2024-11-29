@@ -1,0 +1,47 @@
+.w-50 {
+  width: 50%;
+}
+
+.mt-2 {
+  margin-top: 2px;
+}
+
+.border-left {
+  border-left: 1.5px solid #fff;
+}
+
+.border-right {
+  border-right: 1.5px solid #fff;
+}
+
+.border-top {
+  border-top: 1.5px solid #fff;
+}
+
+.color-medium {
+  color: var(--ion-color-medium);
+}
+
+::ng-deep .search-diver {
+  .searchbar-input-container {
+    border: 1px solid #898989;
+    border-radius: 2px;
+  }
+}
+.name-text {
+  color: var(--Dark-blue, #111c3c);
+  // text-align: center;
+  /* Small/Regular */
+  font-family: SofiaPro;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  text-transform: capitalize !important;
+}
+
+.post-grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2px;
+}

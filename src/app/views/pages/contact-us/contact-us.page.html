@@ -1,0 +1,55 @@
+<ion-header class="ion-no-border" mode="md">
+  <ion-toolbar class="text-tolbar">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+ 
+    <ion-title style="text-align: center;">Contact Us</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list lines="none">
+  <ion-item style="margin-bottom:50px">
+    <ion-text style="text-align: center;">Excepteur sint occaecat cupidatat non proident, sunt in</ion-text>
+  </ion-item>
+
+  <ion-item style="margin-bottom:15px;">
+    <div style="width:100%">
+      <ion-label style="margin-bottom: 5px; color: #B7BCC9;">Reason</ion-label>
+      <ion-select placeholder="Reason" style="max-width: 100% !important; border:1px solid #B7BCC9 ; border-radius: 2px;" interfaceOptions="{buttons=''}" [(ngModel)]="reason" cancelText="" aria-label="Select" interface="action-sheet">
+        <ion-select-option value="Information Request">Information Request</ion-select-option>
+        <ion-select-option value="Feature Request">Feature Request</ion-select-option>
+        <ion-select-option value="Technical Issue">Technical Issue</ion-select-option>
+        <ion-select-option value="Brand Request">Brand Request</ion-select-option>
+        <ion-select-option value="Collaborations">Collaborations</ion-select-option>
+        <ion-select-option value="Joining Us">Joining Us</ion-select-option>
+        <ion-select-option value="Other">Other Requests <p style="color: #B7BCC9; font-size: xx-small;">(elaborate more in message section)</p></ion-select-option>
+      
+      </ion-select>
+    </div>
+    
+  </ion-item>
+
+  <ion-item>
+    <div style="width:100%">
+      <ion-label style="margin-bottom: 5px; color: #B7BCC9;">Message</ion-label>
+      <ion-textarea style="width:100%;height: 100px; border:1px solid #B7BCC9 ; border-radius: 2px;" class="min-height" [(ngModel)]="message" placeholder="eget nullam gravida. elit, in dapibus quis, aenean curabitur sed quis, aliquet labore."></ion-textarea>
+    </div>
+  </ion-item>
+</ion-list>
+</ion-content>
+
+<ion-footer style="padding-bottom: 0.6rem;padding-top: 0.6rem;">
+ 
+  <ion-item id="bottom-input" lines="none" style="--background: transparent;
+  --border-color: transparent; 
+  --box-shadow: none; 
+  --padding-start: 0;
+  --padding-end: 0;">
+   <ion-button id="send-button" style="padding-left:8px;--padding-start: 0.8rem;
+   --padding-end: 0.8rem; ;border-radius: 5px;margin: 0px;width: 100% ; height: 38px;" color="primary" >Send</ion-button>
+  </ion-item>
+ 
+</ion-footer>

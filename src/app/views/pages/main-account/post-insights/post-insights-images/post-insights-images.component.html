@@ -1,0 +1,23 @@
+<div class="container" [ngClass]="{ grid: contents().length > 1 }">
+  @for (content of contents(); track content.id) {
+  <div
+    class="content-container"
+    (click)="onChangeIndex($index)"
+    [ngClass]="{ selected: $index === index() }"
+  >
+    @switch ( type() ) { @case ('questions') {
+    <div class="content" [appContrast]="content.question_color">
+      {{ content.question_text }}
+    </div>
+    } @case ('media') {
+    <div class="content">
+      <img src="{{ content.image_path.url }}" [alt]="content.file_name" />
+    </div>
+    } @case ('saved') {
+    <div class="content">
+      <img src="{{ content.image_url }}" [alt]="content.file_name" />
+    </div>
+    } }
+  </div>
+  }
+</div>

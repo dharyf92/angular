@@ -1,0 +1,105 @@
+<div
+  *ngIf="type == 'txt'"
+  class="ion-text-center"
+  style="display: inline-block; position: relative"
+>
+  <div
+    class="font-size"
+    style="
+      color: #fff;
+      z-index: 99;
+      position: absolute;
+      width: 100%;
+      font-size: 1.1rem;
+      font-family: 'SofiaProMedium' sans-serif;
+      letter-spacing: 0.5px;
+    "
+    [style.line-height]="item.height"
+    *ngIf="type == 'txt'"
+  >
+    {{ item.name }}
+  </div>
+
+  <svg
+    [style.height]="item.height"
+    [style.width]="item.width"
+    *ngIf="type == 'txt'"
+    [id]="item.id"
+    style="enable-background: new 0 0 126.89 126.29"
+    version="1.1"
+    id="Calque_1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    x="0px"
+    y="0px"
+    viewBox="0 0 126.89 126.29"
+    xml:space="preserve"
+  >
+    <g id="Group_1560-5" transform="translate(-1590.92 -125.274)">
+      <path
+        id="_0b3ca81493d7e22164f6e1829241c263-26"
+        [ngClass]="{ strok: item.selected }"
+        [style.fill]="color"
+        d="M1666.5,130.46c8.64,6.19,16.78,13.05,24.36,20.5
+        c7.63,7.86,14.68,16.27,21.09,25.16c5.43,7.74,5.14,16.37,0,23.82c-6.01,8.55-12.7,16.6-20.01,24.07
+        c-7.97,7.78-16.47,14.99-25.44,21.59c-7.9,4.68-15.49,5.06-23.71,0c-8.68-6.25-16.88-13.15-24.5-20.65
+        c-7.58-7.81-14.58-16.17-20.94-25.01c-5.32-8.49-5.86-14.72,0-23.82c6.3-8.79,13.24-17.09,20.78-24.84
+        c7.69-7.55,15.93-14.51,24.67-20.82C1649.96,125.04,1658.63,125.3,1666.5,130.46z"
+      />
+    </g>
+  </svg>
+</div>
+
+<div
+  [style.width]="width"
+  [style.height]="height"
+  *ngIf="type == 'img' && imgToshow"
+>
+  <img
+    [src]="image.url"
+    class="mask-image"
+    [ngStyle]="{ '--size': size }"
+    [style.object-fit]="cover"
+  />
+</div>
+
+<svg
+  *ngIf="type == 'img' && !imgToshow"
+  xmlns="http://www.w3.org/2000/svg"
+  [style.height]="height"
+  [style.width]="width"
+  viewBox="0 0 128.767 128.161"
+>
+  <g
+    id="Group_78"
+    data-name="Group 78"
+    transform="translate(-146.177 -434.437)"
+  >
+    <path
+      id="Union_4"
+      data-name="Union 4"
+      d="M2420.929-1588.86a219.19,219.19,0,0,1-25.7-21.557,231.881,231.881,0,0,1-21.965-26.111c-5.581-8.865-6.153-15.361,0-24.87a226.478,226.478,0,0,1,21.792-25.936,224.539,224.539,0,0,1,25.876-21.731c7.529-5.656,16.622-5.39,24.87,0a214.61,214.61,0,0,1,25.549,21.4,236.775,236.775,0,0,1,22.118,26.262c5.7,8.075,5.393,17.087,0,24.87a202.174,202.174,0,0,1-20.985,25.131,250.442,250.442,0,0,1-26.682,22.537,24.6,24.6,0,0,1-12.551,3.814A23.342,23.342,0,0,1,2420.929-1588.86Z"
+      transform="translate(-2222.682 2147.644)"
+      fill="#b7bcc9"
+    />
+    <g id="Group_79" data-name="Group 79" transform="translate(182.36 465.964)">
+      <path
+        id="Subtraction_1"
+        data-name="Subtraction 1"
+        d="M56,29H0A30.214,30.214,0,0,1,2.272,17.7,29.274,29.274,0,0,1,8.287,8.485a27.861,27.861,0,0,1,8.871-6.209,26.968,26.968,0,0,1,21.685,0,27.862,27.862,0,0,1,8.871,6.209A29.273,29.273,0,0,1,53.728,17.7,30.213,30.213,0,0,1,56,29Z"
+        transform="translate(-0.004 38.392)"
+        fill="#f6f7fb"
+      />
+      <ellipse
+        id="Ellipse_2"
+        data-name="Ellipse 2"
+        cx="16"
+        cy="15"
+        rx="16"
+        ry="15"
+        transform="translate(12.996 0.392)"
+        fill="#f6f7fb"
+      />
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,32 @@
+.headerSignUp {
+  height: 60px;
+  padding: 16px;
+  text-align: center;
+  font-family: "SofiaProMedium";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0;
+}
+
+.is-invalid {
+  border: 1px solid #cd0000;
+}
+.error-message {
+  color: #cd0000;
+  font-size: 12px;
+  margin-top: 1%;
+}
+.error-details {
+  display: flex;
+  align-items: center;
+  padding-top: 8px;
+}
+
+.error-input {
+  color: #cd0000;
+}
+
+.valid-input {
+  color: #009e00;
+}

@@ -1,0 +1,12 @@
+<ng-container *ngIf="!recordValue; else editRecorder">
+  <app-idle-recorder
+    (launchRecorderEvent)="onRecordDone($event)"
+  ></app-idle-recorder>
+</ng-container>
+
+<ng-template #editRecorder>
+  <app-edit-recorder
+    (cancel)="goBack()"
+    [blob]="recordValue"
+  ></app-edit-recorder>
+</ng-template>

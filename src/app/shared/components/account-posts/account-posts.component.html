@@ -1,0 +1,8 @@
+<div class="post-grid-container">
+  @for (post of posts() ; track $index) {
+  <app-account-post-item
+    [post]="post"
+    (getPost)="showPost($event)"
+  ></app-account-post-item>
+  }
+</div>

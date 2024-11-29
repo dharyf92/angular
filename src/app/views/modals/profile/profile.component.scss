@@ -1,0 +1,88 @@
+.avatar-cantainer {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  border: 1px solid red;
+  position: relative;
+  display: inline-block;
+  top: 12px;
+  left: 12px;
+  background-color: rgba(255, 0, 0, 0.189);
+  clip-path: path(
+    "M38,2 L82,2 A12,12 0 0,1 94,10 L112,44 A12,12 0 0,1 112,56 L94,90 A12,12 0 0,1 82,98 L38,98 A12,12 0 0,1 26,90 L8,56 A12,12 0 0,1 8,44 L26,10 A12,12 0 0,1 38,2"
+  );
+}
+
+.triangle::before {
+  content: "";
+  display: block;
+  height: 85px;
+  background: url(https://picsum.photos/id/1061/300/300) center/cover;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.triangle {
+  display: inline-block;
+  width: 85px;
+  color: red;
+  filter: url(#round);
+}
+
+.b-radius-5 {
+  border-radius: 5px;
+}
+
+.segments {
+  ion-segment-button {
+    --ripple-color: transparent;
+    --indicator-color: transparent;
+  }
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.mt-2 {
+  margin-top: 2px;
+}
+
+.border-left {
+  border-left: 1.5px solid #fff;
+}
+
+.border-right {
+  border-right: 1.5px solid #fff;
+}
+
+.border-top {
+  border-top: 1.5px solid #fff;
+}
+
+.color-medium {
+  color: var(--ion-color-medium);
+}
+
+.private-profile {
+  display: flex;
+  align-items: center;
+  background-color: #f6f7fb;
+  padding: 8px 12px;
+  margin-top: 16px;
+}
+.subTitle {
+  color: #b7bcc9;
+  font-size: 14px;
+}
+.title {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.pick-btn {
+  --box-shadow: none;
+  font-family: SofiaProMedium;
+  font-size: 14px;
+  text-transform: capitalize;
+  margin-top: 5px;
+}

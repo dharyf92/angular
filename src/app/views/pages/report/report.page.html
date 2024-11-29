@@ -1,0 +1,103 @@
+<ion-header class="ion-no-border" mode="md">
+  <ion-toolbar class="text-tolbar">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Report</ion-title>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <div class="ion-padding">
+    
+    <ion-label>
+      <h2> Please select one of the reasons</h2>
+      <p style="text-align: justify;" >
+        If you see content that violates our community rules, 
+        is offensive to you, or makes you uncomfortable, 
+        you can report it by selecting one of the reasons below.
+      </p>
+    </ion-label>
+  </div>
+
+
+ 
+
+
+  <ion-item button (click)="reportPage('report-nudity')" >
+    <ion-label>
+      <h3> Nudity</h3>
+     
+    </ion-label>
+  </ion-item>
+
+  <ion-item button detail="true" (click)="reportPage('report-undesirable-contente')">
+    <ion-label>
+      <h3>Undesirable content</h3>
+      
+    </ion-label>
+  </ion-item>
+
+  <ion-item button detail="true" (click)="reportPage('report-violence')">
+    <ion-label>
+      <h3>Violence</h3>
+      
+    </ion-label>
+  </ion-item>
+
+  <ion-item button detail="true" (click)="reportPage('report-unauthorize-sales')">
+    <ion-label>
+      <h3>Unauthorized sales</h3>
+      
+    </ion-label>
+  </ion-item>
+
+  <ion-item button detail="true" (click)="reportPage('report-terrorism')">
+    <ion-label>
+      <h3>Terrorism</h3>
+      
+    </ion-label>
+  </ion-item>
+
+  <ion-item button detail="true" (click)="reportPage('report-hateful-speech')">
+    <ion-label>
+      <h3>Hateful speech</h3>
+      
+    </ion-label>
+  </ion-item>
+
+  <ion-item button detail="true" (click)="reportPage('report-false-information')">
+    <ion-label>
+      <h3>False information</h3>
+      
+    </ion-label>
+  </ion-item>
+
+  <ion-item button detail="true" (click)="reportPage('report-harassment')">
+    <ion-label>
+      <h3>Harassment</h3>
+      
+    </ion-label>
+  </ion-item>
+
+  <ion-item button detail="true" (click)="reportPage('report-suicide')">
+    <ion-label>
+      <h3>Suicide or self-harm</h3>
+      
+    </ion-label>
+  </ion-item>
+
+  <ion-item button detail="true" (click)="reportPage('report-others')">
+    <ion-label>
+      <h3>Others</h3>
+      
+    </ion-label>
+  </ion-item>
+
+
+
+</ion-content>

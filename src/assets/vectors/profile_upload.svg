@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128.767" height="149" viewBox="0 0 128.767 149">
+  <g id="Groupe_78" data-name="Groupe 78" transform="translate(-146.177 -434.437)">
+    <path id="Union_4" data-name="Union 4" d="M2420.929-1588.86a219.19,219.19,0,0,1-25.7-21.557,231.881,231.881,0,0,1-21.965-26.111c-5.581-8.865-6.153-15.361,0-24.87a226.478,226.478,0,0,1,21.792-25.936,224.539,224.539,0,0,1,25.876-21.731c7.529-5.656,16.622-5.39,24.87,0a214.61,214.61,0,0,1,25.549,21.4,236.775,236.775,0,0,1,22.118,26.262c5.7,8.075,5.393,17.087,0,24.87a202.174,202.174,0,0,1-20.985,25.131,250.442,250.442,0,0,1-26.682,22.537,24.6,24.6,0,0,1-12.551,3.814A23.342,23.342,0,0,1,2420.929-1588.86Z" transform="translate(-2222.682 2147.644)" fill="#b7bcc9"/>
+    <g id="Groupe_79" data-name="Groupe 79" transform="translate(182.36 465.964)">
+      <path id="Soustraction_1" data-name="Soustraction 1" d="M56,29H0A30.214,30.214,0,0,1,2.272,17.7,29.274,29.274,0,0,1,8.287,8.485a27.861,27.861,0,0,1,8.871-6.209,26.968,26.968,0,0,1,21.685,0,27.862,27.862,0,0,1,8.871,6.209A29.273,29.273,0,0,1,53.728,17.7,30.213,30.213,0,0,1,56,29Z" transform="translate(-0.004 38.392)" fill="#f6f7fb"/>
+      <ellipse id="Ellipse_2" data-name="Ellipse 2" cx="16" cy="15" rx="16" ry="15" transform="translate(12.996 0.392)" fill="#f6f7fb"/>
+    </g>
+  </g>
+  <g id="Groupe_293" data-name="Groupe 293" transform="translate(-133.488 -63.488)">
+    <g id="Ellipse_60" data-name="Ellipse 60" transform="translate(179.488 173.488)" fill="#111c3c" stroke="#fff" stroke-width="3">
+      <circle cx="18" cy="18" r="18" stroke="none"/>
+      <circle cx="18" cy="18" r="19.5" fill="none"/>
+    </g>
+    <g id="Groupe_292" data-name="Groupe 292" transform="translate(188.244 183.399)">
+      <path id="Icon_material-monochrome-photos" data-name="Icon material-monochrome-photos" d="M19.453,6.328H16.528L14.883,4.5H9.4L7.753,6.328H4.828A1.833,1.833,0,0,0,3,8.156V19.125a1.833,1.833,0,0,0,1.828,1.828H19.453a1.833,1.833,0,0,0,1.828-1.828V8.156A1.833,1.833,0,0,0,19.453,6.328Z" transform="translate(-3 -4.5)" fill="none" stroke="#fff" stroke-width="2"/>
+      <g id="Ellipse_59" data-name="Ellipse 59" transform="translate(4.876 4.815)" fill="none" stroke="#fff" stroke-width="2">
+        <circle cx="4.265" cy="4.265" r="4.265" stroke="none"/>
+        <circle cx="4.265" cy="4.265" r="3.265" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,275 @@
+@if(profile()){
+<ion-app>
+  <div class="ion-page" id="main-content">
+    <ion-header class="ion-no-border">
+      <ion-toolbar class="text-tolbar">
+        <ion-buttons (click)="closeModalWithoutThem()" slot="start">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="20"
+            viewBox="0 0 24 20"
+            fill="none"
+          >
+            <path
+              d="M24 9.99929C24 10.5089 23.5864 10.9225 23.0768 10.9225H3.14982L10.1905 17.9632C10.5512 18.3238 10.5512 18.9086 10.1905 19.2692C10.0108 19.4489 9.77445 19.54 9.53812 19.54C9.30179 19.54 9.06542 19.4502 8.88571 19.2692L0.269401 10.6529C0.184469 10.568 0.116936 10.4659 0.0701613 10.3527C-0.0233871 10.1274 -0.0233871 9.87265 0.0701613 9.64739C0.116936 9.53415 0.184469 9.43181 0.269401 9.34688L8.88571 0.730573C9.24636 0.36992 9.83108 0.36992 10.1917 0.730573C10.5524 1.09123 10.5524 1.67595 10.1917 2.0366L3.15102 9.07732H23.0768C23.5864 9.07609 24 9.4897 24 9.99929Z"
+              fill="#111C3C"
+            />
+          </svg>
+        </ion-buttons>
+
+        <ion-title
+          style="
+            color: var(--Dark-blue, #111c3c);
+            /* Heading H4/Medium h4 */
+            font-family: SofiaProMedium;
+            font-size: 20px !important;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+          "
+          >{{ profile().username }}</ion-title
+        >
+
+        <ion-buttons (click)="openActionSheet()" slot="end">
+          <ion-icon
+            style="font-size: x-large; color: #b7bcc9"
+            name="ellipsis-horizontal"
+          ></ion-icon>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-no-padding">
+      <div class="ion-padding">
+        <div style="text-align: center">
+          <app-avatar
+            (click)="openViewer(profile().avatar, profile().full_name)"
+            style="margin: auto"
+            size="70px"
+            width="70px"
+            height="70px"
+            [src]="profile().avatar.url"
+          ></app-avatar>
+        </div>
+
+        <h5 class="ion-text-center mb-0 custom-text" style="margin-top: 4px">
+          {{ profile().full_name }}
+        </h5>
+        <p
+          class="ion-text-center color-medium"
+          style="
+            margin: 4px 0px 4px 0px;
+            font-size: 12px;
+            font-family: 'SofiaProMedium';
+          "
+        >
+          <span (click)="viewUsers('pickers')"
+            ><span> {{ profile().followings_count }}</span>
+            Pickers
+          </span>
+          <span>.</span>
+          <span (click)="viewUsers('my-pickers')"
+            ><span> {{ profile().followers_count }}</span>
+            My Pickers
+          </span>
+        </p>
+        <p
+          class="ion-text-center color-medium"
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 6px;
+            font-size: 12px;
+            font-family: 'SofiaProMedium';
+          "
+          *ngIf="profile().address"
+        >
+          <ion-icon name="location-sharp" style="padding: 0px 5px"></ion-icon
+          >{{ profile().address }}
+        </p>
+        <div style="margin-top: 16px; text-align: center">
+          @switch (pickedStatus()) { @case ('pick') {
+          <ion-button
+            class="pick-btn"
+            expand="block"
+            (click)="pickUser()"
+            color="primary"
+            >Pick</ion-button
+          >
+
+          } @case ('pending') {
+          <ion-button
+            (click)="unPickUser()"
+            class="pick-btn"
+            expand="block"
+            fill="outline"
+            color="primary"
+          >
+            Pending ...
+          </ion-button>
+          } @case ('confirm') {
+          <ion-button
+            class="pick-btn"
+            expand="block"
+            (click)="confirmUser()"
+            color="primary"
+            >Confirm</ion-button
+          >
+
+          } @case ('picked') {
+          <ion-button
+            style="margin-top: 5px"
+            expand="block"
+            style="--box-shadow: none"
+            (click)="unPickUser()"
+            color="primary"
+            >Picked</ion-button
+          >
+          } }
+
+          <div class="private-profile" *ngIf="profile().is_private === true">
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+              >
+                <g
+                  id="Group_1526"
+                  data-name="Group 1526"
+                  transform="translate(-161.769 -564)"
+                >
+                  <g
+                    id="Union_47"
+                    data-name="Union 47"
+                    transform="translate(161.769 564)"
+                    fill="none"
+                  >
+                    <path
+                      d="M23.9,1.293a66.726,66.726,0,0,1,7.937,6.68,73.823,73.823,0,0,1,6.871,8.2,6.474,6.474,0,0,1,0,7.762,63.048,63.048,0,0,1-6.519,7.843A77.89,77.89,0,0,1,23.9,38.809a6.863,6.863,0,0,1-7.725,0,68.165,68.165,0,0,1-7.984-6.728,72.309,72.309,0,0,1-6.823-8.149c-1.734-2.767-1.911-4.794,0-7.762A70.608,70.608,0,0,1,8.137,8.075a69.828,69.828,0,0,1,8.038-6.782A6.415,6.415,0,0,1,23.9,1.293Z"
+                      stroke="none"
+                    />
+                    <path
+                      d="M 19.90654182434082 1.999996185302734 C 19.01186180114746 1.999996185302734 18.16175079345703 2.299228668212891 17.37981033325195 2.889385223388672 L 17.32889175415039 2.926567077636719 C 17.28695106506348 2.956195831298828 13.09330177307129 5.93072509765625 9.554611206054688 9.486156463623047 C 6.182010650634766 12.87470054626465 3.302852630615234 16.8989372253418 3.026897430419922 17.28799438476562 C 2.312400817871094 18.40510749816895 1.986080169677734 19.29635238647461 2.000480651855469 20.0902271270752 C 2.014297485351562 20.85238838195801 2.333080291748047 21.69682693481445 3.032863616943359 22.82272720336914 C 3.358486175537109 23.27926063537598 6.256511688232422 27.30265045166016 9.60858154296875 30.67056655883789 C 12.92927551269531 34.00698471069336 16.80068397521973 36.79938507080078 17.27635765075684 37.13864517211914 C 18.23301696777344 37.71814346313477 19.12503814697266 38.00000762939453 20.00152206420898 38.00000762939453 C 20.88051223754883 38.00000762939453 21.7976245880127 37.71682357788086 22.80282592773438 37.13460540771484 C 23.39933013916016 36.69745635986328 27.47615051269531 33.67543411254883 30.77134132385254 30.36468696594238 C 34.29080963134766 26.82855606079102 37.02928161621094 22.84349632263184 37.05618286132812 22.80417633056641 L 37.06126022338867 22.79677772521973 C 37.93264007568359 21.53330993652344 38.6417236328125 19.55807876586914 37.07276916503906 17.3222484588623 C 36.96676635742188 17.1732234954834 33.90904998779297 12.89037322998047 30.41954040527344 9.384357452392578 C 27.03097534179688 5.979785919189453 23.11137390136719 3.184513092041016 22.77705955505371 2.948047637939453 C 21.81070899963379 2.318973541259766 20.84502983093262 1.999996185302734 19.90654182434082 1.999996185302734 M 19.90654563903809 0 C 21.24055290222168 0 22.60397529602051 0.4416618347167969 23.90048027038574 1.293018341064453 C 23.90048027038574 1.293018341064453 28.13528060913086 4.254188537597656 31.83708190917969 7.973487854003906 C 35.53887939453125 11.69279670715332 38.70767211914062 16.17023658752441 38.70767211914062 16.17023658752441 C 40.47785949707031 18.69038772583008 40.38304138183594 21.5030460357666 38.70767211914062 23.93226623535156 C 38.70767211914062 23.93226623535156 35.89067077636719 28.05624771118164 32.18889236450195 31.77555656433105 C 28.48708152770996 35.49484634399414 23.90047073364258 38.80948638916016 23.90047073364258 38.80948638916016 C 21.32664680480957 40.33316802978516 18.85466957092285 40.45926666259766 16.17498207092285 38.80948638916016 C 16.17498207092285 38.80948638916016 11.89282035827637 35.80074691772461 8.191030502319336 32.08143615722656 C 4.489231109619141 28.36213684082031 1.367790222167969 23.93226623535156 1.367790222167969 23.93226623535156 C -0.3660888671875 21.16529655456543 -0.5436172485351562 19.13784790039062 1.367801666259766 16.17023658752441 C 1.367801666259766 16.17023658752441 4.435272216796875 11.79458618164062 8.137062072753906 8.075286865234375 C 11.8388614654541 4.355976104736328 16.17498207092285 1.293018341064453 16.17498207092285 1.293018341064453 C 17.33025360107422 0.4210968017578125 18.60439491271973 0 19.90654563903809 0 Z"
+                      stroke="none"
+                      fill="#111d3c"
+                    />
+                  </g>
+                  <g
+                    id="Icon_feather-lock"
+                    data-name="Icon feather-lock"
+                    transform="translate(173.764 574.951)"
+                  >
+                    <path
+                      id="Path_129"
+                      data-name="Path 129"
+                      d="M6.282,16.5H18.753a1.782,1.782,0,0,1,1.782,1.782v6.235A1.782,1.782,0,0,1,18.753,26.3H6.282A1.782,1.782,0,0,1,4.5,24.517V18.282A1.782,1.782,0,0,1,6.282,16.5Z"
+                      transform="translate(-4.5 -8.483)"
+                      fill="none"
+                      stroke="#111d3c"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    />
+                    <path
+                      id="Path_130"
+                      data-name="Path 130"
+                      d="M10.5,11.017V7.454a4.454,4.454,0,0,1,8.908,0v3.563"
+                      transform="translate(-6.937 -3)"
+                      fill="none"
+                      stroke="#111d3c"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div style="text-align: left; padding: 0px 10px">
+              <div class="title">Private Profile</div>
+              <div class="subTitle">
+                Pick this account to see their picks and videos.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p style="margin: 16px 0px 0px 0px; font-size: 14px; color: #111c3c">
+          {{ profile().bio }}
+        </p>
+        <p
+          style="
+            margin: 8px 0px 0px 0px;
+            color: #b7bcc9;
+            font-size: 20px;
+            font-weight: 500;
+            font-family: SofiaProMedium;
+          "
+        >
+          Interests
+        </p>
+        <ion-item
+          lines="none"
+          class="ion-no-padding"
+          style="overflow-x: scroll; margin-top: 8px; --min-height: none"
+        >
+          <div style="overflow-x: scroll; white-space: nowrap">
+            <ion-chip
+              color="medium"
+              style="
+                background: var(--Light-grey, #f6f7fb);
+                text-transform: capitalize;
+                margin: 0px 8px 0px 0px;
+                font-size: 14px;
+                text-transform: capitalize;
+                color: var(--Dark-blue, #111c3c);
+                padding: 4px 16px;
+              "
+              *ngFor="let interst of profile().interests; let isFirst = first"
+              class="b-radius-5"
+              >{{ interst?.name }}</ion-chip
+            >
+          </div>
+        </ion-item>
+      </div>
+
+      <div style="background-color: #f6f7fb">
+        <ion-segment
+          value="ongoing"
+          style="min-height: 48px"
+          (ionChange)="changeSegment($event)"
+        >
+          <ion-segment-button
+            value="ongoing"
+            class="ion-no-padding"
+            style="--color-checked: #3409b7"
+          >
+            <ion-label class="custom-segment" style="font-size: 16px"
+              >Ongoing Picks</ion-label
+            >
+          </ion-segment-button>
+          <ion-segment-button
+            value="closed"
+            class="ion-no-padding"
+            style="--color-checked: #3409b7"
+          >
+            <ion-label class="custom-segment" style="font-size: 16px"
+              >Closed Picks</ion-label
+            >
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+
+      <app-account-posts
+        [posts]="posts()"
+        (reload)="reload()"
+      ></app-account-posts>
+    </ion-content>
+  </div>
+</ion-app>
+} @else {
+<p>loading...</p>
+}

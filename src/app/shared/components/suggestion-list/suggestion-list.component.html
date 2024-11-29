@@ -1,0 +1,126 @@
+@if (!suggestions()) {
+<ion-list style="--padding-start: 0; --inner-padding-end: 0">
+  <ion-item lines="none">
+    <div class="rhombus-avatar" style="margin-top: -20%">
+      <ion-skeleton-text
+        animated
+        style="width: 100%; height: 100%; border-radius: 5px"
+      ></ion-skeleton-text>
+    </div>
+    <ion-label>
+      <ion-row>
+        <ion-col size="12">
+          <ion-skeleton-text
+            animated
+            style="width: 30%; --border-radius: 9999px"
+          ></ion-skeleton-text>
+        </ion-col>
+        <ion-col size="12">
+          <ion-skeleton-text
+            animated
+            style="width: 100%; height: 25px; --border-radius: 9999px"
+          ></ion-skeleton-text>
+        </ion-col>
+        <ion-col size="6" class="ion-text-end">
+          <ion-skeleton-text
+            animated
+            style="width: 30%; --border-radius: 9999px"
+          ></ion-skeleton-text>
+        </ion-col>
+      </ion-row>
+    </ion-label>
+  </ion-item>
+  <ion-item lines="none">
+    <div class="rhombus-avatar" style="margin-top: -20%">
+      <ion-skeleton-text
+        animated
+        style="width: 100%; height: 100%; border-radius: 5px"
+      ></ion-skeleton-text>
+    </div>
+    <ion-label>
+      <ion-row>
+        <ion-col size="12">
+          <ion-skeleton-text
+            animated
+            style="width: 30%; --border-radius: 9999px"
+          ></ion-skeleton-text>
+        </ion-col>
+        <ion-col size="12">
+          <ion-skeleton-text
+            animated
+            style="width: 100%; height: 25px; --border-radius: 9999px"
+          ></ion-skeleton-text>
+        </ion-col>
+        <ion-col size="6" class="ion-text-end">
+          <ion-skeleton-text
+            animated
+            style="width: 30%; --border-radius: 9999px"
+          ></ion-skeleton-text>
+        </ion-col>
+      </ion-row>
+    </ion-label>
+  </ion-item>
+  <ion-item lines="none">
+    <div class="rhombus-avatar" style="margin-top: -20%">
+      <ion-skeleton-text
+        animated
+        style="width: 100%; height: 100%; border-radius: 5px"
+      ></ion-skeleton-text>
+    </div>
+    <ion-label>
+      <ion-row>
+        <ion-col size="12">
+          <ion-skeleton-text
+            animated
+            style="width: 30%; --border-radius: 9999px"
+          ></ion-skeleton-text>
+        </ion-col>
+        <ion-col size="12">
+          <ion-skeleton-text
+            animated
+            style="width: 100%; height: 25px; --border-radius: 9999px"
+          ></ion-skeleton-text>
+        </ion-col>
+        <ion-col size="6" class="ion-text-end">
+          <ion-skeleton-text
+            animated
+            style="width: 30%; --border-radius: 9999px"
+          ></ion-skeleton-text>
+        </ion-col>
+      </ion-row>
+    </ion-label>
+  </ion-item>
+</ion-list>
+} @else {
+<ul class="suggestion-list">
+  @for (suggestion of suggestions(); track suggestion.id) {
+  <app-suggestion-item
+    [suggestion]="suggestion"
+    (action)="onAction($event)"
+    (like)="like($event)"
+  />
+  } @empty{
+  <li class="empty-list">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="16"
+      viewBox="0 0 18 16"
+      fill="none"
+    >
+      <path
+        d="M1.25002 15.5C1.09002 15.5 0.950021 15.46 0.830021 15.37C0.710021 15.29 0.610021 15.18 0.560021 15.04C0.500021 14.92 0.490022 14.77 0.510022 14.62C0.540022 14.47 0.600023 14.34 0.710023 14.23C1.36002 13.51 1.88002 12.65 2.21002 11.72C1.71002 11.19 1.31002 10.59 1.02002 9.92C0.69002 9.15 0.51002 8.34 0.50002 7.51C0.49002 3.64 4.30002 0.5 8.99002 0.5C13.68 0.5 17.49 3.64 17.49 7.5C17.49 11.36 13.68 14.5 8.99002 14.5C7.90002 14.54 6.78002 14.32 5.73002 13.96C4.44002 14.93 2.86002 15.47 1.25002 15.5ZM8.99002 1.5C4.85002 1.5 1.49002 4.19 1.49002 7.5C1.50002 8.2 1.65002 8.88 1.93002 9.52C2.21002 10.16 2.61002 10.74 3.12002 11.22L3.34002 11.43L3.25002 11.73C2.94002 12.72 2.45002 13.65 1.81002 14.46C3.09002 14.33 4.32002 13.82 5.32002 13L5.54002 12.82L5.81002 12.92C6.83002 13.31 7.89002 13.5 8.98002 13.5H8.99002C13.13 13.5 16.49 10.81 16.49 7.5C16.49 4.19 13.13 1.5 8.99002 1.5Z"
+        fill="#b3b5bb"
+      />
+    </svg>
+
+    <ion-label style="text-align: center"
+      >There are no suggestions at this time
+    </ion-label>
+    <ion-label style="text-align: center; font-size: 14px; color: #b3b5bb"
+      >Be the first to suggest
+    </ion-label>
+  </li>
+  }
+</ul>
+}

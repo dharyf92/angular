@@ -1,0 +1,30 @@
+.selectedChip {
+    --background : #3409B7;
+    --color : #FFFFFF;
+}
+
+.circle-up {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 50px;
+    z-index: 2;
+    position: absolute;
+    top: 0px;
+    right: 22px;
+    background-color: #05DD71;
+    border: solid 2px white;
+    font-size: 12px;
+    line-height: 17px;
+    color: white;
+    text-align: center;
+
+}
+
+.unselected {
+    --color: #3409B7;
+    --background : #F6F7FB;
+}
+.mt-2{
+    margin-top: 8px;
+}

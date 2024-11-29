@@ -1,0 +1,1456 @@
+<ion-header class="ion-no-border" mode="md">
+  <ion-toolbar style="padding-top: 0px; padding: 0px 16px">
+    <ion-buttons (click)="closeModalWithoutThem()" slot="start">
+      <ion-icon style="font-size: 24px" name="close-outline"></ion-icon>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button
+        (click)="postPick()"
+        style="
+          background-color: #3409b7;
+          color: white;
+          border-radius: 5px;
+          height: 28px !important;
+          padding: 0px 16px 4px 16px;
+          font-size: 14px;
+        "
+      >
+        {{ isUpdate() ? "Update" : "Post" }}
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="title-text"
+      >{{ isUpdate() ? "Update" : "Create" }} a pick</ion-title
+    >
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card
+    class="ion-padding-horizontal"
+    style="
+      margin-bottom: 0;
+      padding-bottom: 5px;
+      min-height: 315px;
+      max-height: 45vh;
+      height: 45vh;
+      display: flex;
+      flex-direction: column;
+    "
+  >
+    <div style="display: flex; flex-direction: column; flex: 1">
+      <div
+        style="
+          justify-content: space-between;
+          display: flex;
+          align-items: center;
+        "
+      >
+        <div style="display: flex; align-items: center">
+          <app-avatar
+            width="40px"
+            height="40px"
+            size="40px"
+            [src]="imageUrl"
+          ></app-avatar>
+          <h2 class="name-text">{{ user().full_name }}</h2>
+        </div>
+        <div>
+          <ion-chip
+            (click)="changePublic()"
+            style="
+              margin-left: 0px;
+              color: #111c3c;
+              background: var(--Light-grey, #f6f7fb);
+            "
+          >
+            <svg
+              *ngIf="public == 'public'"
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+            >
+              <path
+                id="Icon_ionic-md-globe"
+                data-name="Icon ionic-md-globe"
+                d="M9.375,3.375a6,6,0,1,0,6,6A6,6,0,0,0,9.375,3.375ZM8.753,14.481A5.143,5.143,0,0,1,5.461,6.039a5.7,5.7,0,0,1,.058.7,2.224,2.224,0,0,0,.287,1.7,2.8,2.8,0,0,1,.271.81c.075.255.372.389.577.547.414.318.81.687,1.25.966.29.184.471.276.386.63a2.235,2.235,0,0,1-.235.713,1.446,1.446,0,0,0,.241.646c.216.216.431.415.667.609C9.329,13.654,8.928,14.047,8.753,14.481Zm4.258-1.469a5.106,5.106,0,0,1-2.67,1.416,2.133,2.133,0,0,1,.632-.847,2.149,2.149,0,0,0,.568-.7,4.88,4.88,0,0,1,.392-.67c.2-.314-.5-.789-.731-.888a7.539,7.539,0,0,1-1.36-.847c-.326-.229-.988.12-1.356-.041A7.1,7.1,0,0,1,7.127,9.5c-.452-.341-.43-.738-.43-1.24.354.013.858-.1,1.094.187.074.09.329.492.5.349.14-.117-.1-.584-.15-.694-.144-.338.329-.47.571-.7.316-.3.994-.768.941-.982S8.973,5.6,8.606,5.693c-.055.014-.539.522-.633.6q0-.249.008-.5c0-.1-.2-.212-.186-.28.023-.171.5-.48.616-.616-.083-.052-.365-.294-.451-.259-.207.086-.441.146-.648.232a1.317,1.317,0,0,0-.019-.206A5.094,5.094,0,0,1,8.6,4.29l.406.163.287.34.286.3.25.081.4-.375-.1-.268V4.286a5.087,5.087,0,0,1,2.179.86c-.116.01-.244.028-.388.046a1.293,1.293,0,0,0-.2-.076c.188.405.385.8.585,1.2.213.427.686.885.769,1.336.1.531.03,1.014.084,1.639a2.8,2.8,0,0,0,.679,1.286,1.359,1.359,0,0,0,.53.064A5.111,5.111,0,0,1,13.012,13.012Z"
+                transform="translate(-3.375 -3.375)"
+                fill="#111c3c"
+              />
+            </svg>
+
+            <svg
+              *ngIf="public == 'friends'"
+              width="18"
+              height="18"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 640 512"
+            >
+              <!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) -->
+              <path
+                d="M192 256c61.9 0 112-50.1 112-112S253.9 32 192 32 80 82.1 80 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C51.6 288 0 339.6 0 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zM480 256c53 0 96-43 96-96s-43-96-96-96-96 43-96 96 43 96 96 96zm48 32h-3.8c-13.9 4.8-28.6 8-44.2 8s-30.3-3.2-44.2-8H432c-20.4 0-39.2 5.9-55.7 15.4 24.4 26.3 39.7 61.2 39.7 99.8v38.4c0 2.2-.5 4.3-.6 6.4H592c26.5 0 48-21.5 48-48 0-61.9-50.1-112-112-112z"
+              />
+            </svg>
+
+            <ion-label
+              style="
+                padding: 0px 4px;
+                font-family: SofiaProMedium;
+                font-size: 14px;
+                font-weight: 500;
+                text-transform: capitalize;
+              "
+              >{{ this.public }}</ion-label
+            >
+          </ion-chip>
+
+          <ion-chip
+            (click)="openTimePicker()"
+            id="date"
+            style="margin-left: 0px; background: var(--Light-grey, #f6f7fb)"
+          >
+            <svg
+              style="width: 11px; height: 13px"
+              xmlns="http://www.w3.org/2000/svg"
+              width="11"
+              height="14"
+              viewBox="0 0 11 14"
+              fill="none"
+            >
+              <g clip-path="url(#clip0_1124_6860)">
+                <path
+                  d="M7.38038 0.5H3.76175V1.73795H7.38137L7.38038 0.5ZM4.96796 8.54767H6.17417V4.83282H4.96796V8.54767ZM9.8155 4.45584L10.6723 3.57687C10.4135 3.25885 10.1267 2.96532 9.8155 2.69991L8.95871 3.57887C8.00197 2.78873 6.80545 2.35714 5.57107 2.35692C4.48031 2.34264 3.41 2.65727 2.49621 3.2608C1.58242 3.86434 0.866422 4.72951 0.43925 5.74634C0.012078 6.76316 -0.106973 7.88571 0.097231 8.97125C0.301435 10.0568 0.819671 11.0563 1.58605 11.8427C2.35243 12.6291 3.33234 13.1669 4.4012 13.3877C5.47005 13.6084 6.57957 13.5023 7.58869 13.0826C8.59782 12.6629 9.46096 11.9487 10.0684 11.0308C10.6758 10.1129 11.0001 9.03277 11 7.92769C11.0023 6.66831 10.5849 5.44501 9.8155 4.45584ZM5.57107 12.2615C4.72265 12.2726 3.89013 12.0279 3.17937 11.5584C2.4686 11.089 1.91168 10.416 1.57943 9.62511C1.24717 8.8342 1.15459 7.96105 1.31344 7.11669C1.47229 6.27232 1.87541 5.49489 2.47153 4.88322C3.06766 4.27155 3.82987 3.85327 4.66126 3.68157C5.49265 3.50988 6.35566 3.59251 7.14057 3.91897C7.92548 4.24543 8.59683 4.80097 9.06927 5.51496C9.54172 6.22895 9.79391 7.06913 9.79378 7.92869C9.79807 8.49428 9.69218 9.05516 9.48215 9.57922C9.27213 10.1033 8.96211 10.5802 8.56985 10.9827C8.17759 11.3852 7.7108 11.7053 7.19622 11.9248C6.68164 12.1442 6.12937 12.2586 5.57107 12.2615Z"
+                  fill="#B7BCC9"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_1124_6860">
+                  <rect
+                    width="11"
+                    height="13"
+                    fill="white"
+                    transform="translate(0 0.5)"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
+
+            <ion-label
+              *ngIf="selectedDateTime"
+              style="font-size: 14px; color: #b7bcc9; padding: 0px 4px"
+              >{{ selectedDateTime | duration }}</ion-label
+            >
+            <ion-label
+              *ngIf="!selectedDateTime"
+              style="font-size: 14px; color: #b7bcc9; padding: 0px 4px"
+            >
+              Time
+            </ion-label>
+          </ion-chip>
+        </div>
+      </div>
+      <textarea
+        class="text-choix"
+        [(ngModel)]="text_content"
+        placeholder="Asking the community today?"
+        style="flex: 1"
+      ></textarea>
+    </div>
+
+    <ion-item
+      lines="none"
+      class="ion-no-padding"
+      style="overflow-x: scroll; z-index: 1"
+    >
+      <div style="overflow-x: scroll; white-space: nowrap">
+        <ion-chip
+          (click)="choiceTheme()"
+          style="margin-bottom: 0px"
+          style="background-color: #678af7"
+        >
+          <ion-label style="color: #fff">{{
+            theme ? theme.name : "Theme"
+          }}</ion-label>
+        </ion-chip>
+
+        <ion-chip
+          style="
+            background-color: #f6f7fb;
+            color: var(--Grey, #b7bcc9);
+            font-size: 14px;
+          "
+        >
+          <ion-label
+            (click)="choiceLocation()"
+            style="display: flex; align-items: center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="8"
+              height="10"
+              viewBox="0 0 8 10"
+              fill="none"
+            >
+              <g clip-path="url(#clip0_1463_4832)">
+                <path
+                  d="M4 -0.000335128C3.0063 -0.06297 2.02815 0.269823 1.27883 0.925474C0.529518 1.58113 0.0698258 2.50645 0 3.49966C0 6.12466 4 9.99967 4 9.99967C4 9.99967 8 6.12466 8 3.49966C7.93017 2.50645 7.47048 1.58113 6.72117 0.925474C5.97185 0.269823 4.99369 -0.06297 4 -0.000335128ZM4 4.74966C3.64515 4.77166 3.29597 4.65268 3.02838 4.41861C2.76078 4.18453 2.59641 3.85428 2.571 3.49966C2.59641 3.14505 2.76078 2.8148 3.02838 2.58072C3.29597 2.34665 3.64515 2.22767 4 2.24966C4.35485 2.22767 4.70403 2.34665 4.97162 2.58072C5.23922 2.8148 5.40359 3.14505 5.429 3.49966C5.40359 3.85428 5.23922 4.18453 4.97162 4.41861C4.70403 4.65268 4.35485 4.77166 4 4.74966Z"
+                  fill="#B7BCC9"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_1463_4832">
+                  <rect width="8" height="10" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+            <ion-label style="padding-left: 4px" *ngIf="!isUpdate()">{{
+              location && location.text ? location.text : "Location"
+            }}</ion-label>
+            <ion-label style="padding-left: 4px" *ngIf="isUpdate()">{{
+              city ? city : "Location"
+            }}</ion-label>
+          </ion-label>
+        </ion-chip>
+
+        <ion-chip
+          *ngFor="let tag of tags"
+          style="
+            background-color: #f6f7fb;
+            color: var(--Grey, #b7bcc9);
+            font-size: 14px;
+          "
+          (click)="deleteItem(tag)"
+        >
+          <ion-label style="display: flex; align-items: center">
+            <app-avatar
+              *ngIf="tag"
+              width="18px"
+              height="18px"
+              size="18px"
+              [src]="tag.avatar.url"
+            ></app-avatar>
+            <ion-label style="padding-left: 4px; padding-right: 5px">
+              {{ tag.full_name }}
+            </ion-label>
+
+            <ion-icon
+              name="close-outline"
+              style="font-size: 1.2rem"
+              color="danger"
+            ></ion-icon>
+          </ion-label>
+        </ion-chip>
+
+        <ion-chip
+          style="
+            background-color: #f6f7fb;
+            color: var(--Grey, #b7bcc9);
+            font-size: 14px;
+          "
+          (click)="chooseUser()"
+        >
+          <ion-label style="display: flex; align-items: center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="9"
+              height="12"
+              viewBox="0 0 9 12"
+              fill="none"
+            >
+              <g clip-path="url(#clip0_1463_4838)">
+                <path
+                  d="M4.5002 6C4.85314 5.99182 5.20101 5.9142 5.52394 5.77157C5.84688 5.62894 6.13855 5.42409 6.38231 5.16872C6.62607 4.91335 6.81714 4.61247 6.94461 4.28325C7.07207 3.95404 7.13344 3.60294 7.1252 3.25C7.13344 2.89706 7.07207 2.54596 6.94461 2.21675C6.81714 1.88753 6.62607 1.58665 6.38231 1.33128C6.13855 1.07591 5.84688 0.871064 5.52394 0.728432C5.20101 0.5858 4.85314 0.508178 4.5002 0.5C4.14727 0.508178 3.7994 0.5858 3.47646 0.728432C3.15353 0.871064 2.86185 1.07591 2.61809 1.33128C2.37433 1.58665 2.18326 1.88753 2.0558 2.21675C1.92833 2.54596 1.86697 2.89706 1.8752 3.25C1.86697 3.60294 1.92833 3.95404 2.0558 4.28325C2.18326 4.61247 2.37433 4.91335 2.61809 5.16872C2.86185 5.42409 3.15353 5.62894 3.47646 5.77157C3.7994 5.9142 4.14727 5.99182 4.5002 6ZM6.3002 6.786H6.1052C5.60939 7.0441 5.05867 7.17886 4.4997 7.17886C3.94074 7.17886 3.39001 7.0441 2.8942 6.786H2.7002C1.96734 6.80357 1.2714 7.11124 0.765181 7.64146C0.258959 8.17168 -0.0161688 8.88111 0.000202667 9.614V10.321C-0.00677581 10.6265 0.107788 10.9222 0.318728 11.1433C0.529669 11.3644 0.819733 11.4927 1.1252 11.5H7.8752C8.18067 11.4927 8.47074 11.3644 8.68168 11.1433C8.89262 10.9222 9.00718 10.6265 9.0002 10.321V9.614C9.01657 8.88111 8.74145 8.17168 8.23523 7.64146C7.729 7.11124 7.03306 6.80357 6.3002 6.786Z"
+                  fill="#B7BCC9"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_1463_4838">
+                  <rect
+                    width="9"
+                    height="11"
+                    fill="white"
+                    transform="translate(0 0.5)"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
+            <ion-label style="padding-left: 4px"> Tag </ion-label>
+          </ion-label>
+        </ion-chip>
+
+        <ion-chip
+          *ngIf="selectedType == 'txt'"
+          style="
+            background-color: #f6f7fb;
+            color: var(--Grey, #b7bcc9);
+            font-size: 14px;
+          "
+          (click)="color.click()"
+        >
+          <ion-label style="display: flex; align-items: center">
+            <ion-icon name="color-fill"></ion-icon>
+            <ion-label style="padding-left: 4px"> Aa </ion-label>
+          </ion-label>
+        </ion-chip>
+
+        <input
+          style="display: none"
+          [(ngModel)]="colorpicked"
+          type="color"
+          id="color"
+          #color
+          name="color"
+          value="#e66465"
+        />
+      </div>
+    </ion-item>
+  </ion-card>
+
+  <ion-card
+    #contentElement
+    style="
+      min-height: 55%;
+      margin-top: 0;
+      margin-bottom: 0;
+      background-color: #f6f7fb;
+    "
+  >
+    <ion-grid class="ion-no-padding">
+      <div>
+        <ion-row
+          style="margin-left: 18px; margin-right: 18px; margin-top: 22px"
+          *ngIf="
+            (!selectedType && !isSelected) ||
+            selectedType == 'img' ||
+            selectedType == 'saved'
+          "
+        >
+          <ion-col
+            size="6"
+            style="border-radius: 5px; padding-right: 5px; margin-top: 10px"
+          >
+            <div
+              [style.height.px]="halfWidth"
+              (click)="choiceImg('img')"
+              style="
+                background-color: #ffffff;
+                position: relative;
+
+                border-radius: 4px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+              "
+            >
+              <div *ngIf="!selectedType && isSelected == false && !image1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 40 40"
+                >
+                  <g
+                    id="Icon_ionic-md-photos"
+                    data-name="Icon ionic-md-photos"
+                    transform="translate(10.132 -2.635)"
+                  >
+                    <path
+                      id="Path_23"
+                      data-name="Path 23"
+                      d="M36.19,36.7V11.855a3.99,3.99,0,0,0-3.981-3.98H7.356a3.99,3.99,0,0,0-3.981,3.98V36.711a3.99,3.99,0,0,0,3.981,3.98H32.219A4,4,0,0,0,36.19,36.7ZM13.564,25.769l4.223,5.965,6.218-8.947,8.2,11.929H7.356Z"
+                      transform="translate(-13.507 1.945)"
+                      fill="#b7bcc9"
+                    />
+                    <path
+                      id="Path_24"
+                      data-name="Path 24"
+                      d="M38.679,3.375H12.128A4.247,4.247,0,0,0,7.875,7.6v.524H33.9a4.247,4.247,0,0,1,4.253,4.22V38.166h.528a4.247,4.247,0,0,0,4.253-4.22V7.6A4.247,4.247,0,0,0,38.679,3.375Z"
+                      transform="translate(-13.063 -0.74)"
+                      fill="#b7bcc9"
+                    />
+                  </g>
+                </svg>
+                <div style="margin-top: 8px">
+                  <ion-label class="text-choix">Photo</ion-label>
+                </div>
+              </div>
+              <div
+                (click)="takePicture(1)"
+                *ngIf="
+                  (selectedType == 'img' || selectedType == 'saved') &&
+                  isSelected &&
+                  !image1
+                "
+                style="
+                  height: 100%;
+                  width: 100%;
+                  position: relative;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="28.284"
+                  height="28.284"
+                  viewBox="0 0 28.284 28.284"
+                >
+                  <g
+                    id="Component_2_3"
+                    data-name="Component 2 – 3"
+                    transform="translate(14.142) rotate(45)"
+                  >
+                    <rect
+                      id="Rectangle_4"
+                      data-name="Rectangle 4"
+                      width="26.108"
+                      height="2.176"
+                      transform="translate(1.539 0) rotate(45)"
+                      fill="#b7bcc9"
+                    />
+                    <rect
+                      id="Rectangle_5"
+                      data-name="Rectangle 5"
+                      width="26.108"
+                      height="2.176"
+                      transform="translate(20 1.538) rotate(135)"
+                      fill="#b7bcc9"
+                    />
+                  </g>
+                </svg>
+                <div
+                  style="
+                    position: absolute;
+                    bottom: 0px;
+                    right: 0px;
+                    height: 26px;
+                    width: 26px;
+                    background-color: #b7bcc9;
+                    color: #fff;
+                    line-height: 28px;
+                    border-radius: 5px;
+                    border-top-left-radius: 16px;
+                  "
+                >
+                  1
+                </div>
+              </div>
+
+              <div
+                *ngIf="
+                  (selectedType == 'img' || selectedType == 'saved') &&
+                  isSelected &&
+                  image1
+                "
+                (click)="image1 = ''"
+                style="
+                  width: 28px;
+                  line-height: 28px;
+                  height: 28px;
+                  background-color: #fa2243;
+                  border: 1px solid #fff;
+                  position: absolute;
+                  top: -5px;
+                  right: -3px;
+                  border-radius: 5px;
+                  z-index: 9;
+                "
+              >
+                <ion-icon name="close" style="color: #fff"></ion-icon>
+              </div>
+
+              <div
+                *ngIf="
+                  (selectedType == 'img' || selectedType == 'saved') &&
+                  isSelected &&
+                  image1
+                "
+                (click)="openModalPintura(image1, 'img1')"
+                style="
+                  width: 28px;
+                  line-height: 28px;
+                  height: 28px;
+                  background-color: #111c3c;
+                  border: 1px solid #fff;
+                  position: absolute;
+                  top: 30px;
+                  right: -3px;
+                  border-radius: 5px;
+                  z-index: 9;
+                "
+              >
+                <svg
+                  width="12px"
+                  height="12px"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.4001 18.1612L11.4001 18.1612L18.796 10.7653C17.7894 10.3464 16.5972 9.6582 15.4697 8.53068C14.342 7.40298 13.6537 6.21058 13.2348 5.2039L5.83882 12.5999L5.83879 12.5999C5.26166 13.1771 4.97307 13.4657 4.7249 13.7838C4.43213 14.1592 4.18114 14.5653 3.97634 14.995C3.80273 15.3593 3.67368 15.7465 3.41556 16.5208L2.05445 20.6042C1.92743 20.9852 2.0266 21.4053 2.31063 21.6894C2.59466 21.9734 3.01478 22.0726 3.39584 21.9456L7.47918 20.5844C8.25351 20.3263 8.6407 20.1973 9.00498 20.0237C9.43469 19.8189 9.84082 19.5679 10.2162 19.2751C10.5343 19.0269 10.823 18.7383 11.4001 18.1612Z"
+                    fill="#ffffff"
+                  />
+                  <path
+                    d="M20.8482 8.71306C22.3839 7.17735 22.3839 4.68748 20.8482 3.15178C19.3125 1.61607 16.8226 1.61607 15.2869 3.15178L14.3999 4.03882C14.4121 4.0755 14.4246 4.11268 14.4377 4.15035C14.7628 5.0875 15.3763 6.31601 16.5303 7.47002C17.6843 8.62403 18.9128 9.23749 19.85 9.56262C19.8875 9.57563 19.9245 9.58817 19.961 9.60026L20.8482 8.71306Z"
+                    fill="#ffffff"
+                  />
+                </svg>
+              </div>
+
+              <div
+                (click)="takePicture(1)"
+                *ngIf="
+                  (selectedType == 'img' || selectedType == 'saved') &&
+                  isSelected &&
+                  image1
+                "
+                [ngStyle]="{ 'background-image': 'url(' + image1 + ')' }"
+                style="
+                  height: 100%;
+                  width: 100%;
+                  background-position: center;
+                  background-size: cover;
+                  border-radius: 5px;
+                "
+              ></div>
+            </div>
+          </ion-col>
+
+          <ion-col
+            size="6"
+            style="border-radius: 4px; padding-left: 4px; margin-top: 10px"
+          >
+            <div
+              [style.height.px]="halfWidth"
+              style="
+                background-color: #ffffff;
+
+                position: relative;
+                border-radius: 4px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+              "
+            >
+              <div
+                *ngIf="!selectedType && !isSelected && !image2"
+                (click)="launchCamera()"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="40"
+                  height="32"
+                  viewBox="0 0 40 32"
+                >
+                  <g
+                    id="Clips_icon"
+                    data-name="Clips icon"
+                    transform="translate(-660.21 -1267.668)"
+                  >
+                    <g
+                      id="Polygon_1"
+                      data-name="Polygon 1"
+                      transform="translate(680.274 1277.717)"
+                    >
+                      <g
+                        id="Group_1515"
+                        data-name="Group 1515"
+                        transform="translate(0.01)"
+                      >
+                        <path
+                          id="Path_123"
+                          data-name="Path 123"
+                          d="M682.509,1279.361a1.588,1.588,0,0,1,.294,2.227c-.034.044-.07.086-.109.128a2.008,2.008,0,0,1-.186.171l-5.327,4.281a1.894,1.894,0,0,1-2.529-.172,1.6,1.6,0,0,1-.436-1.091v-8.562a1.735,1.735,0,0,1,1.8-1.669,1.87,1.87,0,0,1,1.174.4Z"
+                          transform="translate(-674.217 -1274.672)"
+                          fill="#b7bcc9"
+                        />
+                      </g>
+                      <g
+                        id="Group_1516"
+                        data-name="Group 1516"
+                        transform="translate(0 0.001)"
+                      >
+                        <path
+                          id="Path_124"
+                          data-name="Path 124"
+                          d="M676.005,1274.673a1.876,1.876,0,0,1,1.174.4l5.334,4.283a1.587,1.587,0,0,1,.185,2.353,1.849,1.849,0,0,1-.185.173l-5.334,4.281a1.893,1.893,0,0,1-2.533-.172,1.6,1.6,0,0,1-.436-1.09v-8.562A1.735,1.735,0,0,1,676.005,1274.673Z"
+                          transform="translate(-674.21 -1274.673)"
+                          fill="#b7bcc9"
+                        />
+                      </g>
+                    </g>
+                    <g
+                      id="Group_1357"
+                      data-name="Group 1357"
+                      transform="translate(660.21 1275.549)"
+                    >
+                      <g id="Path_35" data-name="Path 35">
+                        <path
+                          id="Path_125"
+                          data-name="Path 125"
+                          d="M672.111,1276.19H661.7a1.488,1.488,0,0,1,0-2.975h10.413a1.488,1.488,0,0,1,0,2.975Z"
+                          transform="translate(-660.21 -1273.215)"
+                          fill="#b7bcc9"
+                        />
+                      </g>
+                      <g
+                        id="Path_36"
+                        data-name="Path 36"
+                        transform="translate(2.395 7.142)"
+                      >
+                        <path
+                          id="Path_126"
+                          data-name="Path 126"
+                          d="M669.838,1280.991h-6.53a1.488,1.488,0,1,1,0-2.975h6.53a1.488,1.488,0,0,1,0,2.975Z"
+                          transform="translate(-661.82 -1278.016)"
+                          fill="#b7bcc9"
+                        />
+                      </g>
+                      <g
+                        id="Path_37"
+                        data-name="Path 37"
+                        transform="translate(7.304 13.257)"
+                      >
+                        <path
+                          id="Path_127"
+                          data-name="Path 127"
+                          d="M669.714,1285.1h-3.106a1.488,1.488,0,0,1,0-2.975h3.106a1.488,1.488,0,0,1,0,2.975Z"
+                          transform="translate(-665.12 -1282.127)"
+                          fill="#b7bcc9"
+                        />
+                      </g>
+                    </g>
+                    <g
+                      id="Path_117"
+                      data-name="Path 117"
+                      transform="translate(673.597 1267.668)"
+                    >
+                      <path
+                        id="Path_128"
+                        data-name="Path 128"
+                        d="M680.154,1299.668c-.168,0-.335,0-.5-.009h-.037a16.2,16.2,0,0,1-9.841-3.4,1.473,1.473,0,0,1-.273-2.037,1.405,1.405,0,0,1,2-.281,13.414,13.414,0,0,0,8.171,2.807h.027a13.1,13.1,0,0,0,.86-26.172c-.273-.008-.541-.008-.811,0h-.026a13.438,13.438,0,0,0-8.222,2.809,1.405,1.405,0,0,1-2-.281,1.474,1.474,0,0,1,.273-2.037,16.244,16.244,0,0,1,9.893-3.4h.033c.285-.01.617-.009.944,0a16.008,16.008,0,0,1-.489,31.992Z"
+                        transform="translate(-669.209 -1267.668)"
+                        fill="#b7bcc9"
+                      />
+                    </g>
+                  </g>
+                </svg>
+                <div style="margin-top: 8px">
+                  <ion-label class="text-choix">Clip</ion-label>
+                </div>
+              </div>
+
+              <div
+                (click)="takePicture(2)"
+                *ngIf="
+                  (selectedType == 'img' || selectedType == 'saved') &&
+                  isSelected &&
+                  !image2
+                "
+                style="
+                  height: 100%;
+                  width: 100%;
+                  position: relative;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="28.284"
+                  height="28.284"
+                  viewBox="0 0 28.284 28.284"
+                >
+                  <g
+                    id="Component_2_3"
+                    data-name="Component 2 – 3"
+                    transform="translate(14.142) rotate(45)"
+                  >
+                    <rect
+                      id="Rectangle_4"
+                      data-name="Rectangle 4"
+                      width="26.108"
+                      height="2.176"
+                      transform="translate(1.539 0) rotate(45)"
+                      fill="#b7bcc9"
+                    />
+                    <rect
+                      id="Rectangle_5"
+                      data-name="Rectangle 5"
+                      width="26.108"
+                      height="2.176"
+                      transform="translate(20 1.538) rotate(135)"
+                      fill="#b7bcc9"
+                    />
+                  </g>
+                </svg>
+                <div
+                  style="
+                    position: absolute;
+                    bottom: 0px;
+                    right: 0px;
+                    height: 26px;
+                    width: 26px;
+                    background-color: #b7bcc9;
+                    color: #fff;
+                    line-height: 28px;
+                    border-radius: 5px;
+                    border-top-left-radius: 16px;
+                  "
+                >
+                  2
+                </div>
+              </div>
+              <div
+                *ngIf="
+                  (selectedType == 'img' || selectedType == 'saved') &&
+                  isSelected &&
+                  image2
+                "
+                (click)="image2 = ''"
+                style="
+                  width: 28px;
+                  line-height: 28px;
+                  height: 28px;
+                  background-color: #fa2243;
+                  border: 1px solid #fff;
+                  position: absolute;
+                  top: -5px;
+                  right: -3px;
+                  border-radius: 5px;
+                  z-index: 9;
+                "
+              >
+                <ion-icon name="close" style="color: #fff"></ion-icon>
+              </div>
+
+              <div
+                *ngIf="
+                  (selectedType == 'img' || selectedType == 'saved') &&
+                  isSelected &&
+                  image2
+                "
+                (click)="openModalPintura(image2, 'img2')"
+                style="
+                  width: 28px;
+                  line-height: 28px;
+                  height: 28px;
+                  background-color: #111c3c;
+                  border: 1px solid #fff;
+                  position: absolute;
+                  top: 30px;
+                  right: -3px;
+                  border-radius: 5px;
+                  z-index: 9;
+                "
+              >
+                <svg
+                  width="12px"
+                  height="12px"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.4001 18.1612L11.4001 18.1612L18.796 10.7653C17.7894 10.3464 16.5972 9.6582 15.4697 8.53068C14.342 7.40298 13.6537 6.21058 13.2348 5.2039L5.83882 12.5999L5.83879 12.5999C5.26166 13.1771 4.97307 13.4657 4.7249 13.7838C4.43213 14.1592 4.18114 14.5653 3.97634 14.995C3.80273 15.3593 3.67368 15.7465 3.41556 16.5208L2.05445 20.6042C1.92743 20.9852 2.0266 21.4053 2.31063 21.6894C2.59466 21.9734 3.01478 22.0726 3.39584 21.9456L7.47918 20.5844C8.25351 20.3263 8.6407 20.1973 9.00498 20.0237C9.43469 19.8189 9.84082 19.5679 10.2162 19.2751C10.5343 19.0269 10.823 18.7383 11.4001 18.1612Z"
+                    fill="#ffffff"
+                  />
+                  <path
+                    d="M20.8482 8.71306C22.3839 7.17735 22.3839 4.68748 20.8482 3.15178C19.3125 1.61607 16.8226 1.61607 15.2869 3.15178L14.3999 4.03882C14.4121 4.0755 14.4246 4.11268 14.4377 4.15035C14.7628 5.0875 15.3763 6.31601 16.5303 7.47002C17.6843 8.62403 18.9128 9.23749 19.85 9.56262C19.8875 9.57563 19.9245 9.58817 19.961 9.60026L20.8482 8.71306Z"
+                    fill="#ffffff"
+                  />
+                </svg>
+              </div>
+
+              <div
+                (click)="takePicture(2)"
+                *ngIf="
+                  (selectedType == 'img' || selectedType == 'saved') &&
+                  isSelected &&
+                  image2
+                "
+                [ngStyle]="{ 'background-image': 'url(' + image2 + ')' }"
+                style="
+                  height: 100%;
+                  width: 100%;
+                  background-position: center;
+                  background-size: cover;
+                  border-radius: 5px;
+                "
+              ></div>
+            </div>
+          </ion-col>
+
+          <ion-col size="6" style="padding-right: 5px; padding-top: 10px">
+            <div
+              [style.height.px]="halfWidth"
+              style="
+                background-color: #ffffff;
+
+                position: relative;
+                border-radius: 4px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+              "
+            >
+              <div
+                *ngIf="!selectedType && !isSelected && !image3"
+                (click)="choiceImg('saved')"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="40"
+                  viewBox="0 0 32 40"
+                >
+                  <g
+                    id="Group_1561"
+                    data-name="Group 1561"
+                    transform="translate(-253.979 -525.474)"
+                  >
+                    <path
+                      id="Subtraction_22"
+                      data-name="Subtraction 22"
+                      d="M0,40v0L0,3.75A3.885,3.885,0,0,1,4,0H28a3.886,3.886,0,0,1,4,3.75V40L16,31.249,0,40ZM10.979,9.828a5.061,5.061,0,0,0-3.2,1.095A4.916,4.916,0,0,0,7.4,18.352l7.376,7.14a1.252,1.252,0,0,0,1.727,0l7.375-7.14a4.912,4.912,0,0,0-.373-7.429,5.059,5.059,0,0,0-3.2-1.095A5.682,5.682,0,0,0,16.4,11.409l-.751.725-.751-.725A5.67,5.67,0,0,0,10.979,9.828Z"
+                      transform="translate(253.979 525.474)"
+                      fill="#b7bcc9"
+                    />
+                  </g>
+                </svg>
+                <div style="margin-top: 8px">
+                  <ion-label class="text-choix">Saved</ion-label>
+                </div>
+              </div>
+              <div
+                (click)="takePicture(3)"
+                *ngIf="
+                  (selectedType == 'img' || selectedType == 'saved') &&
+                  isSelected &&
+                  !image3
+                "
+                style="
+                  height: 100%;
+                  width: 100%;
+                  position: relative;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="28.284"
+                  height="28.284"
+                  viewBox="0 0 28.284 28.284"
+                >
+                  <g
+                    id="Component_2_3"
+                    data-name="Component 2 – 3"
+                    transform="translate(14.142) rotate(45)"
+                  >
+                    <rect
+                      id="Rectangle_4"
+                      data-name="Rectangle 4"
+                      width="26.108"
+                      height="2.176"
+                      transform="translate(1.539 0) rotate(45)"
+                      fill="#b7bcc9"
+                    />
+                    <rect
+                      id="Rectangle_5"
+                      data-name="Rectangle 5"
+                      width="26.108"
+                      height="2.176"
+                      transform="translate(20 1.538) rotate(135)"
+                      fill="#b7bcc9"
+                    />
+                  </g>
+                </svg>
+                <div
+                  style="
+                    position: absolute;
+                    bottom: 0px;
+                    right: 0px;
+                    height: 26px;
+                    width: 26px;
+                    background-color: #b7bcc9;
+                    color: #fff;
+                    line-height: 28px;
+                    border-radius: 5px;
+                    border-top-left-radius: 16px;
+                  "
+                >
+                  3
+                </div>
+              </div>
+
+              <div
+                (click)="image3 = ''"
+                *ngIf="
+                  (selectedType == 'img' || selectedType == 'saved') &&
+                  isSelected &&
+                  image3
+                "
+                style="
+                  width: 28px;
+                  line-height: 28px;
+                  height: 28px;
+                  background-color: #fa2243;
+                  border: 1px solid #fff;
+                  position: absolute;
+                  top: -5px;
+                  right: -3px;
+                  border-radius: 5px;
+                  z-index: 9;
+                "
+              >
+                <ion-icon name="close" style="color: #fff"></ion-icon>
+              </div>
+
+              <div
+                *ngIf="
+                  (selectedType == 'img' || selectedType == 'saved') &&
+                  isSelected &&
+                  image3
+                "
+                (click)="openModalPintura(image3, 'img3')"
+                style="
+                  width: 28px;
+                  line-height: 28px;
+                  height: 28px;
+                  background-color: #111c3c;
+                  border: 1px solid #fff;
+                  position: absolute;
+                  top: 30px;
+                  right: -3px;
+                  border-radius: 5px;
+                  z-index: 9;
+                "
+              >
+                <svg
+                  width="12px"
+                  height="12px"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.4001 18.1612L11.4001 18.1612L18.796 10.7653C17.7894 10.3464 16.5972 9.6582 15.4697 8.53068C14.342 7.40298 13.6537 6.21058 13.2348 5.2039L5.83882 12.5999L5.83879 12.5999C5.26166 13.1771 4.97307 13.4657 4.7249 13.7838C4.43213 14.1592 4.18114 14.5653 3.97634 14.995C3.80273 15.3593 3.67368 15.7465 3.41556 16.5208L2.05445 20.6042C1.92743 20.9852 2.0266 21.4053 2.31063 21.6894C2.59466 21.9734 3.01478 22.0726 3.39584 21.9456L7.47918 20.5844C8.25351 20.3263 8.6407 20.1973 9.00498 20.0237C9.43469 19.8189 9.84082 19.5679 10.2162 19.2751C10.5343 19.0269 10.823 18.7383 11.4001 18.1612Z"
+                    fill="#ffffff"
+                  />
+                  <path
+                    d="M20.8482 8.71306C22.3839 7.17735 22.3839 4.68748 20.8482 3.15178C19.3125 1.61607 16.8226 1.61607 15.2869 3.15178L14.3999 4.03882C14.4121 4.0755 14.4246 4.11268 14.4377 4.15035C14.7628 5.0875 15.3763 6.31601 16.5303 7.47002C17.6843 8.62403 18.9128 9.23749 19.85 9.56262C19.8875 9.57563 19.9245 9.58817 19.961 9.60026L20.8482 8.71306Z"
+                    fill="#ffffff"
+                  />
+                </svg>
+              </div>
+
+              <div
+                (click)="takePicture(3)"
+                *ngIf="
+                  (selectedType == 'img' || selectedType == 'saved') &&
+                  isSelected &&
+                  image3
+                "
+                [ngStyle]="{ 'background-image': 'url(' + image3 + ')' }"
+                style="
+                  height: 100%;
+                  width: 100%;
+                  background-position: center;
+                  background-size: cover;
+                  border-radius: 5px;
+                "
+              ></div>
+            </div>
+          </ion-col>
+
+          <ion-col size="6" style="padding-left: 4px; padding-top: 10px">
+            <div
+              [style.height.px]="halfWidth"
+              style="
+                background-color: #ffffff;
+
+                position: relative;
+                border-radius: 4px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+              "
+            >
+              <div
+                (click)="choiceImg('txt')"
+                *ngIf="!selectedType && !isSelected && !image4"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 40 40"
+                >
+                  <path
+                    id="Icon_awesome-question-circle"
+                    data-name="Icon awesome-question-circle"
+                    d="M40.563,20.563a20,20,0,1,1-20-20A20,20,0,0,1,40.563,20.563ZM21.1,7.175a10.446,10.446,0,0,0-9.4,5.142.969.969,0,0,0,.219,1.311l2.8,2.122a.967.967,0,0,0,1.344-.171c1.441-1.827,2.428-2.887,4.621-2.887,1.648,0,3.685,1.06,3.685,2.658,0,1.208-1,1.828-2.624,2.74-1.9,1.063-4.407,2.387-4.407,5.7v.323a.968.968,0,0,0,.968.968h4.516a.968.968,0,0,0,.968-.968V24c0-2.3,6.709-2.391,6.709-8.6C30.5,10.724,25.645,7.175,21.1,7.175Zm-.537,20a3.71,3.71,0,1,0,3.71,3.71A3.714,3.714,0,0,0,20.563,27.175Z"
+                    transform="translate(-0.563 -0.563)"
+                    fill="#b7bcc9"
+                  />
+                </svg>
+                <div style="margin-top: 8px">
+                  <ion-label class="text-choix">Choices</ion-label>
+                </div>
+              </div>
+              <div
+                (click)="takePicture(4)"
+                *ngIf="
+                  (selectedType == 'img' || selectedType == 'saved') &&
+                  isSelected &&
+                  !image4
+                "
+                style="
+                  height: 100%;
+                  width: 100%;
+                  position: relative;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="28.284"
+                  height="28.284"
+                  viewBox="0 0 28.284 28.284"
+                >
+                  <g
+                    id="Component_2_3"
+                    data-name="Component 2 – 3"
+                    transform="translate(14.142) rotate(45)"
+                  >
+                    <rect
+                      id="Rectangle_4"
+                      data-name="Rectangle 4"
+                      width="26.108"
+                      height="2.176"
+                      transform="translate(1.539 0) rotate(45)"
+                      fill="#b7bcc9"
+                    />
+                    <rect
+                      id="Rectangle_5"
+                      data-name="Rectangle 5"
+                      width="26.108"
+                      height="2.176"
+                      transform="translate(20 1.538) rotate(135)"
+                      fill="#b7bcc9"
+                    />
+                  </g>
+                </svg>
+                <div
+                  style="
+                    position: absolute;
+                    bottom: 0px;
+                    right: 0px;
+                    height: 26px;
+                    width: 26px;
+                    background-color: #b7bcc9;
+                    color: #fff;
+                    line-height: 28px;
+                    border-radius: 5px;
+                    border-top-left-radius: 16px;
+                  "
+                >
+                  4
+                </div>
+              </div>
+              <div
+                (click)="image4 = ''"
+                *ngIf="
+                  (selectedType == 'img' || selectedType == 'saved') &&
+                  isSelected &&
+                  image4
+                "
+                style="
+                  width: 28px;
+                  line-height: 28px;
+                  height: 28px;
+                  background-color: #fa2243;
+                  border: 1px solid #fff;
+                  position: absolute;
+                  top: -5px;
+                  right: -3px;
+                  border-radius: 5px;
+                  z-index: 9;
+                "
+              >
+                <ion-icon name="close" style="color: #fff"></ion-icon>
+              </div>
+
+              <div
+                *ngIf="
+                  (selectedType == 'img' || selectedType == 'saved') &&
+                  isSelected &&
+                  image4
+                "
+                (click)="openModalPintura(image4, 'img4')"
+                style="
+                  width: 28px;
+                  line-height: 28px;
+                  height: 28px;
+                  background-color: #111c3c;
+                  border: 1px solid #fff;
+                  position: absolute;
+                  top: 30px;
+                  right: -3px;
+                  border-radius: 5px;
+                  z-index: 9;
+                "
+              >
+                <svg
+                  width="12px"
+                  height="12px"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.4001 18.1612L11.4001 18.1612L18.796 10.7653C17.7894 10.3464 16.5972 9.6582 15.4697 8.53068C14.342 7.40298 13.6537 6.21058 13.2348 5.2039L5.83882 12.5999L5.83879 12.5999C5.26166 13.1771 4.97307 13.4657 4.7249 13.7838C4.43213 14.1592 4.18114 14.5653 3.97634 14.995C3.80273 15.3593 3.67368 15.7465 3.41556 16.5208L2.05445 20.6042C1.92743 20.9852 2.0266 21.4053 2.31063 21.6894C2.59466 21.9734 3.01478 22.0726 3.39584 21.9456L7.47918 20.5844C8.25351 20.3263 8.6407 20.1973 9.00498 20.0237C9.43469 19.8189 9.84082 19.5679 10.2162 19.2751C10.5343 19.0269 10.823 18.7383 11.4001 18.1612Z"
+                    fill="#ffffff"
+                  />
+                  <path
+                    d="M20.8482 8.71306C22.3839 7.17735 22.3839 4.68748 20.8482 3.15178C19.3125 1.61607 16.8226 1.61607 15.2869 3.15178L14.3999 4.03882C14.4121 4.0755 14.4246 4.11268 14.4377 4.15035C14.7628 5.0875 15.3763 6.31601 16.5303 7.47002C17.6843 8.62403 18.9128 9.23749 19.85 9.56262C19.8875 9.57563 19.9245 9.58817 19.961 9.60026L20.8482 8.71306Z"
+                    fill="#ffffff"
+                  />
+                </svg>
+              </div>
+
+              <div
+                (click)="takePicture(4)"
+                *ngIf="
+                  (selectedType == 'img' || selectedType == 'saved') &&
+                  isSelected &&
+                  image4
+                "
+                [ngStyle]="{ 'background-image': 'url(' + image4 + ')' }"
+                style="
+                  height: 100%;
+                  width: 100%;
+                  background-position: center;
+                  background-size: cover;
+                  border-radius: 3px;
+                "
+              ></div>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="selectedType == 'txt'">
+          <ion-col
+            size="12"
+            class="ion-padding-start ion-padding-end"
+            style="margin-top: 10px"
+          >
+            <div
+              (click)="openActionSheet(1)"
+              [ngStyle]="{ 'background-color': colorpicked }"
+              *ngIf="selectedType == 'txt'"
+              style="
+                height: 100%;
+                width: 100%;
+                position: relative;
+                min-height: 60px;
+                display: flex;
+                padding: 8px;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <ng-container *ngIf="!content1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 28.284 28.284"
+                >
+                  <g
+                    id="Component_2_3"
+                    data-name="Component 2 – 3"
+                    transform="translate(14.142) rotate(45)"
+                  >
+                    <rect
+                      id="Rectangle_4"
+                      data-name="Rectangle 4"
+                      width="26.108"
+                      height="2.176"
+                      transform="translate(1.539 0) rotate(45)"
+                      fill="#b7bcc9"
+                    />
+                    <rect
+                      id="Rectangle_5"
+                      data-name="Rectangle 5"
+                      width="26.108"
+                      height="2.176"
+                      transform="translate(20 1.538) rotate(135)"
+                      fill="#b7bcc9"
+                    />
+                  </g>
+                </svg>
+                <div
+                  style="
+                    position: absolute;
+                    bottom: 0px;
+                    right: 0px;
+                    height: 26px;
+                    width: 26px;
+                    background-color: #b7bcc9;
+                    color: #fff;
+                    line-height: 28px;
+                    border-radius: 5px;
+                    border-top-left-radius: 16px;
+                    text-align: center;
+                  "
+                >
+                  1
+                </div>
+              </ng-container>
+              <ng-container *ngIf="content1">
+                <span [ngStyle]="{ color: getColorByBgColor(colorpicked) }">
+                  {{ content1 }}
+                </span>
+              </ng-container>
+            </div>
+          </ion-col>
+          <ion-col
+            size="12"
+            class="ion-padding-start ion-padding-end"
+            style="margin-top: 10px"
+          >
+            <div
+              (click)="openActionSheet(2)"
+              [ngStyle]="{ 'background-color': colorpicked }"
+              *ngIf="selectedType == 'txt'"
+              style="
+                height: 100%;
+                width: 100%;
+                position: relative;
+                min-height: 60px;
+                display: flex;
+                align-items: center;
+                padding: 8px;
+                justify-content: center;
+              "
+            >
+              <ng-container *ngIf="!content2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 28.284 28.284"
+                >
+                  <g
+                    id="Component_2_3"
+                    data-name="Component 2 – 3"
+                    transform="translate(14.142) rotate(45)"
+                  >
+                    <rect
+                      id="Rectangle_4"
+                      data-name="Rectangle 4"
+                      width="26.108"
+                      height="2.176"
+                      transform="translate(1.539 0) rotate(45)"
+                      fill="#b7bcc9"
+                    />
+                    <rect
+                      id="Rectangle_5"
+                      data-name="Rectangle 5"
+                      width="26.108"
+                      height="2.176"
+                      transform="translate(20 1.538) rotate(135)"
+                      fill="#b7bcc9"
+                    />
+                  </g>
+                </svg>
+                <div
+                  style="
+                    position: absolute;
+                    bottom: 0px;
+                    right: 0px;
+                    height: 26px;
+                    width: 26px;
+                    background-color: #b7bcc9;
+                    color: #fff;
+                    line-height: 28px;
+                    border-radius: 5px;
+                    border-top-left-radius: 16px;
+                    text-align: center;
+                  "
+                >
+                  2
+                </div>
+              </ng-container>
+              <ng-container *ngIf="content2">
+                <span [ngStyle]="{ color: getColorByBgColor(colorpicked) }">
+                  {{ content2 }}
+                </span>
+              </ng-container>
+            </div>
+          </ion-col>
+          <ion-col
+            size="12"
+            class="ion-padding-start ion-padding-end"
+            style="margin-top: 10px"
+          >
+            <div
+              (click)="openActionSheet(3)"
+              [ngStyle]="{ 'background-color': colorpicked }"
+              *ngIf="selectedType == 'txt'"
+              style="
+                height: 100%;
+                width: 100%;
+                position: relative;
+                min-height: 60px;
+                display: flex;
+                align-items: center;
+                padding: 8px;
+                justify-content: center;
+              "
+            >
+              <ng-container *ngIf="!content3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 28.284 28.284"
+                >
+                  <g
+                    id="Component_2_3"
+                    data-name="Component 2 – 3"
+                    transform="translate(14.142) rotate(45)"
+                  >
+                    <rect
+                      id="Rectangle_4"
+                      data-name="Rectangle 4"
+                      width="26.108"
+                      height="2.176"
+                      transform="translate(1.539 0) rotate(45)"
+                      fill="#b7bcc9"
+                    />
+                    <rect
+                      id="Rectangle_5"
+                      data-name="Rectangle 5"
+                      width="26.108"
+                      height="2.176"
+                      transform="translate(20 1.538) rotate(135)"
+                      fill="#b7bcc9"
+                    />
+                  </g>
+                </svg>
+                <div
+                  style="
+                    position: absolute;
+                    bottom: 0px;
+                    right: 0px;
+                    height: 26px;
+                    width: 26px;
+                    background-color: #b7bcc9;
+                    color: #fff;
+                    line-height: 28px;
+                    border-radius: 5px;
+                    border-top-left-radius: 16px;
+                    text-align: center;
+                  "
+                >
+                  3
+                </div>
+              </ng-container>
+              <ng-container *ngIf="content3">
+                <span [ngStyle]="{ color: getColorByBgColor(colorpicked) }">
+                  {{ content3 }}
+                </span>
+              </ng-container>
+            </div>
+          </ion-col>
+          <ion-col
+            size="12"
+            class="ion-padding-start ion-padding-end"
+            style="margin-top: 10px"
+          >
+            <div
+              (click)="openActionSheet(4)"
+              [ngStyle]="{ 'background-color': colorpicked }"
+              *ngIf="selectedType == 'txt'"
+              style="
+                height: 100%;
+                width: 100%;
+                position: relative;
+                min-height: 60px;
+                display: flex;
+                align-items: center;
+                padding: 8px;
+                justify-content: center;
+              "
+            >
+              <ng-container *ngIf="!content4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 28.284 28.284"
+                >
+                  <g
+                    id="Component_2_3"
+                    data-name="Component 2 – 3"
+                    transform="translate(14.142) rotate(45)"
+                  >
+                    <rect
+                      id="Rectangle_4"
+                      data-name="Rectangle 4"
+                      width="26.108"
+                      height="2.176"
+                      transform="translate(1.539 0) rotate(45)"
+                      fill="#b7bcc9"
+                    />
+                    <rect
+                      id="Rectangle_5"
+                      data-name="Rectangle 5"
+                      width="26.108"
+                      height="2.176"
+                      transform="translate(20 1.538) rotate(135)"
+                      fill="#b7bcc9"
+                    />
+                  </g>
+                </svg>
+                <div
+                  style="
+                    position: absolute;
+                    bottom: 0px;
+                    right: 0px;
+                    height: 26px;
+                    width: 26px;
+                    background-color: #b7bcc9;
+                    color: #fff;
+                    line-height: 28px;
+                    border-radius: 5px;
+                    border-top-left-radius: 16px;
+                    text-align: center;
+                  "
+                >
+                  4
+                </div>
+              </ng-container>
+              <ng-container *ngIf="content4">
+                <span [ngStyle]="{ color: getColorByBgColor(colorpicked) }">
+                  {{ content4 }}
+                </span>
+              </ng-container>
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-grid>
+  </ion-card>
+</ion-content>

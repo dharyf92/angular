@@ -1,0 +1,9 @@
+<ul>
+  @for (picker of pickers(); track picker.id) {
+  <app-list-picker-item
+    [picker]="picker"
+    (profile)="showProfile($event)"
+    (pick)="togglePick($event)"
+  ></app-list-picker-item>
+  }
+</ul>

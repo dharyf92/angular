@@ -1,0 +1,27 @@
+
+
+// ion-range::part(pin) {
+//     display: inline-flex;
+//     border-radius: 0px;
+//     transform: scale(1.01);
+  
+//     bottom: -28px;
+//     background: transparent;
+//     min-width: 100px;
+//     height: 28px;
+//     transition: transform 120ms ease, background 120ms ease;
+//     text-align: left;
+//   }
+  
+//   ion-range::part(pin)::before {
+//     content: none;
+//   }
+  
+  ion-range::part(knob) {
+    transform: rotate(45deg);
+    border-radius: 5px;
+  }
+
+  // image-cropper{
+  //   --cropper-overlay-color: red
+  // }

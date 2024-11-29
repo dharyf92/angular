@@ -1,0 +1,272 @@
+.pick {
+  text-align: center;
+  ::ng-deep .font-size {
+    font-size: 1.1rem !important;
+  }
+}
+
+.one-post-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@keyframes resizeAndColor {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.7);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Apply the animation to the Ionic component */
+.ionic-component {
+  animation: resizeAndColor 2s ease-in-out;
+}
+
+@keyframes resizeAndColor2 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.85);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Apply the animation to the Ionic component */
+.ionic-component-2 {
+  animation: resizeAndColor2 0.5s ease-in-out;
+}
+
+@keyframes slideAndFade {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(calc(50% - 30px));
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+
+@keyframes slideAndFade2 {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(calc(-50% + 30px));
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes reverseSlideAndFade {
+  0% {
+    transform: translateX(50%);
+  }
+  50% {
+    transform: translateX(calc(50% - 30px));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes reverseSlideAndFade2 {
+  0% {
+    transform: translateX(-50%);
+  }
+  50% {
+    transform: translateX(calc(-50% + 30px));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes reverseFade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Apply the animations to the first and second components */
+.first-component {
+  animation: slideAndFade 0.7s linear forwards;
+}
+
+.first-component-backwards {
+  animation: reverseSlideAndFade 0.7s linear forwards;
+}
+
+.second-component {
+  animation: fade 0.7s ease-in-out forwards;
+}
+
+.second-component-backwards {
+  animation: reverseFade 0.7s ease-in-out forwards;
+}
+
+.third-component {
+  animation: slideAndFade2 0.7s linear forwards;
+}
+
+.move-back {
+  z-index: -1;
+}
+
+.third-component-backwards {
+  animation: reverseSlideAndFade2 0.7s linear forwards;
+}
+
+.name-text {
+  color: var(--Dark-blue, #111c3c);
+  /* Base/Meduim base */
+  font-family: SofiaProMedium;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 0px;
+}
+
+.subtitle {
+  color: var(--Grey, #b7bcc9);
+  font-family: var(--sofia-pro-medium);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.post-text {
+  color: var(--Dark-blue, #111c3c);
+  font-style: normal;
+  line-height: normal;
+  margin: 0px;
+  padding-bottom: 16px;
+  font-family: SofiaPro;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+@keyframes slideAndZoom {
+  0% {
+    opacity: 0;
+    transform: scale(1) translate(-50%);
+    bottom: 50%;
+  }
+  40% {
+    opacity: 0.8;
+    transform: scale(1.5) translate(-50%);
+    bottom: 50%;
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1) translate(-50%);
+    bottom: 50%;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1) translate(-50%);
+    bottom: 100%;
+  }
+}
+
+@keyframes slideAndZoomDown {
+  0% {
+    opacity: 0;
+    transform: scale(1) translateX(-50%);
+    bottom: 50%;
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.5) translateX(-50%) rotate(180deg);
+    bottom: 50%;
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1) translateX(-50%) rotate(180deg);
+    bottom: 50%;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1) translateX(-50%) rotate(180deg);
+    bottom: 0%;
+  }
+}
+.svg-container {
+  position: absolute;
+  left: 50%;
+  z-index: 9;
+  bottom: 0%;
+  transform: translate(-50%);
+  opacity: 0;
+}
+.animate-svg-up {
+  animation: slideAndZoom 1.2s forwards;
+}
+
+.animate-svg-down {
+  animation: slideAndZoomDown 1.2s forwards;
+}
+
+.overlay {
+  background: #000;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.meta-data-style {
+  font-size: 14px;
+  position: absolute;
+  width: 100%;
+  padding: 6px 12px;
+  bottom: 5px;
+  color: #fff;
+  z-index: 9;
+}
+
+ion-slides {
+  height: 100%;
+}
+
+.picker {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.suggestion-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 16px;
+}

@@ -1,0 +1,23 @@
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <ion-title>
+      Complete Account
+    </ion-title>
+    <h1 style="margin-bottom: 30px;">Verify your phone number</h1>
+    <p style="margin-bottom: 60px; font-weight: lighter;">Do not forget your area code!</p>
+    <ion-row style="margin-bottom: 15px;">
+      <ion-col size="auto">
+        <ion-item style="font-weight: lighter;"> 
+          <ion-select aria-label="Area" interface="popover" placeholder="Area" [(ngModel)]="selectedOption">
+            <ion-select-option value="+1">+1</ion-select-option>
+            <ion-select-option value="+212">+212</ion-select-option>
+            <ion-select-option value="+961">+961</ion-select-option>
+          </ion-select>
+        </ion-item>  
+      </ion-col>
+      <ion-col class="inputcol"><ion-input placeholder="Phone number" [(ngModel)]="phone" clearInput type="tel"></ion-input></ion-col>
+    </ion-row>
+    
+    <ion-button (click)="sendConfirmation()" style="height: 40px; width: 100%;" color="primary">Send confirmation</ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,56 @@
+<div class="post-grid-item" (click)="onGetPost()">
+  @if(post().is_clip) {
+  <div class="ion-no-padding content clip">
+    <img src="{{ content().thumbnail.url }}" [alt]="content().file_name" />
+  </div>
+  } @else { @if(post().post_contents.length > 3) {
+  <div class="post-item-layout">
+    @for (item of post().post_contents; track item.id) { @switch (type()) {
+    @case ('questions') {
+    <div class="ion-no-padding content">
+      <img src="{{ item.image_path.url }}" [alt]="item.file_name" />
+    </div>
+    } @case('media') {
+    <div class="ion-no-padding content">
+      <img src="{{ item.image_path.url }}" [alt]="item.file_name" />
+    </div>
+    } @case('saved') {
+    <div>saved</div>
+    } } }
+  </div>
+  } @else { @switch (type()) { @case ('questions') {
+  <div class="ion-no-padding content" [appContrast]="content().question_color">
+    {{ content().question_text }}
+  </div>
+  } @case('media') {
+  <div class="ion-no-padding content">
+    <img src="{{ content().image_path.url }}" [alt]="content().file_name" />
+  </div>
+  } @case ('saved') {
+  <div class="ion-no-padding content">saved</div>
+  } } } }
+  <div class="post-grid-item-text">
+    <div class="overlay">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="32"
+          d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 0 0-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 0 0 0-17.47C428.89 172.28 347.8 112 255.66 112"
+        />
+        <circle
+          cx="256"
+          cy="256"
+          r="80"
+          fill="none"
+          stroke="currentColor"
+          stroke-miterlimit="10"
+          stroke-width="32"
+        />
+      </svg>
+      <span>{{ post().views_count }}</span>
+    </div>
+  </div>
+</div>

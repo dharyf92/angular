@@ -1,0 +1,8 @@
+{
+  "name": "One Pick",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "npmClient": "pnpm"
+}

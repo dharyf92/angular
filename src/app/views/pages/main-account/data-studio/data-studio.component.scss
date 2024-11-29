@@ -1,0 +1,117 @@
+.header-md::after {
+  background-image: none;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.mt-2 {
+  margin-top: 2px;
+}
+
+.border-left {
+  border-left: 1.5px solid #fff;
+}
+
+.border-right {
+  border-right: 1.5px solid #fff;
+}
+
+.border-top {
+  border-top: 1.5px solid #fff;
+}
+
+.color-medium {
+  color: var(--ion-color-medium);
+}
+
+ion-header {
+  padding: 0;
+  box-shadow: none;
+}
+
+ion-header ion-toolbar {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+ion-header ion-toolbar ion-title {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "SofiaProMedium" sans-serif;
+}
+ion-header ion-toolbar ion-buttons {
+  margin-right: 0;
+
+  ion-button {
+    --padding-start: 0;
+    --padding-end: 0;
+    --min-width: 0;
+    --height: 30px;
+    --border-radius: 0;
+    --box-shadow: none;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0;
+  gap: 16px;
+}
+
+.trending-post-list {
+  margin: 0px -16px !important;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px;
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
+
+.trending-post-list > *:not(.empty-list) {
+  min-width: 145px;
+  max-width: 145px;
+  aspect-ratio: 1 / 1;
+}
+
+div.empty-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 145px;
+  width: 100%;
+  position: relative;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.empty-list ion-icon {
+  font-size: 30px;
+}
+
+.empty-list h2 {
+  font-size: 20px;
+  color: hsl(225, 56%, 15%);
+  margin: 0;
+}
+
+.age-range-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.age-range-header > h5 {
+  font-size: 16px;
+  color: hsl(225, 56%, 15%);
+  margin: 0px;
+}
+
+.age-range-header ion-select {
+  border: 1px solid hsl(223, 15%, 82%);
+  padding: 0 8px;
+  border-radius: 5px;
+  width: max-content;
+}

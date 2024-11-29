@@ -1,0 +1,106 @@
+<ion-header class="ion-no-border" mode="md">
+  <ion-toolbar class="text-tolbar">
+    <ion-buttons (click)="closeModalWithoutThem()" slot="start">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="20"
+        viewBox="0 0 24 20"
+        fill="none"
+      >
+        <path
+          d="M24 9.99929C24 10.5089 23.5864 10.9225 23.0768 10.9225H3.14982L10.1905 17.9632C10.5512 18.3238 10.5512 18.9086 10.1905 19.2692C10.0108 19.4489 9.77445 19.54 9.53812 19.54C9.30179 19.54 9.06542 19.4502 8.88571 19.2692L0.269401 10.6529C0.184469 10.568 0.116936 10.4659 0.0701613 10.3527C-0.0233871 10.1274 -0.0233871 9.87265 0.0701613 9.64739C0.116936 9.53415 0.184469 9.43181 0.269401 9.34688L8.88571 0.730573C9.24636 0.36992 9.83108 0.36992 10.1917 0.730573C10.5524 1.09123 10.5524 1.67595 10.1917 2.0366L3.15102 9.07732H23.0768C23.5864 9.07609 24 9.4897 24 9.99929Z"
+          fill="#111C3C"
+        />
+      </svg>
+    </ion-buttons>
+
+    <ion-title
+      style="
+        text-align: center;
+        color: #678af7;
+        text-transform: lowercase !important;
+      "
+      >{{ hashtag }}</ion-title
+    >
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="font-family: SofiaProMedium" [scrollEvents]="true">
+  <ion-content
+    class="ion-padding-horizontal"
+    *ngIf="postsService.isLoading; else content"
+  >
+    <ion-item
+      lines="none"
+      style="--padding-start: 10px; --inner-padding-end: 0"
+    >
+      <div class="rhombus-avatar" style="margin-top: -2%">
+        <ion-skeleton-text
+          animated
+          style="width: 100%; height: 100%; border-radius: 5px"
+        ></ion-skeleton-text>
+      </div>
+      <ion-label>
+        <ion-row>
+          <ion-col size="12">
+            <ion-skeleton-text
+              animated
+              style="width: 30%; height: 12px; --border-radius: 9999px"
+            ></ion-skeleton-text>
+          </ion-col>
+          <ion-col size="12">
+            <ion-skeleton-text
+              animated
+              style="width: 50%; height: 12px; --border-radius: 9999px"
+            ></ion-skeleton-text>
+          </ion-col>
+        </ion-row>
+      </ion-label>
+    </ion-item>
+
+    <ion-label>
+      <ion-row>
+        <ion-col size="11">
+          <ion-skeleton-text
+            animated
+            style="width: 100%; height: 12px; --border-radius: 9999px"
+          ></ion-skeleton-text>
+        </ion-col>
+        <ion-col size="12">
+          <ion-skeleton-text
+            animated
+            style="width: 50%; height: 12px; --border-radius: 9999px"
+          ></ion-skeleton-text>
+        </ion-col>
+        <ion-col size="6" class="ion-text-end"> </ion-col>
+      </ion-row>
+    </ion-label>
+    <ion-skeleton-text
+      [animated]="true"
+      style="width: 100%; height: 45%"
+    ></ion-skeleton-text>
+
+    <ion-label style="--padding-start: 10px; --inner-padding-end: 0">
+      <h3>
+        <ion-row class="ion-justify-content-between">
+          <ion-col size="auto">
+            <ion-skeleton-text
+              [animated]="true"
+              style="width: 100px; --border-radius: 9999px"
+            ></ion-skeleton-text>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-skeleton-text
+              [animated]="true"
+              style="width: 100px; --border-radius: 9999px"
+            ></ion-skeleton-text>
+          </ion-col>
+        </ion-row>
+      </h3>
+    </ion-label>
+  </ion-content>
+  <ng-template #content>
+    <app-post-list [posts]="posts" [isHashtag]="true"></app-post-list>
+  </ng-template>
+</ion-content>

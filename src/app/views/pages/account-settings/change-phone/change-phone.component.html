@@ -1,0 +1,73 @@
+<ion-header class="ion-no-border" mode="md">
+  <ion-toolbar style="padding-top: 0px;">
+    <ion-buttons slot="start" (click)="goBack()">
+      <!-- <ion-back-button icon="caret-back"></ion-back-button> -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 20" fill="none">
+        <path d="M24 9.99929C24 10.5089 23.5864 10.9225 23.0768 10.9225H3.14982L10.1905 17.9632C10.5512 18.3238 10.5512 18.9086 10.1905 19.2692C10.0108 19.4489 9.77445 19.54 9.53812 19.54C9.30179 19.54 9.06542 19.4502 8.88571 19.2692L0.269401 10.6529C0.184469 10.568 0.116936 10.4659 0.0701613 10.3527C-0.0233871 10.1274 -0.0233871 9.87265 0.0701613 9.64739C0.116936 9.53415 0.184469 9.43181 0.269401 9.34688L8.88571 0.730573C9.24636 0.36992 9.83108 0.36992 10.1917 0.730573C10.5524 1.09123 10.5524 1.67595 10.1917 2.0366L3.15102 9.07732H23.0768C23.5864 9.07609 24 9.4897 24 9.99929Z" fill="#111C3C"/>
+        </svg>
+    </ion-buttons>
+ 
+    <ion-title style="text-align: center;font-family: sofiaProMedium;">Phone Number</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="padding:24px 16px 16px 16px;height:100%">
+  <div style="text-align:left;margin-bottom:32px;">
+    <p style="color:#111C3C;height:20px;line-height: 20px;margin: 0;">
+      Do not forget your area code!
+
+    </p>
+  </div>
+  <div style="display:flex ; justify-content: center; align-items: center;">
+    <div style=" width:100%" id="tel-input">
+      <ion-label slot="start" style="color: #B7BCC9">Phone</ion-label>
+
+      <app-input-tel style="width: 100%;" [dial]="dial" [phoneNumber]="phoneNumber" (newPhoneInfoEvent)="addPhoneInfo($event)"></app-input-tel> 
+
+        <!-- <ion-label position="stacked">Tel Input</ion-label> -->
+<!-- 
+        <div id="tel-input" style="display: flex; align-items: center; align-content: center; width: 100%;margin-top: 8px;">
+
+          <div style="position: relative;height: 56px;width: 100%;">
+            <span (click)="choiceCounty()" style="display: flex;justify-content: space-between;position: absolute;top: 50%;transform: translateY(-50%);height: 100%;display: flex;align-items: center;z-index: 9;">
+              <span style="padding: 0px 10px;">{{dial}}</span>
+              <ion-icon name="chevron-down-outline"></ion-icon>
+            </span>
+            <ion-input  [(ngModel)]="phoneNumber"  style="--padding-start:80px;height: 100%;" placeholder="Phone number" clearInput type="text"></ion-input>
+          </div>
+
+        </div> -->
+    
+      <!-- <ion-input style="--padding-start:1rem;" placeholder="Phone number" clearInput type="text"></ion-input> -->
+    </div>
+  </div>
+  <div style="text-align:center;margin-top: 16px;margin-bottom: 16px;">
+    <ion-button (click)="goToPhoneConfirmation()" style="width: 100%;" color="primary">Send Code
+    </ion-button>
+  </div>
+  <!-- <div style="padding:1rem;">
+
+    <div style="margin-bottom:1rem;">
+      <span style="color:#111C3C;font-size:x-small;">
+        Do not forget your area code!
+
+      </span>
+    </div>
+    <div style="margin-bottom:.5rem;">
+      <span style="color:#B7BCC9;font-size:x-small;">
+        Phone
+      </span>
+    </div>
+    <div>
+      <div>
+        <ion-input style="--padding-start:1rem;" placeholder="Phone number" clearInput type="text"></ion-input>
+      </div>
+    </div>
+    <div style="text-align:center;">
+      <ion-button style="width:100%; margin-top:1rem;" color="primary">Send code
+      </ion-button>
+    </div>
+  </div> -->
+</div>
+</ion-content>

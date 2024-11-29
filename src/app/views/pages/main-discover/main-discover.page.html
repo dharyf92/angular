@@ -1,0 +1,251 @@
+<ion-header class="ion-no-border" mode="md">
+  <ion-toolbar class="text-tolbar" style="padding-right: 5px">
+    <ion-buttons slot="end">
+      <ion-button
+        (click)="openSearch()"
+        style="
+          --padding-start: 0px;
+          --padding-top: 0px;
+          --padding-end: 0px;
+          --padding-bottom: 0px;
+        "
+      >
+        <ion-icon
+          slot="icon-only"
+          style="font-size: 24px; color: #111c3c"
+          name="search-outline"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title
+      color="primary"
+      style="
+        font-size: 26px;
+        font-family: 'SofiaProMedium';
+        font-weight: 500;
+        text-align: left;
+      "
+      >Discover</ion-title
+    >
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item lines="none" (click)="showpicks()">
+    <h5>Trending Picks</h5>
+    <ion-chip color="medium" slot="end">
+      <ion-label> {{posts ? '+ '+posts.length : '0'}} </ion-label>
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </ion-chip>
+  </ion-item>
+  <ion-content
+    style="height: 31%"
+    *ngIf="postsService.isTrendPicksLoading; else trendingPicks"
+  >
+    <ion-skeleton-text
+      class="mt-24"
+      [animated]="true"
+      style="width: 100%; height: 100%"
+    ></ion-skeleton-text>
+  </ion-content>
+  <ng-template #trendingPicks>
+    <div class="mt-24 trending-post-list">
+      @for (post of posts; track post.id) {
+      <app-trending-post-item
+        (getPost)="getOnePost($event)"
+        [post]="post"
+      ></app-trending-post-item>
+      }@empty {
+      <p
+        style="
+          text-align: center;
+          font-size: 16px;
+          color: var(--Gray-1, #a0a0a0);
+        "
+      >
+        No trending picks yet
+      </p>
+      }
+    </div>
+  </ng-template>
+  <!-- Trending Pickers -->
+  <ion-item lines="none" class="mt-24" (click)="showusers()">
+    <h5>Trending Pickers</h5>
+    <ion-chip color="medium" slot="end">
+      <ion-label> {{pikers ? '+ '+pikers.length : '0' }} </ion-label>
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </ion-chip>
+  </ion-item>
+  <!-- skeleton-->
+  <ion-item
+    lines="none"
+    class="mt-24"
+    *ngIf="postsService.isTrendPickersLoading; else trendingPickers"
+  >
+    <div class="rhombus-avatar">
+      <ion-skeleton-text
+        class="mt-24"
+        animated
+        style="display: flex; width: 100%; height: 100%; border-radius: 8px"
+      ></ion-skeleton-text>
+    </div>
+    <div class="rhombus-avatar">
+      <ion-skeleton-text
+        class="mt-24"
+        animated
+        style="display: flex; width: 100%; height: 100%; border-radius: 8px"
+      ></ion-skeleton-text>
+    </div>
+    <div class="rhombus-avatar">
+      <ion-skeleton-text
+        class="mt-24"
+        animated
+        style="display: flex; width: 100%; height: 100%; border-radius: 8px"
+      ></ion-skeleton-text>
+    </div>
+    <div class="rhombus-avatar">
+      <ion-skeleton-text
+        class="mt-24"
+        animated
+        style="display: flex; width: 100%; height: 100%; border-radius: 8px"
+      ></ion-skeleton-text>
+    </div>
+  </ion-item>
+  <ng-template #trendingPickers>
+    <ion-segment
+      scrollable
+      class="segments mt-24"
+      [(ngModel)]="segments3"
+      #segment3
+      style="display: flex"
+    >
+      <ion-segment-button
+        *ngFor="let data of pikers"
+        (click)="showProfile(data.id)"
+        class="ion-no-padding"
+        style="padding-right: 8px; width: 80px"
+      >
+        <app-avatar
+          *ngIf="data"
+          width="53px"
+          height="53px"
+          size="53px"
+          [src]="data.avatar.url"
+        ></app-avatar>
+        <h5 class="name-text">{{ sliceText(data.username,6) }}</h5>
+      </ion-segment-button>
+    </ion-segment>
+  </ng-template>
+  <ion-item lines="none" class="mt-24" (click)="sugesstedPicks()">
+    <h5>Suggested Picks</h5>
+    <ion-chip color="medium" slot="end">
+      <ion-label *ngIf="listSuggestedPicks">
+        + {{listSuggestedPicks.length}}
+      </ion-label>
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </ion-chip>
+  </ion-item>
+  <ion-content
+    style="height: 31%"
+    *ngIf="postsService.isSuggestPicksLoading; else suggestedPicks"
+  >
+    <ion-skeleton-text
+      class="mt-24"
+      [animated]="true"
+      style="width: 100%; height: 90%"
+    ></ion-skeleton-text>
+  </ion-content>
+  <ng-template #suggestedPicks>
+    <div class="mt-24 trending-post-list">
+      @for (post of listSuggestedPicks; track post.id) {
+      <app-trending-post-item
+        (getPost)="getOnePost($event)"
+        [post]="post"
+      ></app-trending-post-item>
+      }@empty {
+      <p
+        style="
+          text-align: center;
+          font-size: 16px;
+          color: var(--Gray-1, #a0a0a0);
+        "
+      >
+        No suggested picks yet
+      </p>
+      }
+    </div>
+  </ng-template>
+
+  <!-- Suggested Pickers -->
+  <ion-item lines="none" class="mt-24" (click)="showSuggestedPicker()">
+    <h5>Suggested Pickers</h5>
+    <ion-chip color="medium" slot="end">
+      <ion-label *ngIf="listSuggestedPickers">
+        + {{listSuggestedPickers.length}}
+      </ion-label>
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </ion-chip>
+  </ion-item>
+  <!-- skeleton-->
+  <ion-item
+    lines="none"
+    class="mt-24"
+    *ngIf="postsService.isSuggestPickersLoading; else suggestedPickers"
+  >
+    <div class="rhombus-avatar">
+      <ion-skeleton-text
+        class="mt-24"
+        animated
+        style="display: flex; width: 100%; height: 100%; border-radius: 8px"
+      ></ion-skeleton-text>
+    </div>
+    <div class="rhombus-avatar">
+      <ion-skeleton-text
+        class="mt-24"
+        animated
+        style="display: flex; width: 100%; height: 100%; border-radius: 8px"
+      ></ion-skeleton-text>
+    </div>
+    <div class="rhombus-avatar">
+      <ion-skeleton-text
+        class="mt-24"
+        animated
+        style="display: flex; width: 100%; height: 100%; border-radius: 8px"
+      ></ion-skeleton-text>
+    </div>
+    <div class="rhombus-avatar">
+      <ion-skeleton-text
+        class="mt-24"
+        animated
+        style="display: flex; width: 100%; height: 100%; border-radius: 8px"
+      ></ion-skeleton-text>
+    </div>
+  </ion-item>
+
+  <ng-template #suggestedPickers>
+    <ion-segment
+      scrollable
+      class="segments mt-24"
+      [(ngModel)]="segments3"
+      #segment3
+      style="display: flex"
+    >
+      <ion-segment-button
+        *ngFor="let data of listSuggestedPickers "
+        (click)="showProfile(data.id)"
+        class="ion-no-padding"
+        style="padding-right: 8px; width: 80px"
+      >
+        <app-avatar
+          width="53px"
+          height="53px"
+          size="53px"
+          [src]="data.avatar.url"
+        ></app-avatar>
+        <h5 class="name-text" *ngIf="data.username">
+          {{ sliceText(data?.username,6) }}
+        </h5>
+      </ion-segment-button>
+    </ion-segment>
+  </ng-template>
+</ion-content>

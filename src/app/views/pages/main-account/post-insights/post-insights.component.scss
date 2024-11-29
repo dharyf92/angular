@@ -1,0 +1,134 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+
+canvas {
+  position: relative;
+  height: auto;
+  max-width: 45vw;
+}
+
+.pickers-age,
+pickers-gender {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.age-range-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.age-range-header > h5 {
+  font-size: 16px;
+  color: hsl(225, 56%, 15%);
+  margin: 0px;
+}
+
+.age-range-header ion-select {
+  border: 1px solid hsl(223, 15%, 82%);
+  padding: 0 8px;
+  border-radius: 5px;
+  width: max-content;
+}
+
+.age-range,
+.gender-range {
+  display: flex;
+  gap: 16px;
+}
+
+.age-range > div,
+gender-range > div {
+  flex: 1;
+}
+
+.age-range-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.data > h5 {
+  font-size: 14px;
+  color: var(--Grey, #b7bcc9);
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.data > h5::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  rotate: -45deg;
+  background: var(--color, hsl(0, 0%, 100%));
+}
+
+.data > div {
+  padding: 8px 16px;
+  background-color: var(--Grey, hsl(228, 38%, 97%));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: hsl(225, 56%, 15%);
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "SofiaProMedium";
+}
+
+ol {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
+
+.whereabouts {
+  display: flex;
+  justify-content: space-between;
+  font-family: "SofiaProMedium";
+}
+
+.whereabouts > h5 {
+  color: hsl(225, 56%, 15%);
+  font-family: "SofiaProMedium";
+  font-size: 14px;
+  margin: 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.whereabouts-data {
+  display: flex;
+  gap: 10px;
+  color: hsl(225, 56%, 15%);
+}
+
+.whereabouts-data > span {
+  font-size: 13px;
+  padding: 8px 16px;
+  border-radius: 5px;
+  background: hsl(228, 38%, 97%);
+  width: 85px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: hsl(225, 56%, 15%);
+  font-family: "SofiaProMedium";
+}

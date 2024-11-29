@@ -1,0 +1,12 @@
+@for (post of posts(); track post.id) {
+<app-post-list-item
+  [post]="post"
+  (profile)="onShowProfile($event)"
+  (action)="showActionSheet($event)"
+  (hashtag)="onHashtagClick($event)"
+  (share)="onShare($event)"
+  (showSuggestions)="onShowSuggestions($event)"
+  (showPickers)="listPickers($event)"
+  (getPost)="getOnePost($event)"
+></app-post-list-item>
+}

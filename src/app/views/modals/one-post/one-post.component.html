@@ -1,0 +1,350 @@
+<ion-header class="ion-no-border" mode="md">
+  <ion-toolbar class="text-tolbar">
+    <ion-buttons slot="start">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="20"
+        viewBox="0 0 24 20"
+        fill="none"
+        (click)="onClose()"
+      >
+        <path
+          d="M24 9.99929C24 10.5089 23.5864 10.9225 23.0768 10.9225H3.14982L10.1905 17.9632C10.5512 18.3238 10.5512 18.9086 10.1905 19.2692C10.0108 19.4489 9.77445 19.54 9.53812 19.54C9.30179 19.54 9.06542 19.4502 8.88571 19.2692L0.269401 10.6529C0.184469 10.568 0.116936 10.4659 0.0701613 10.3527C-0.0233871 10.1274 -0.0233871 9.87265 0.0701613 9.64739C0.116936 9.53415 0.184469 9.43181 0.269401 9.34688L8.88571 0.730573C9.24636 0.36992 9.83108 0.36992 10.1917 0.730573C10.5524 1.09123 10.5524 1.67595 10.1917 2.0366L3.15102 9.07732H23.0768C23.5864 9.07609 24 9.4897 24 9.99929Z"
+          fill="#111C3C"
+        />
+      </svg>
+    </ion-buttons>
+
+    <ion-title style="text-align: center">Post details</ion-title>
+
+    <ion-buttons slot="end" (click)="showActionSheet()">
+      <svg
+        width="18"
+        height="20"
+        viewBox="0 0 18 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M2 12C3.10457 12 4 11.1046 4 10C4 8.89543 3.10457 8 2 8C0.895431 8 0 8.89543 0 10C0 11.1046 0.895431 12 2 12Z"
+          fill="#B7BCC9"
+        />
+        <path
+          d="M9 12C10.1046 12 11 11.1046 11 10C11 8.89543 10.1046 8 9 8C7.89543 8 7 8.89543 7 10C7 11.1046 7.89543 12 9 12Z"
+          fill="#B7BCC9"
+        />
+        <path
+          d="M16 12C17.1046 12 18 11.1046 18 10C18 8.89543 17.1046 8 16 8C14.8954 8 14 8.89543 14 10C14 11.1046 14.8954 12 16 12Z"
+          fill="#B7BCC9"
+        />
+      </svg>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+@if(post()){
+<ion-content>
+  <div class="one-post-container">
+    <ion-item lines="none">
+      <app-avatar [src]="post().user.avatar.url"></app-avatar>
+      <ion-label style="padding-left: 10px">
+        <h2 class="name-text" style="margin-bottom: 0px">
+          {{ post().user.full_name }}
+        </h2>
+        <p class="subtitle">
+          {{ post().created_at | timeAgo }}
+          <ion-icon
+            name="ellipse-sharp"
+            style="font-size: 0.2rem; opacity: 0.7"
+          ></ion-icon>
+          {{ post().city }}
+        </p>
+      </ion-label>
+      <ion-label style="text-align: right">
+        <p>
+          <ion-badge
+            *ngIf="post().expiration_date"
+            style="padding: 4px 12px"
+            [ngClass]="isWithinTimeRange(post().expiration_date)"
+          >
+            {{ post().expiration_date }}
+          </ion-badge>
+          <ion-badge
+            *ngIf="!post().expiration_date"
+            class="green-bg"
+            style="padding: 4px 12px"
+          >
+            Open
+          </ion-badge>
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-item lines="none" style="--min-height: auto">
+      <p
+        class="post-text"
+        [innerHTML]="processTextContent()"
+        (click)="onHashtagClick($event)"
+      ></p>
+    </ion-item>
+    <div>
+      <div
+        class="ion-padding-horizontal"
+        style="position: relative; flex-direction: column; display: flex"
+      >
+        <app-post-content-slider
+          [contents]="contents()"
+          (changeIndex)="onChangeIndex($event)"
+        ></app-post-content-slider>
+        <div class="svg-container" #svgContainer>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="50"
+            height="50"
+            viewBox="0 0 114.644 112.948"
+          >
+            <g
+              id="Group_1828"
+              data-name="Group 1828"
+              transform="translate(-137.512 -194.084)"
+            >
+              <g
+                id="Group_1826"
+                data-name="Group 1826"
+                transform="translate(140 115.517)"
+                opacity="0"
+              >
+                <path
+                  id="Path_104"
+                  data-name="Path 104"
+                  d="M1498.094,752.887a1.68,1.68,0,0,1,3.358,0,1.681,1.681,0,0,1-3.358,0"
+                  transform="translate(-1425.789 -627.771)"
+                  fill="#3409b7"
+                />
+                <path
+                  id="Path_105"
+                  data-name="Path 105"
+                  d="M1229.453,781.7c0-2.878-1.793-5.1-4.9-5.1a5.092,5.092,0,1,0,4.9,5.1m-12.582,0a7.687,7.687,0,1,1,7.683,7.486,7.254,7.254,0,0,1-7.683-7.486"
+                  transform="translate(-1216.871 -644.828)"
+                  fill="#3409b7"
+                />
+                <path
+                  id="Path_106"
+                  data-name="Path 106"
+                  d="M1290.6,774.556h2.785v2.63a5.253,5.253,0,0,1,5.155-3c3.618,0,5.474,2.041,5.474,5.847v8.784h-2.753v-7.609c0-3.187-1.088-4.7-3.714-4.7-2.754,0-4.162,1.886-4.162,4.763v7.548H1290.6Z"
+                  transform="translate(-1271.644 -644.828)"
+                  fill="#3409b7"
+                />
+                <path
+                  id="Path_107"
+                  data-name="Path 107"
+                  d="M1367.76,780.4c0-2.5-1.6-4.051-4.292-4.051a4.123,4.123,0,0,0-4.481,4.051Zm2.658,2.073h-11.431c.064,2.753,1.824,4.361,4.642,4.361,1.953,0,3.3-.743,3.906-2.1h2.784c-.511,2.631-3.232,4.455-6.69,4.455-4.545,0-7.4-2.907-7.4-7.517,0-4.517,2.882-7.486,7.266-7.486,4.163,0,6.979,2.784,6.979,6.712a14.653,14.653,0,0,1-.061,1.578"
+                  transform="translate(-1320.402 -644.828)"
+                  fill="#3409b7"
+                />
+                <path
+                  id="Path_108"
+                  data-name="Path 108"
+                  d="M1438.277,781.7a4.963,4.963,0,1,0-4.9,5.073,4.827,4.827,0,0,0,4.9-5.073m2.786,0a7.121,7.121,0,0,1-7.3,7.486,5.943,5.943,0,0,1-5.283-2.877v6.516h-2.754V774.556h2.754v2.536a6.06,6.06,0,0,1,5.444-2.906c4.226,0,7.139,3.062,7.139,7.517"
+                  transform="translate(-1372.027 -644.828)"
+                  fill="#3409b7"
+                />
+                <rect
+                  id="Rectangle_1639"
+                  data-name="Rectangle 1639"
+                  width="2.753"
+                  height="14.261"
+                  transform="translate(72.623 129.729)"
+                  fill="#3409b7"
+                />
+                <path
+                  id="Path_109"
+                  data-name="Path 109"
+                  d="M1524.116,781.792c0-4.423,2.786-7.486,7.332-7.486,3.971,0,6.531,2.1,6.884,5.289h-2.786c-.385-1.886-1.793-2.875-4.13-2.875-2.818,0-4.548,1.886-4.548,5.073,0,3.154,1.73,5.073,4.548,5.073,2.337,0,3.745-.989,4.13-2.783h2.786c-.354,3.125-2.913,5.2-6.884,5.2-4.546,0-7.332-3.062-7.332-7.486"
+                  transform="translate(-1445.12 -644.916)"
+                  fill="#3409b7"
+                />
+                <path
+                  id="Path_110"
+                  data-name="Path 110"
+                  d="M1599.091,768.552l7.14,7.362h-3.65l-6.467-6.743v6.743h-2.754V756.839h2.754v11.374l6.564-6.559h3.553Z"
+                  transform="translate(-1496.561 -631.925)"
+                  fill="#3409b7"
+                />
+              </g>
+              <g
+                id="Group_1827"
+                data-name="Group 1827"
+                transform="translate(-0.796 -0.241)"
+              >
+                <g id="Group_1825" data-name="Group 1825">
+                  <path
+                    id="Path_494"
+                    data-name="Path 494"
+                    d="M-4005.5,158.777l48.241-48.259"
+                    transform="translate(4153.003 93)"
+                    fill="none"
+                    stroke="#340fb7"
+                    stroke-linecap="round"
+                    stroke-width="13"
+                  />
+                  <path
+                    id="Path_495"
+                    data-name="Path 495"
+                    d="M-4005.5,158.777l48.241-48.259"
+                    transform="translate(354.277 4209.021) rotate(90)"
+                    fill="none"
+                    stroke="#340fb7"
+                    stroke-linecap="round"
+                    stroke-width="13"
+                  />
+                  <path
+                    id="Path_496"
+                    data-name="Path 496"
+                    d="M-3957.263,207.774V111.351"
+                    transform="translate(4152.763 93)"
+                    fill="none"
+                    stroke="#340fb7"
+                    stroke-linecap="round"
+                    stroke-width="13"
+                  />
+                  <line
+                    id="Line_20"
+                    data-name="Line 20"
+                    x2="48"
+                    transform="translate(195.5 251.5)"
+                    fill="none"
+                    stroke="#340fb7"
+                    stroke-linecap="round"
+                    stroke-width="13"
+                  />
+                </g>
+                <path
+                  id="Path_497"
+                  data-name="Path 497"
+                  d="M1414.229,656.714a4.609,4.609,0,1,1,4.609,4.593,4.6,4.6,0,0,1-4.609-4.593"
+                  transform="translate(-1223.486 -356.784)"
+                  fill="#ebebeb"
+                />
+                <path
+                  id="Path_498"
+                  data-name="Path 498"
+                  d="M1414.229,281.645a4.609,4.609,0,1,1,4.609,4.594,4.6,4.6,0,0,1-4.609-4.594"
+                  transform="translate(-1223.486 -77.812)"
+                  fill="#839df7"
+                />
+                <path
+                  id="Path_499"
+                  data-name="Path 499"
+                  d="M1599.2,468.667a4.609,4.609,0,1,1,4.609,4.594,4.6,4.6,0,0,1-4.609-4.594"
+                  transform="translate(-1360.901 -216.916)"
+                  fill="#fb9e43"
+                />
+                <path
+                  id="Path_500"
+                  data-name="Path 500"
+                  d="M1227.746,468.667a4.609,4.609,0,1,1,4.609,4.594,4.6,4.6,0,0,1-4.609-4.594"
+                  transform="translate(-1084.95 -216.916)"
+                  fill="#00e187"
+                />
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div style="padding: 21px 21px">
+        <div style="display: flex; width: 100%; position: relative">
+          <div
+            style="
+              width: calc(100% / 5);
+              height: 6px;
+              border-radius: 5px;
+              background-color: #3316b7;
+              opacity: 0.2;
+            "
+          ></div>
+          <div
+            style="
+              width: calc(100% / 5);
+              height: 6px;
+              border-radius: 5px;
+              background-color: #3316b7;
+              opacity: 0.4;
+            "
+          ></div>
+          <div
+            style="
+              width: calc(100% / 5);
+              height: 6px;
+              border-radius: 5px;
+              background-color: #3316b7;
+              opacity: 0.6;
+            "
+          ></div>
+          <div
+            style="
+              width: calc(100% / 5);
+              height: 6px;
+              border-radius: 5px;
+              background-color: #3316b7;
+              opacity: 0.8;
+            "
+          ></div>
+          <div
+            style="
+              width: calc(100% / 5);
+              height: 6px;
+              border-radius: 5px;
+              background-color: #3316b7;
+              opacity: 1;
+            "
+          ></div>
+          <svg
+            [ngStyle]="{ left: left() }"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 78 78"
+            style="
+              position: absolute;
+              transition: left 0.6s linear;
+              top: 50%;
+              transform: translateY(-50%);
+            "
+          >
+            <g
+              id="Group_1584"
+              data-name="Group 1584"
+              transform="translate(-156 -619)"
+            >
+              <path
+                id="Union_4"
+                data-name="Union 4"
+                d="M46.606,2.521A130.117,130.117,0,0,1,62.082,15.548a143.954,143.954,0,0,1,13.4,15.984,12.625,12.625,0,0,1,0,15.136A122.944,122.944,0,0,1,62.768,61.962,151.883,151.883,0,0,1,46.606,75.679c-5.019,2.971-9.839,3.217-15.065,0a132.921,132.921,0,0,1-15.569-13.12A141,141,0,0,1,2.667,46.668c-3.381-5.4-3.727-9.349,0-15.136a137.686,137.686,0,0,1,13.2-15.785A136.165,136.165,0,0,1,31.541,2.521C36.1-.921,41.61-.759,46.606,2.521Z"
+                transform="translate(156 619)"
+                [ngStyle]="{ fill: fill() }"
+              />
+            </g>
+          </svg>
+        </div>
+      </div>
+      <app-picker
+        class="picker"
+        [status]="status()"
+        [isMany]="contents().length > 1"
+        (pick)="onPick($event)"
+      />
+    </div>
+    <div class="suggestion-container">
+      <app-suggestion-status-bar
+        [post]="post()"
+        style="--background: transparent; --color: #b7bcc9"
+      />
+      <app-suggestion-input (submit)="onSubmit($event)" />
+      <app-suggestion-list [postId]="post().id" (action)="showAction($event)" />
+    </div>
+  </div>
+</ion-content>
+
+} @else {
+<p>loading...</p>
+}

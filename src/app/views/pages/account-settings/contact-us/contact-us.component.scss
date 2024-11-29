@@ -1,0 +1,8 @@
+ion-select::part(container) {
+    justify-content: space-between;
+    width: 100%;
+  }
+  ion-select::part(text) {
+    text-transform: capitalize !important;
+  }
+  

@@ -1,0 +1,87 @@
+<ion-header class="ion-no-border" mode="md">
+  <ion-toolbar class="text-tolbar">
+    <ion-buttons (click)="closeModalWithoutThem()" slot="start">
+      <ion-icon
+        style="font-size: x-large; color: #b7bcc9"
+        name="close-outline"
+      ></ion-icon>
+    </ion-buttons>
+
+    <ion-title style="text-align: center">Blocked Pickers</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list lines="none">
+    <ion-item id="kritsin">
+      <div style="width: 100%; display: flex; justify-content: space-between">
+        <div style="display: flex">
+          <img
+            style="width: 40px; height: 40px"
+            src="assets/images/avatar.png"
+          />
+          <div style="margin-left: 10px">
+            <ion-label>Kristin Knight</ion-label>
+            <ion-note style="font-size: 0.5rem">complextutor</ion-note>
+          </div>
+        </div>
+
+        <ion-button (click)="presentactionSheet2('kritsin')"
+          >Unblock</ion-button
+        >
+      </div>
+    </ion-item>
+
+    <ion-item id="megan">
+      <div style="width: 100%; display: flex; justify-content: space-between">
+        <div style="display: flex">
+          <img
+            style="width: 40px; height: 40px"
+            src="assets/images/avatar.png"
+          />
+          <div style="margin-left: 10px">
+            <ion-label>Megan Murray</ion-label>
+            <ion-note style="font-size: 0.5rem">complextutor</ion-note>
+          </div>
+        </div>
+
+        <ion-button (click)="presentactionSheet2('megan')">Unblock</ion-button>
+      </div>
+    </ion-item>
+
+    <ion-item id="martin">
+      <div style="width: 100%; display: flex; justify-content: space-between">
+        <div style="display: flex">
+          <img
+            style="width: 40px; height: 40px"
+            src="assets/images/avatar.png"
+          />
+          <div style="margin-left: 10px">
+            <ion-label>Martin Evans</ion-label>
+            <ion-note style="font-size: 0.5rem">complextutor</ion-note>
+          </div>
+        </div>
+
+        <ion-button (click)="presentactionSheet2('martin')">Unblock</ion-button>
+      </div>
+    </ion-item>
+
+    <ion-item id="margaret">
+      <div style="width: 100%; display: flex; justify-content: space-between">
+        <div style="display: flex">
+          <img
+            style="width: 40px; height: 40px"
+            src="assets/images/avatar.png"
+          />
+          <div style="margin-left: 10px">
+            <ion-label>Margaret Lee</ion-label>
+            <ion-note style="font-size: 0.5rem">complextutor</ion-note>
+          </div>
+        </div>
+
+        <ion-button (click)="presentactionSheet2('margaret')"
+          >Unblock</ion-button
+        >
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

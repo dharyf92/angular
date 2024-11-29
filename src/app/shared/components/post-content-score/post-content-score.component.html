@@ -1,0 +1,24 @@
+<div class="container">
+  @for (item of elements; track $index) {
+  <div class="element" [style.opacity]="($index + 1) * 0.2"></div>
+  }
+
+  <svg
+    [ngStyle]="{ left: left() }"
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 78 78"
+    class="score"
+  >
+    <g id="Group_1584" data-name="Group 1584" transform="translate(-156 -619)">
+      <path
+        id="Union_4"
+        data-name="Union 4"
+        d="M46.606,2.521A130.117,130.117,0,0,1,62.082,15.548a143.954,143.954,0,0,1,13.4,15.984,12.625,12.625,0,0,1,0,15.136A122.944,122.944,0,0,1,62.768,61.962,151.883,151.883,0,0,1,46.606,75.679c-5.019,2.971-9.839,3.217-15.065,0a132.921,132.921,0,0,1-15.569-13.12A141,141,0,0,1,2.667,46.668c-3.381-5.4-3.727-9.349,0-15.136a137.686,137.686,0,0,1,13.2-15.785A136.165,136.165,0,0,1,31.541,2.521C36.1-.921,41.61-.759,46.606,2.521Z"
+        transform="translate(156 619)"
+        [ngStyle]="{ fill: fill() }"
+      />
+    </g>
+  </svg>
+</div>

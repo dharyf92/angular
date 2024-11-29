@@ -1,0 +1,45 @@
+.min-height {
+    min-height: 92px;
+}
+
+::ng-deep .gender-Select{
+     ion-select{
+        .select-icon{
+            margin-top: 2px;
+        }
+    }
+}
+
+ion-toolbar{
+    padding-left: 2px !important;
+}
+
+ion-select::part(icon) {
+    transform: translate3d(0px, 0px, 0px);
+}
+
+ion-label{
+    color: var(--Grey, #B7BCC9) !important;
+/* Small/Regular */
+font-family: SofiaPro !important;
+font-size: 14px !important;
+font-style: normal;
+font-weight: 300;
+line-height: normal;
+}
+
+.input-with-div{
+    padding: 0px 8px;
+    height: 48px;
+    border: 1px solid #b7bcc9;
+    border-radius: 4px;
+    line-height: 48px;
+    width: 100%;
+}
+.input-div-placeholder-color{
+    color: #B7BCC9;
+}
+
+.input-div-color{
+    color: #000;
+}

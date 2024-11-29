@@ -1,0 +1,40 @@
+ion-title {
+    padding-top: 5px;
+    font-weight: bolder;
+    margin-bottom: 40%;
+}
+
+ion-content {
+    text-align: center;
+    color: #111C3C;
+}
+
+ion-select {
+    border: none;
+    font-size: 1rem !important;
+}
+
+.container {
+    margin: 15px;
+}
+
+.inputcol {
+    display: flex;
+    align-items: center;
+} 
+
+ion-input {
+    border: none;
+    text-align: start;
+    padding: 0px;
+    font-size: 1rem !important;
+}
+
+ion-row {
+    border: 1px solid rgb(163, 162, 162);
+    border-radius: 4px;
+}
+
+ion-item {
+    --border-width: 0 1px 0 0;
+}

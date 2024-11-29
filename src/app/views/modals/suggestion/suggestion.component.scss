@@ -1,0 +1,154 @@
+:host {
+  gap: 20px;
+}
+
+.pane {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+ion-header {
+  padding: 0;
+  box-shadow: none;
+}
+
+ion-header ion-toolbar {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+ion-header ion-toolbar ion-title {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "SofiaProMedium" sans-serif;
+}
+
+ion-header ion-toolbar ion-buttons {
+  margin-right: 0;
+
+  ion-button {
+    --padding-start: 0;
+    --padding-end: 0;
+    --min-width: 0;
+    --height: 30px;
+    --border-radius: 0;
+    --box-shadow: none;
+  }
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--Grey, #3c3c3c);
+  font-size: 12px;
+  background: #f6f7fb;
+  line-height: 18.29px;
+  font-weight: 300;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.pane ion-list {
+  flex: 1;
+}
+
+.rhombus-avatar {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  border-radius: 14px; /* Add border-radius to the rhombus */
+  justify-content: center;
+  margin-right: 5px;
+  margin-left: 16px;
+  transform: rotate(45deg);
+}
+.pane-custom-class {
+  z-index: 10000; /* or any other high value */
+}
+
+.rhombus-skeleton {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px; /* Add border-radius to the rhombus */
+  transform: rotate(45deg);
+  clip-path: path(
+    "M38,2 L82,2 A12,12 0 0,1 94,10 L112,44 A12,12 0 0,1 112,56 L94,90 A12,12 0 0,1 82,98 L38,98 A12,12 0 0,1 26,90 L8,56 A12,12 0 0,1 8,44 L26,10 A12,12 0 0,1 38,2"
+  );
+}
+ion-avatar {
+  margin-right: -16px;
+}
+
+ion-label {
+  display: flex;
+  flex-direction: column;
+}
+----------------------------------------------------------------------------------
+  .vertical-line {
+  // border: 1px solid gray; /* Adjust the color and width as desired */
+  // height: 100%; /* Adjust the height as needed */
+  // width: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1px;
+  height: 100%;
+  background-color: #f6f7fb;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+.half-vertical-line {
+  // border: 1px solid gray; /* Adjust the color and width as desired */
+  // height: 100%; /* Adjust the height as needed */
+  // width: 1px;
+  width: 1px;
+  height: 50%;
+  background-color: #f6f7fb;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+.sizeClass3 {
+  width: 7px;
+  height: 7px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vertical-center {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+ion-row {
+  margin: 5px;
+}
+
+.sizeClass1 {
+  margin-right: 8px;
+  width: 32px;
+  height: 32px;
+}
+
+.sizeClass2 {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}

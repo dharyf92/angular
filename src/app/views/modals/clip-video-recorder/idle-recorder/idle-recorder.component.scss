@@ -1,0 +1,174 @@
+:host {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  position: relative;
+}
+
+.progress-bar {
+  --background: transparent;
+  --progress-background: #fa2243;
+  --buffer-background: var(--background);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 1000;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  padding: 16px;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.actions button {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  border: none;
+  border-radius: 9999rem;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  width: 50px;
+  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actions button svg {
+  width: 24px;
+  height: 24px;
+}
+
+ion-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111c3c;
+  padding: 16px;
+}
+
+.video-picker {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 2px solid #fff;
+}
+
+.video-picker img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.choose-duration {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.choose-duration button {
+  background: transparent;
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: SofiaProMedium;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.choose-duration button.active {
+  background: #293350;
+}
+
+.change-camera-btn {
+  display: inline-flex;
+  background: transparent;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  padding: 10px 0;
+}
+
+.change-camera-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.change-camera-btn:active svg {
+  animation: rotate 0.5s linear;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.record-btn {
+  display: flex;
+  position: absolute;
+  bottom: 54px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 9999rem;
+  width: 70px;
+  height: 70px;
+  background: transparent;
+}
+
+.record-btn::after {
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fa2243;
+  width: 70%;
+  height: 70%;
+  border-radius: 9999rem;
+  position: absolute;
+}
+
+.record-btn.active::after {
+  width: 50%;
+  height: 50%;
+  border-radius: 12px;
+}
+
+.record-btn.active::before {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.record-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 9999rem;
+  border: 5px solid #fff;
+  background: transparent;
+  z-index: -1;
+}

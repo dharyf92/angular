@@ -1,0 +1,87 @@
+#cutomRange ::ng-deep .range-bar-active {
+  background: red;
+}
+
+.segments {
+  ion-segment-button {
+    --ripple-color: transparent;
+    --indicator-color: transparent;
+  }
+}
+
+.selected-chip {
+  background-color: #05dd71;
+  color: #fff;
+}
+
+.text-label {
+  color: var(--Grey, #b7bcc9);
+  /* Small/Medium S */
+  font-family: SofiaProMedium;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0px;
+}
+
+ion-range::part(pin) {
+  display: inline-flex;
+  border-radius: 0px;
+  transform: scale(1.01);
+
+  bottom: -28px;
+  background: transparent;
+  min-width: 100px;
+  height: 28px;
+  transition: transform 120ms ease, background 120ms ease;
+  text-align: left;
+}
+
+ion-range::part(pin)::before {
+  content: none;
+}
+
+ion-range::part(knob) {
+  transform: rotate(45deg);
+  border-radius: 5px;
+}
+ion-chip {
+  border-radius: 5px;
+  background: var(--Light-grey, #f6f7fb);
+  color: var(--Dark-blue, #111c3c);
+  /* Base/Reguler base */
+  font-family: SofiaPro;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.searchBar {
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #b7bcc9;
+  margin-top: 8px;
+  height: 52px;
+  border-radius: 5px;
+  gap: 4px;
+}
+
+.searchBar svg {
+  width: 20px;
+  height: 20px;
+  color: #b7bcc9;
+}
+
+.searchBar span {
+  color: #111c3c;
+  font-family: SofiaPro;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.searchBar.placeholder span {
+  color: #b7bcc9;
+}

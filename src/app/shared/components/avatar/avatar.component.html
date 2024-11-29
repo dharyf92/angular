@@ -1,0 +1,13 @@
+<div
+  [ngStyle]="{ '--size': size() }"
+  [style.width]="size()"
+  [style.height]="size()"
+  class="avatar mask-image"
+>
+  <img
+    [src]="src() || '/assets/images/avatar.png'"
+    class="mask-image"
+    [ngStyle]="{ '--size': size() }"
+    style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover"
+  />
+</div>

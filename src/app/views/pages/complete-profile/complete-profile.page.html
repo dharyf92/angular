@@ -1,0 +1,274 @@
+<ion-header class="ion-no-border" mode="md">
+  <ion-toolbar class="text-tolbar">
+    <ion-title style="text-align: center">Complete Profile</ion-title>
+  </ion-toolbar>
+  <ion-progress-bar [value]="progress"></ion-progress-bar>
+</ion-header>
+
+<ion-content
+  class="ion-padding-end ion-padding-start"
+  style="--padding-top: 24px; font-family: SofiaPro !important"
+>
+  <div *ngIf="user">
+    <div *ngIf="step() === 1">
+      <h1 style="margin-bottom: 16px">What's your username?</h1>
+      <p style="margin-bottom: 32px; margin-top: 16px">
+        The username that will appear to all other users on your profile!
+      </p>
+      <ion-input
+        placeholder="Pseudo"
+        style="--padding-start: 1rem"
+        [value]="user.username"
+        (ionInput)="user.setUsername($event.target.value)"
+      ></ion-input>
+    </div>
+
+    <div *ngIf="step() === 2">
+      <h1 style="margin-bottom: 16px">What's your full name?</h1>
+      <p style="margin-bottom: 32px; margin-top: 16px">
+        The name that will appear to all other users on your profile!
+      </p>
+      <ion-input
+        placeholder="Full name"
+        style="--padding-start: 1rem"
+        [value]="user.full_name"
+        (ionInput)="user.setFullName($event.target.value)"
+      ></ion-input>
+    </div>
+
+    <div *ngIf="step() === 3">
+      <h1 style="margin-bottom: 16px">What's your gender?</h1>
+      <p style="margin-bottom: 32px; margin-top: 16px">
+        Your gender will never be public!
+      </p>
+      <ion-list>
+        <ion-item>
+          <ion-select
+            (ionChange)="user.setGender($event.detail.value)"
+            class="gender-style"
+            cancelText=""
+            aria-label="Select"
+            interface="action-sheet"
+            placeholder="Select"
+          >
+            <ion-select-option value="female">Female</ion-select-option>
+            <ion-select-option value="male">Male</ion-select-option>
+            <ion-select-option value="non_binary">Non-Binary</ion-select-option>
+            <ion-select-option value="unknown"
+              >I prefer not to say</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div *ngIf="step() === 4">
+      <h1 style="margin-bottom: 16px">What's your Birthday?</h1>
+      <p style="margin-bottom: 32px; margin-top: 16px">
+        Your age will never be public, unless you want to!
+      </p>
+      <ion-button id="open-picker" (click)="openPicker()"
+        ><div class="btn-text">
+          <div></div>
+          <div style="text-transform: uppercase">{{day}}</div>
+          <div>|</div>
+          <div style="text-transform: uppercase">{{month}}</div>
+          <div>|</div>
+          <div style="text-transform: uppercase">{{year}}</div>
+          <div></div></div
+      ></ion-button>
+    </div>
+
+    <div *ngIf="step() === 5">
+      <h1 style="margin-bottom: 16px">Add a profile picture</h1>
+      <p style="margin-bottom: 32px; margin-top: 16px">
+        Pick your profile picture from your cloud, mobile or drive! BE SHINY
+      </p>
+      <div style="text-align: center; position: relative">
+        @if(user.avatar){
+        <app-avatar
+          *ngIf="user.avatar"
+          style="display: inline-block; width: 127px; height: 127px"
+          width="127px"
+          height="127px"
+          size="127px"
+          [src]="getFile(user.avatar)"
+        ></app-avatar>
+        } @else {
+        <img *ngIf="!user.avatar" src="assets/images/avatar.png" />
+        }
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          (click)="takePicture()"
+          width="42"
+          height="42"
+          viewBox="0 0 42 42"
+          style="
+            position: absolute;
+            bottom: -18px;
+            left: 50%;
+            transform: translate(-50%);
+          "
+        >
+          <g
+            id="Group_293"
+            data-name="Group 293"
+            transform="translate(-176.488 -170.488)"
+          >
+            <g
+              id="Ellipse_60"
+              data-name="Ellipse 60"
+              transform="translate(179.488 173.488)"
+              fill="#111c3c"
+              stroke="#fff"
+              stroke-width="3"
+            >
+              <circle cx="18" cy="18" r="18" stroke="none" />
+              <circle cx="18" cy="18" r="19.5" fill="none" />
+            </g>
+            <g
+              id="Group_292"
+              data-name="Group 292"
+              transform="translate(188.244 183.399)"
+            >
+              <path
+                id="Icon_material-monochrome-photos"
+                data-name="Icon material-monochrome-photos"
+                d="M19.453,6.328H16.528L14.883,4.5H9.4L7.753,6.328H4.828A1.833,1.833,0,0,0,3,8.156V19.125a1.833,1.833,0,0,0,1.828,1.828H19.453a1.833,1.833,0,0,0,1.828-1.828V8.156A1.833,1.833,0,0,0,19.453,6.328Z"
+                transform="translate(-3 -4.5)"
+                fill="none"
+                stroke="#fff"
+                stroke-width="2"
+              />
+              <g
+                id="Ellipse_59"
+                data-name="Ellipse 59"
+                transform="translate(4.876 4.815)"
+                fill="none"
+                stroke="#fff"
+                stroke-width="2"
+              >
+                <circle cx="4.265" cy="4.265" r="4.265" stroke="none" />
+                <circle cx="4.265" cy="4.265" r="3.265" fill="none" />
+              </g>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div *ngIf="step() === 6">
+      <h1 style="margin-bottom: 16px">Add a bio</h1>
+      <p style="margin-bottom: 32px; margin-top: 16px">
+        Help other pickers get a good first impression of you!
+      </p>
+      <ion-textarea
+        [value]="user.bio"
+        (ionInput)="user.setBio($event.target.value)"
+        placeholder="Describe yourself..."
+      ></ion-textarea>
+    </div>
+
+    <div *ngIf="step() === 7">
+      <h1
+        style="
+          margin: 0px;
+          color: var(--Dark-blue, #111c3c);
+          font-family: 'SofiaPro';
+          font-size: 26px;
+          font-style: normal;
+          font-weight: 300;
+          line-height: normal;
+        "
+      >
+        Pick Your Interests!
+      </h1>
+      <p
+        style="
+          margin: 8px 0px 32px 0px;
+          color: var(--Dark-blue, #111c3c);
+          font-family: 'SofiaPro';
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 300;
+          line-height: normal;
+        "
+      >
+        The better we know you, the easier it gets
+      </p>
+
+      <div style="text-align: left; margin-bottom: 32px">
+        <div
+          *ngFor="let interest of interests"
+          style="position: relative; display: inline-block"
+        >
+          <span class="circle-up" *ngIf="interest.isSelected"
+            >{{interest.order}}</span
+          >
+          <ion-chip
+            class="sofia-pro-medium"
+            style="
+              font-weight: 500;
+              padding: 8px 16px;
+              font-size: 14px;
+              border-radius: 37px;
+              margin-top: 16px;
+            "
+            [ngClass]="interest.isSelected ? 'selectedChip' : 'unselected'"
+            (click)="selectChip(interest)"
+            >{{interest.name}}</ion-chip
+          >
+        </div>
+      </div>
+
+      <p
+        style="
+          color: var(--Grey, #b7bcc9);
+          font-family: 'SofiaPro';
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 300;
+          line-height: normal;
+          margin: 0px 4px;
+        "
+      >
+        Pick 4 interests
+      </p>
+    </div>
+  </div>
+</ion-content>
+<ion-footer
+  [class.bothButtons]="step() >= 2"
+  class="ion-padding"
+  style="padding-bottom: 32px; background-color: #fff"
+  [class.nextOnly]="step() <= 1"
+>
+  <div style="display: flex; width: 100%">
+    <div style="width: 50%">
+      <ion-button
+        style="margin: 0px 8px 0px 0px"
+        expand="block"
+        *ngIf="step() >= 2"
+        color="light"
+        (click)="removeProgress()"
+        >Back</ion-button
+      >
+    </div>
+    <div style="width: 50%">
+      <ion-button
+        style="margin: 0px 0px 0px 8px"
+        expand="block"
+        *ngIf="step() !== 7"
+        (click)="addProgress()"
+        >Next</ion-button
+      >
+      <ion-button
+        style="margin: 0px 0px 0px 8px"
+        expand="block"
+        *ngIf="step() === 7"
+        (click)="complete()"
+        >Done</ion-button
+      >
+    </div>
+  </div>
+</ion-footer>

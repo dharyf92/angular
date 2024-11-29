@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "29835938124",
+    "project_id": "onepick-14ef4",
+    "storage_bucket": "onepick-14ef4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:29835938124:android:a9fd171ed49016617fa7e9",
+        "android_client_info": {
+          "package_name": "app.onepick.ma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "29835938124-jaeio0pcr8k6cq98iqshslqpg6ork35g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.onepick.ma",
+            "certificate_hash": "7356791d7e0da50476befed38ba4c7ad8286e9bb"
+          }
+        },
+        {
+          "client_id": "29835938124-ju644uhd1r0kdghtjt8utqkq45fmoam8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.onepick.ma",
+            "certificate_hash": "fbf0fb3d2ea67b944f9ce02f35f10ed208164808"
+          }
+        },
+        {
+          "client_id": "29835938124-qc4f2qtqft8q8r93s078g7696r7q0abi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.onepick.ma",
+            "certificate_hash": "2ef48b1ec5d2cec13b7d5b735299589a2e306fbb"
+          }
+        },
+        {
+          "client_id": "29835938124-ruqgvtrf1be5cbuf0hom02qmtij74vjn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDExV2a4YSTWWmfEjmvt6FVrlSGk9mt8f8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "29835938124-3v5559tgcm2qulh03l3bqne48m5lgfjk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
